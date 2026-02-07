@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaccaProSites - Sites, Landing Pages e E-commerces Profissionais que Vendem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            background: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            border: 2px solid white;
+            transition: background 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .benefit-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .benefit-card ul li {
+            padding: 8px 0;
+            color: #666;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .benefit-card ul li:before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .benefit-cta {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .benefit-cta a {
+            background: #667eea;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .benefit-cta a:hover {
+            background: #764ba2;
+        }
+
+        /* Plans Section */
+        .plans {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .plans-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .plans-intro h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .plans-intro p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .plan-category {
+            margin-bottom: 80px;
+        }
+
+        .category-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .category-title h3 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .category-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .plan-card {
+            background: white;
+            border: 2px solid #e1e1e1;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .plan-card.popular {
+            border-color: #667eea;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .plan-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .plan-subtitle {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        table th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .plan-includes h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .plan-includes ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .plan-includes ul li {
+            padding: 8px 0;
+            color: #666;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .plan-includes ul li:before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .plan-additional h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .plan-additional ul {
+            list-style: none;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .plan-additional ul li {
+            padding: 6px 0;
+            color: #666;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .plan-additional ul li:before {
+            content: "•";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+        }
+
+        .choose-plan-btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .choose-plan-btn:hover {
+            background: #764ba2;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .testimonials-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .testimonials-title h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .testimonials-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        .testimonial-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-date {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .clients-section {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .clients-title {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .clients-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .clients-logos a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: opacity 0.3s;
+        }
+
+        .clients-logos a:hover {
+            opacity: 0.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            font-size: 20px;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+
+        .cta-plan-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .cta-plan-card:hover {
+            transform: translateY(-10px);
+            border-color: white;
+        }
+
+        .cta-plan-card.popular {
+            background: rgba(255,255,255,0.2);
+            border-color: white;
+            position: relative;
+        }
+
+        .cta-plan-type {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .cta-plan-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .cta-plan-price {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .cta-plan-price small {
+            font-size: 16px;
+            font-weight: normal;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .cta-plan-features {
+            text-align: left;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .cta-plan-features div {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .cta-plan-features div:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: white;
+            font-weight: bold;
+        }
+
+        .bonus-badge {
+            background: #FFD700;
+            color: #333;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            display: inline-block;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-process {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .form-process h4 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .form-process ol {
+            padding-left: 20px;
+            color: #666;
+        }
+
+        .submit-btn {
+            background: #25D366;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .form-disclaimer {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .success-message h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .success-message p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .success-whatsapp-link {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: transform 0.3s;
+        }
+
+        .success-whatsapp-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .need-help {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .need-help a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .need-help a:hover {
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #667eea;
+        }
+
+        .footer-about p {
+            color: #999;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: #667eea;
+        }
+
+        .footer-contact ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .footer-contact ul li {
+            margin-bottom: 15px;
+            color: #999;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact ul li:before {
+            content: "•";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .footer-bottom a {
+            color: #667eea;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-bottom a:hover {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .stat-number {
+                font-size: 32px;
+            }
+
+            .benefits-grid,
+            .plans-grid,
+            .testimonials-grid,
+            .cta-plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">BaccaProSites</a>
+                <ul class="nav-links">
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#planos">Planos</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank" class="cta-button">Instagram</a></li>
+                    <li><a href="https://wa.me/5516993830355?text=Olá! Gostaria de saber mais sobre criação de sites" class="cta-button">Falar no WhatsApp</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">+200 CLIENTES SATISFEITOS</div>
+            <h1>Seu Negócio Online em 48 Horas</h1>
+            <p>Criamos sites, landing pages e e-commerces que convertem visitantes em clientes. Prontos para vender 24/7.</p>
+            <div class="hero-buttons">
+                <a href="#contato" class="btn-primary">Quero Meu Site Agora</a>
+                <a href="#planos" class="btn-secondary">Ver Planos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">+40%</span>
+                    <span class="stat-label">Conversão em Média</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">48h</span>
+                    <span class="stat-label">Entrega Rápida</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Responsivo</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">30 dias</span>
+                    <span class="stat-label">Garantia</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="beneficios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por Que Escolher a BaccaProSites?</h2>
+                <p>Oferecemos soluções completas para você vender online com eficiência e rapidez.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Entrega em 48h</h3>
+                    <p>Seu site pronto e online em até 2 dias úteis. Processo rápido e sem burocracia.</p>
+                    <ul>
+                        <li>Protótipo em 24h</li>
+                        <li>Revisões ilimitadas</li>
+                        <li>Treinamento incluso</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Design que Converte</h3>
+                    <p>Layouts otimizados para gerar leads e vendas automaticamente. Testado e aprovado.</p>
+                    <ul>
+                        <li>Otimizado para conversão</li>
+                        <li>Mobile-first design</li>
+                        <li>Integração com WhatsApp</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Suporte Garantido</h3>
+                    <p>Acompanhamento total por 30 dias. Sua satisfação é nossa prioridade.</p>
+                    <ul>
+                        <li>Garantia de 30 dias</li>
+                        <li>Suporte por WhatsApp</li>
+                        <li>Atualizações gratuitas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="benefit-cta">
+                <a href="#contato">Fale com nosso time e receba um orçamento personalizado</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans" id="planos">
+        <div class="container">
+            <div class="plans-intro">
+                <h2>Escolha o Plano Perfeito para Seu Negócio</h2>
+                <p>Desenvolvimento + Manutenção inclusa. Tudo que você precisa para vender online.</p>
+            </div>
+
+            <!-- Planos de Criação e Desenvolvimento -->
+            <div class="plan-category">
+                <div class="category-title">
+                    <h3>Planos de Criação e Desenvolvimento</h3>
+                    <p>Landing Pages e E-commerces sob medida para o seu negócio</p>
+                </div>
+
+                <div class="plans-grid">
+                    <!-- Landing Page Simples -->
+                    <div class="plan-card">
+                        <h3 class="plan-name">Landing Page Simples</h3>
+                        <p class="plan-subtitle">(Captura de Leads)</p>
+                        
+                        <table>
+                            <tr>
+                                <th>Item</th>
+                                <th>Preço</th>
+                                <th>Prazo</th>
+                            </tr>
+                            <tr>
+                                <td>Landing Page Básica</td>
+                                <td>R$ 800 - R$ 1.500</td>
+                                <td>3-5 dias</td>
+                            </tr>
+                        </table>
+
+                        <div class="plan-includes">
+                            <h4>O que Inclui:</h4>
+                            <ul>
+                                <li>Templete pré-pronto</li>
+                                <li>1 página única</li>
+                                <li>Botões de WhatsApp clicável</li>
+                                <li>Links para redes sociais (Instagram, Facebook)</li>
+                                <li>Design responsivo (mobile e desktop)</li>
+                                <li>Otimização básica de SEO</li>
+                                <li>Configuração de domínio e hospedagem</li>
+                                <li>Entrega em até 5 dias úteis</li>
+                            </ul>
+                        </div>
+
+                        <div class="plan-additional">
+                            <h4>Serviços Adicionais (à parte):</h4>
+                            <ul>
+                                <li>Hospedagem + domínio anual: R$ 200 - R$ 400/ano</li>
+                                <li>Logo design simples: R$ 300 - R$ 600</li>
+                            </ul>
+                        </div>
+
+                        <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+                    </div>
+
+                    <!-- Landing Page de E-Commerce -->
+                    <div class="plan-card popular">
+                        <div class="popular-badge">MAIS POPULAR</div>
+                        <h3 class="plan-name">Landing Page de E-Commerce</h3>
+                        
+                        <table>
+                            <tr>
+                                <th>Item</th>
+                                <th>Faixa de Preço</th>
+                            </tr>
+                            <tr>
+                                <td>Setup Inicial (domínio/hospedagem)</td>
+                                <td>R$ 200 - R$ 500</td>
+                            </tr>
+                            <tr>
+                                <td>Design da landing page</td>
+                                <td>R$ 1.000 - R$ 3.000</td>
+                            </tr>
+                            <tr>
+                                <td>Cadastro de 50 produtos</td>
+                                <td>R$ 500 - R$ 1.500</td>
+                            </tr>
+                            <tr>
+                                <td>Integração com pagamentos</td>
+                                <td>R$ 800 - R$ 2.000</td>
+                            </tr>
+                            <tr>
+                                <td>SEO básico</td>
+                                <td>R$ 300 - R$ 1.000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total (estimado)</strong></td>
+                                <td><strong>R$ 3.500 - R$ 10.000</strong></td>
+                            </tr>
+                        </table>
+
+                        <div class="plan-includes">
+                            <h4>O que Inclui:</h4>
+                            <ul>
+                                <li>Design responsivo mobile-first</li>
+                                <li>Integração com WhatsApp</li>
+                                <li>Checkout básico</li>
+                                <li>Carrinho de compras</li>
+                                <li>50 produtos cadastrados</li>
+                                <li>SEO básico configurado</li>
+                                <li>Google Analytics</li>
+                                <li>SSL certificado</li>
+                                <li>Entrega em 10-15 dias úteis</li>
+                            </ul>
+                        </div>
+
+                        <div class="plan-additional">
+                            <h4>Serviços Adicionais (Cobrados à Parte):</h4>
+                            <ul>
+                                <li>Desenvolvimento de novas funcionalidades: R$ 80 - R$ 150/h</li>
+                                <li>Cadastro de novos produtos: R$ 10 - R$ 30/produto</li>
+                                <li>Configuração de campanhas sazonais: R$ 300 - R$ 800/campanha</li>
+                                <li>Treinamento do cliente: R$ 200 - R$ 500/sessão</li>
+                            </ul>
+                        </div>
+
+                        <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+                    </div>
+
+                    <!-- E-commerce Avançado -->
+                    <div class="plan-card">
+                        <h3 class="plan-name">E-commerce Avançado</h3>
+                        
+                        <table>
+                            <tr>
+                                <th>Item</th>
+                                <th>Preço</th>
+                            </tr>
+                            <tr>
+                                <td>E-commerce Avançado</td>
+                                <td>R$ 20.000 - R$ 50.000</td>
+                            </tr>
+                        </table>
+
+                        <div class="plan-includes">
+                            <h4>O que Inclui:</h4>
+                            <ul>
+                                <li>Plataforma WooCommerce - básico</li>
+                                <li>Até 150 produtos cadastrados</li>
+                                <li>3-5 categorias de produtos</li>
+                                <li>Carrinho de compras</li>
+                                <li>Checkout básico</li>
+                                <li>Integração com 1 gateway de pagamento (Mercado Pago ou PagSeguro)</li>
+                                <li>Cálculo de frete simples (Correios)</li>
+                                <li>Gestão de pedidos</li>
+                                <li>Layout responsivo</li>
+                                <li>1 homepage personalizada</li>
+                                <li>Página de produtos e categorias</li>
+                                <li>CMS para conteúdo (sobre, contato)</li>
+                                <li>Cores e logo do cliente</li>
+                                <li>SEO básico configurado</li>
+                                <li>Google Analytics</li>
+                                <li>Otimização básica de velocidade</li>
+                                <li>SSL certificado</li>
+                                <li>2 horas de treinamento básico</li>
+                                <li>Entrega: 15-25 dias úteis</li>
+                            </ul>
+                        </div>
+
+                        <div class="plan-additional">
+                            <h4>Serviços Adicionais (À Parte):</h4>
+                            <ul>
+                                <li>Cadastro de produtos: R$ 10 - R$ 30/produtos</li>
+                                <li>Migração de loja: R$ 2.000 - R$ 10.000</li>
+                                <li>Integração com ERP: R$ 5.000 - R$ 20.000</li>
+                                <li>App mobile nativo: R$ 25.000 - R$ 80.000</li>
+                                <li>Consultoria UX/UI: R$ 5.000 - R$ 15.000</li>
+                                <li>Campanha de lançamento: R$ 3.000 - R$ 10.000</li>
+                            </ul>
+                        </div>
+
+                        <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Planos de Manutenção -->
+            <div class="plan-category">
+                <div class="category-title">
+                    <h3>Planos de Manutenção</h3>
+                    <p>Manutenção contínua para manter seu site sempre atualizado e seguro</p>
+                </div>
+
+                <div class="plans-grid">
+                    <!-- Manutenção Básica -->
+                    <div class="plan-card">
+                        <h3 class="plan-name">Manutenção Básica</h3>
+                        <p class="plan-subtitle">Para Landing Page Simples</p>
+                        
+                        <table>
+                            <tr>
+                                <th>Item</th>
+                                <th>Preço Mensal</th>
+                            </tr>
+                            <tr>
+                                <td>Manutenção Mensal</td>
+                                <td>R$ 97 - R$ 147/mês</td>
+                            </tr>
+                        </table>
+
+                        <div class="plan-includes">
+                            <h4>O que Inclui:</h4>
+                            <ul>
+                                <li>Backup semanal</li>
+                                <li>Atualização de segurança</li>
+                                <li>1h de suporte por mês</li>
+                                <li>Relatório mensal simples</li>
+                                <li>Suporte por WhatsApp</li>
+                            </ul>
+                        </div>
+
+                        <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+                    </div>
+
+                    <!-- Manutenção E-commerce -->
+                    <div class="plan-card popular">
+                        <div class="popular-badge">MAIS POPULAR</div>
+                        <h3 class="plan-name">Manutenção E-commerce</h3>
+                        <p class="plan-subtitle">Para Landing Page de E-Commerce</p>
+                        
+                        <table>
+                            <tr>
+                                <th>Item</th>
+                                <th>Preço Mensal</th>
+                            </tr>
+                            <tr>
+                                <td>Pacote Manutenção</td>
+                                <td>R$ 500 - R$ 900/mês</td>
+                            </tr>
+                        </table>
+
+                        <div class="plan-includes">
+                            <h4>Atualização de Conteúdo:</h4>
+                            <ul>
+                                <li>Atualizar até 10 produtos/mês (preços, imagens)</li>
+                                <li>Criar 1-2 banners promocionais/mês</li>
+                            </ul>
+
+                            <h4>Otimização e Performance:</h4>
+                            <ul>
+                                <li>Otimização de velocidade mensal</li>
+                                <li>Análise de SEO básico</li>
+                            </ul>
+
+                            <h4>Segurança Avançada:</h4>
+                            <ul>
+                                <li>Firewall e monitoramento de malware</li>
+                                <li>Varredura semanal de vulnerabilidades</li>
+                            </ul>
+
+                            <h4>Suporte Prioritário:</h4>
+                            <ul>
+                                <li>5-8 horas de suporte mensal (não acumuladas)</li>
+                                <li>Respostas em até 4h úteis (horário comercial)</li>
+                                <li>Acesso por telefone/WhatsApp</li>
+                            </ul>
+                        </div>
+
+                        <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+                    </div>
+
+                    <!-- Manutenção Avançada -->
+                    <div class="plan-card">
+                        <h3 class="plan-name">Manutenção Avançada</h3>
+                        <p class="plan-subtitle">Para E-commerce Avançado</p>
+                        
+                        <table>
+                            <tr>
+                                <th>Item</th>
+                                <th>Preço Mensal</th>
+                            </tr>
+                            <tr>
+                                <td>Manutenção Mensal</td>
+                                <td>R$ 1.297 - R$ 2.997/mês</td>
+                            </tr>
+                        </table>
+
+                        <div class="plan-includes">
+                            <h4>Atualização de Conteúdo:</h4>
+                            <ul>
+                                <li>Atualizar até 30 produtos/mês</li>
+                                <li>Criar 3-5 banners promocionais/mês</li>
+                                <li>Atualização de páginas institucionais</li>
+                            </ul>
+
+                            <h4>Otimização e Performance:</h4>
+                            <ul>
+                                <li>Otimização avançada de velocidade</li>
+                                <li>Análise de SEO avançado</li>
+                                <li>Monitoramento de performance 24/7</li>
+                            </ul>
+
+                            <h4>Segurança Premium:</h4>
+                            <ul>
+                                <li>Firewall avançado</li>
+                                <li>Monitoramento de malware em tempo real</li>
+                                <li>Varredura diária de vulnerabilidades</li>
+                                <li>Backup diário automático</li>
+                            </ul>
+
+                            <h4>Suporte VIP:</h4>
+                            <ul>
+                                <li>10-15 horas de suporte mensal</li>
+                                <li>Respostas em até 2h úteis</li>
+                                <li>Acesso prioritário por telefone/WhatsApp/Email</li>
+                                <li>Reuniões mensais de acompanhamento</li>
+                            </ul>
+                        </div>
+
+                        <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="depoimentos">
+        <div class="container">
+            <div class="testimonials-title">
+                <h2>O Que Nossos Clientes Dizem</h2>
+                <p>Empreendedores que já transformaram seus negócios com nossos sites.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">AS</div>
+                        <div class="testimonial-info">
+                            <h4>Ana Silva</h4>
+                            <p>Loja de Moda Feminina</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Meu e-commerce de roupas faturou R$15.000 no primeiro mês! O site é lindo e funciona perfeitamente no celular."</p>
+                    <p class="testimonial-date">Há 2 meses</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">JS</div>
+                        <div class="testimonial-info">
+                            <h4>João Santos</h4>
+                            <p>Consultor Financeiro</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"A landing page que criaram para meu ebook gerou 87 leads em uma semana. Conversei com todos pelo WhatsApp e fechei 12 vendas!"</p>
+                    <p class="testimonial-date">Há 1 mês</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">MC</div>
+                        <div class="testimonial-info">
+                            <h4>Maria Costa</h4>
+                            <p>Artista Plástica</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Vendi 3 quadros no primeiro dia que o site ficou no ar! O portfólio online fez toda diferença para mostrar meu trabalho."</p>
+                    <p class="testimonial-date">Há 3 meses</p>
+                </div>
+            </div>
+
+            <div class="clients-section">
+                <p class="clients-title">Alguns de nossos clientes:</p>
+                <div class="clients-logos">
+                    <a href="https://www.modaexpressbr.com.br" target="_blank">ModaExpress</a>
+                    <a href="https://techsolutionbrasil.com" target="_blank">TechSolutions</a>
+                    <a href="https://casaluzdecor.com.br" target="_blank">CasaDecor</a>
+                    <a href="https://wellhub.com/pt-br/search/partners/fit-life-franca/" target="_blank">FitLife</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contato">
+        <div class="container">
+            <h2 class="cta-title">Pronto para Começar a Vender Online?</h2>
+            <p class="cta-subtitle">Escolha seu plano, preencha o formulário e receba sua proposta no WhatsApp em minutos!</p>
+
+            <div class="cta-plans-grid">
+                <div class="cta-plan-card">
+                    <div class="cta-plan-type">Site Institucional</div>
+                    <div class="cta-plan-tag">Mais Econômico</div>
+                    <div class="cta-plan-price">R$ 2.497<br><small>Desenvolvimento + R$ 247/mês manutenção</small></div>
+                    <div class="cta-plan-features">
+                        <div>5-7 páginas personalizadas</div>
+                        <div>Design responsivo</div>
+                        <div>Integração WhatsApp</div>
+                    </div>
+                </div>
+
+                <div class="cta-plan-card">
+                    <div class="cta-plan-type">Landing Page</div>
+                    <div class="cta-plan-tag">Alta Conversão</div>
+                    <div class="cta-plan-price">R$ 2.497<br><small>Desenvolvimento + R$ 497/mês manutenção</small></div>
+                    <div class="cta-plan-features">
+                        <div>Design high-conversion</div>
+                        <div>A/B testing</div>
+                        <div>Analytics configurado</div>
+                    </div>
+                </div>
+
+                <div class="cta-plan-card popular">
+                    <div class="cta-plan-type">E-commerce Pro</div>
+                    <div class="cta-plan-tag">MAIS POPULAR</div>
+                    <div class="cta-plan-price">R$ 5.997<br><small>Desenvolvimento + R$ 997/mês manutenção</small></div>
+                    <div class="cta-plan-features">
+                        <div>Loja completa + 50 produtos</div>
+                        <div>Checkout PagSeguro/Mercado Pago</div>
+                        <div>Suporte 24/7 WhatsApp</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bonus-badge">🎁 BÔNUS ESPECIAL! Domínio grátis por 1 ano + 1 mês de manutenção grátis</div>
+
+            <!-- Contact Form -->
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Seu Nome *</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Seu E-mail *</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp *</label>
+                        <input type="tel" id="whatsapp" class="form-control" required placeholder="(16) 99999-9999">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plan">Plano de Interesse *</label>
+                        <select id="plan" class="form-control" required>
+                            <option value="">Selecione um plano</option>
+                            <option value="landing-simple">Landing Page Simples - R$ 800 a R$ 1.500 + R$ 97-147/mês</option>
+                            <option value="landing-ecommerce">Landing Page E-Commerce - R$ 3.500 a R$ 10.000 + R$ 500-900/mês</option>
+                            <option value="ecommerce-advanced">E-commerce Avançado - R$ 20.000 a R$ 50.000 + R$ 1.297-2.997/mês</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project">Conte-nos sobre seu projeto *</label>
+                        <textarea id="project" class="form-control" required placeholder="Descreva seu negócio, objetivos e necessidades..."></textarea>
+                    </div>
+
+                    <div class="form-process">
+                        <h4>Como funciona?</h4>
+                        <ol>
+                            <li>Preencha o formulário</li>
+                            <li>Receba a proposta no WhatsApp</li>
+                            <li>Aprove e começamos em 24h!</li>
+                        </ol>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Receber Proposta no WhatsApp</button>
+
+                    <p class="form-disclaimer">Seus dados estão seguros. Não enviamos spam.</p>
+                </form>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message">
+                    <div class="success-icon">✅</div>
+                    <h3>Formulário enviado com sucesso!</h3>
+                    <p>Em instantes você será redirecionado para o WhatsApp para receber sua proposta.</p>
+                    <p>Se não abrir automaticamente, <a href="https://wa.me/5516993830355" class="success-whatsapp-link">clique aqui</a></p>
+                    
+                    <div class="need-help">
+                        <p>Precisa de ajuda? <a href="https://wa.me/5516993830355">Fale diretamente no WhatsApp</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <h3>BaccaProSites</h3>
+                    <p>Criamos sites, landing pages e e-commerces que convertem visitantes em clientes e aumentam suas vendas online.</p>
+                </div>
+
+                <div class="footer-col footer-links">
+                    <h3>Serviços</h3>
+                    <ul>
+                        <li><a href="#planos">Site Institucional</a></li>
+                        <li><a href="#planos">Landing Pages</a></li>
+                        <li><a href="#planos">E-commerce</a></li>
+                        <li><a href="#planos">Manutenção de Sites</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#beneficios">Benefícios</a></li>
+                        <li><a href="#planos">Planos</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-contact">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li>📍 Franca - SP</li>
+                        <li>📱 (16) 99383-0355</li>
+                        <li>✉️ baccaginnit@gmail.com</li>
+                        <li>🕒 Seg - Sex: 9h às 18h</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 BaccaProSites. Todos os direitos reservados. | <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Esconder formulário
+            document.querySelector('.form-container form').style.display = 'none';
+            
+            // Mostrar mensagem de sucesso
+            document.getElementById('successMessage').classList.add('show');
+            
+            // Redirecionar para WhatsApp após 3 segundos
+            setTimeout(function() {
+                window.open('https://wa.me/5516993830355?text=Olá! Gostaria de saber mais sobre criação de sites', '_blank');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
