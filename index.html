@@ -24,6 +24,243 @@
             padding: 0 20px;
         }
 
+        /* Banner Promocional de Carnaval */
+        .carnival-banner {
+            background: linear-gradient(135deg, #FF1493 0%, #FF4500 100%);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            animation: bannerPulse 3s infinite;
+            margin-bottom: 0;
+        }
+
+        @keyframes bannerPulse {
+            0% { box-shadow: 0 0 0px rgba(255, 20, 147, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 20, 147, 0.8); }
+            100% { box-shadow: 0 0 0px rgba(255, 20, 147, 0.5); }
+        }
+
+        .carnival-banner::before {
+            content: "🎭";
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .carnival-banner::after {
+            content: "🎉";
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            animation: float 2.5s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50%) rotate(0deg); }
+            50% { transform: translateY(-55%) rotate(10deg); }
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 70px;
+        }
+
+        .banner-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .banner-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .banner-price {
+            display: inline-block;
+            background: white;
+            color: #FF1493;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin: 0 10px;
+            transform: scale(1);
+            animation: pricePulse 2s infinite;
+        }
+
+        @keyframes pricePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            opacity: 0.8;
+            margin-right: 5px;
+        }
+
+        .new-price {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .banner-cta {
+            display: inline-block;
+            background: #FFD700;
+            color: #333;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-left: 15px;
+            animation: ctaShake 2s infinite;
+        }
+
+        @keyframes ctaShake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-2deg); }
+            75% { transform: rotate(2deg); }
+        }
+
+        /* Banner Flutuante Temporizado */
+        .floating-banner {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            z-index: 9999;
+            cursor: pointer;
+            display: none;
+            animation: floatBanner 3s ease-in-out infinite;
+            transform: translateY(0);
+            border: 2px solid white;
+            overflow: hidden;
+        }
+
+        @keyframes floatBanner {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-banner::before {
+            content: "⏰";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .floating-banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .floating-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .floating-title::before {
+            content: "🔥";
+            font-size: 20px;
+        }
+
+        .floating-offer {
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .floating-price {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 10px 0;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .floating-cta {
+            display: block;
+            background: #25D366;
+            color: white;
+            padding: 12px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .floating-cta:hover {
+            background: #1ea951;
+            transform: scale(1.05);
+        }
+
+        .floating-timer {
+            font-size: 12px;
+            text-align: center;
+            margin-top: 8px;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .close-floating-banner {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .close-floating-banner:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
         /* Header */
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -391,10 +628,18 @@
             box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
         }
 
-        /* Planos Section */
-        .plans {
+        /* Nova Seção de Planos E-commerce */
+        .ecommerce-plans {
             padding: 120px 0;
-            background: white;
+            background: #f8f9fa;
+        }
+
+        .plans-group {
+            margin-bottom: 100px;
+        }
+
+        .plans-group:last-child {
+            margin-bottom: 0;
         }
 
         .plans-intro {
@@ -415,6 +660,23 @@
             font-size: 18px;
         }
 
+        .plans-group-title {
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 60px;
+            color: #333;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .plan-subtitle {
+            font-size: 20px;
+            color: #667eea;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+        }
+
         .plans-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -432,6 +694,7 @@
             transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
 
         .plan-card:hover {
@@ -581,7 +844,7 @@
         /* Testimonials Section */
         .testimonials {
             padding: 120px 0;
-            background: #f8f9fa;
+            background: white;
         }
 
         .testimonials-title {
@@ -985,6 +1248,67 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            /* Banner Flutuante para Mobile */
+            .floating-banner {
+                width: 90%;
+                max-width: 300px;
+                right: 50%;
+                transform: translateX(50%);
+                bottom: 10px;
+                padding: 15px;
+            }
+
+            .floating-title {
+                font-size: 16px;
+            }
+
+            .floating-offer {
+                font-size: 14px;
+            }
+
+            .floating-price {
+                font-size: 16px;
+                padding: 6px 12px;
+            }
+
+            .floating-cta {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .carnival-banner {
+                padding: 12px 0;
+            }
+            
+            .carnival-banner::before,
+            .carnival-banner::after {
+                display: none;
+            }
+            
+            .banner-content {
+                padding: 0 15px;
+            }
+            
+            .banner-title {
+                font-size: 18px;
+            }
+            
+            .banner-subtitle {
+                font-size: 14px;
+            }
+            
+            .banner-price {
+                display: block;
+                margin: 5px auto;
+                width: fit-content;
+            }
+            
+            .banner-cta {
+                display: block;
+                margin: 10px auto 0;
+                width: fit-content;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -1012,6 +1336,10 @@
             .plans-intro h2,
             .testimonials-title h2 {
                 font-size: 32px;
+            }
+
+            .plans-group-title {
+                font-size: 28px;
             }
 
             .cta-title {
@@ -1070,6 +1398,43 @@
         }
 
         @media (max-width: 480px) {
+            .floating-banner {
+                width: 95%;
+                padding: 12px;
+            }
+
+            .floating-title {
+                font-size: 14px;
+            }
+
+            .floating-offer {
+                font-size: 12px;
+            }
+
+            .floating-price {
+                font-size: 14px;
+            }
+
+            .floating-cta {
+                font-size: 12px;
+            }
+
+            .carnival-banner {
+                padding: 10px 0;
+            }
+            
+            .banner-title {
+                font-size: 16px;
+            }
+            
+            .banner-subtitle {
+                font-size: 12px;
+            }
+            
+            .new-price {
+                font-size: 18px;
+            }
+
             .hero {
                 padding: 80px 0;
             }
@@ -1102,6 +1467,14 @@
                 font-size: 32px;
             }
             
+            .plans-group-title {
+                font-size: 24px;
+            }
+            
+            .plan-subtitle {
+                font-size: 16px;
+            }
+            
             .cta-title {
                 font-size: 28px;
             }
@@ -1119,16 +1492,39 @@
             .plans-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
-            .plan-card:nth-child(3) {
-                grid-column: span 2;
-                max-width: 80%;
-                margin: 0 auto;
-            }
         }
     </style>
 </head>
 <body>
+    <!-- Banner Promocional de Carnaval -->
+    <div class="carnival-banner" id="carnivalBanner">
+        <div class="banner-content">
+            <div class="banner-title">🎭 PROMOÇÃO ESPECIAL DE CARNAVAL! 🎭</div>
+            <div class="banner-subtitle">
+                <span class="old-price">DE R$ 1.200</span> POR APENAS 
+                <span class="banner-price">
+                    <span class="new-price">R$ 500</span>
+                </span>
+                <span class="banner-cta">QUERO APROVEITAR!</span>
+            </div>
+            <div class="banner-subtitle">Landing Page Profissional + Hospedagem Premium - OFERTA POR TEMPO LIMITADO!</div>
+        </div>
+    </div>
+
+    <!-- Banner Flutuante Temporizado -->
+    <div class="floating-banner" id="floatingBanner">
+        <button class="close-floating-banner" id="closeFloatingBanner">×</button>
+        <div class="floating-banner-content">
+            <div class="floating-title">OFERTA RELÂMPAGO!</div>
+            <div class="floating-offer">Landing Page + Hospedagem Premium por apenas:</div>
+            <div class="floating-price">R$ 500 <small>(era R$ 1.200)</small></div>
+            <a href="javascript:void(0);" class="floating-cta" id="floatingCta">
+                🎭 QUERO A PROMOÇÃO DE CARNAVAL!
+            </a>
+            <div class="floating-timer">Esta oferta desaparecerá em 1 minuto!</div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -1239,132 +1635,268 @@
         </div>
     </section>
 
-    <!-- Planos Section -->
-    <section class="plans" id="planos">
+    <!-- Nova Seção de Planos E-commerce -->
+    <section class="ecommerce-plans" id="planos">
         <div class="container">
             <div class="plans-intro">
-                <h2>Escolha o Plano Perfeito para Seu Negócio</h2>
-                <p>Desenvolvimento + Manutenção inclusa. Tudo que você precisa para vender online com profissionalismo.</p>
+                <h2>Planos de E-commerce Completos</h2>
+                <p>Soluções completas para você vender online com máxima eficiência e suporte especializado.</p>
             </div>
 
-            <div class="plans-grid">
-                <!-- Plano 1: Website Essencial -->
-                <div class="plan-card">
-                    <div class="plan-header">
-                        <div class="plan-type">Website Essencial</div>
-                        <div class="plan-tagline">Site Institucional Profissional</div>
-                        <div class="plan-investment">R$ 1.500 - R$ 3.000</div>
-                        <div class="plan-period">Desenvolvimento Inicial</div>
-                    </div>
-                    
-                    <div class="plan-content">
-                        <div class="plan-section">
-                            <h4>O que você recebe:</h4>
-                            <ul class="plan-features">
-                                <li>Template premium personalizado</li>
-                                <li>Implementação de formulário de contato</li>
-                                <li>Inclusão do seu conteúdo fornecido</li>
-                                <li class="special">Prazo: 3-7 dias úteis</li>
-                                <li>Design 100% responsivo</li>
-                                <li>Otimização básica de SEO</li>
-                            </ul>
+            <!-- Grupo 1: Loja E-commerce com Domínio+Hospedagem+Suporte -->
+            <div class="plans-group">
+                <h3 class="plans-group-title">Loja E-commerce Completo<br><span class="plan-subtitle">Domínio + Hospedagem + Suporte</span></h3>
+                
+                <div class="plans-grid">
+                    <!-- Plano 1 -->
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <div class="plan-type">Plano Essential</div>
+                            <div class="plan-tagline">Ideal para iniciantes</div>
+                            <div class="plan-investment">R$ 1.500</div>
+                            <div class="plan-period">Desenvolvimento inicial</div>
                         </div>
                         
-                        <div class="plan-section">
-                            <h4>Manutenção Mensal:</h4>
-                            <ul class="plan-features">
-                                <li>Hospedagem profissional de alta performance</li>
-                                <li>Backup semanal de segurança</li>
-                                <li>Suporte técnico prioritário</li>
-                                <li>Atualizações de sistema e plugins</li>
-                                <li>Monitoramento de segurança</li>
-                            </ul>
+                        <div class="plan-content">
+                            <div class="plan-section">
+                                <h4>Recursos Principais:</h4>
+                                <ul class="plan-features">
+                                    <li>Até 50 produtos cadastrados</li>
+                                    <li>Design responsivo e moderno</li>
+                                    <li>Integração com Mercado Pago</li>
+                                    <li>Painel administrativo completo</li>
+                                    <li>Otimização básica de SEO</li>
+                                    <li>Carrinho de compras</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-section">
+                                <h4>Manutenção Mensal (R$ 130/mês):</h4>
+                                <ul class="plan-features">
+                                    <li>Hospedagem profissional</li>
+                                    <li>Domínio .com.br (1º ano grátis)</li>
+                                    <li>Suporte técnico prioritário</li>
+                                    <li>Backup semanal</li>
+                                    <li>Atualizações de segurança</li>
+                                    <li>Certificado SSL</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-footer">
+                            <div class="monthly-fee">Mensalidade: <span>R$ 130/mês</span></div>
+                            <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
                         </div>
                     </div>
-                    
-                    <div class="plan-footer">
-                        <div class="monthly-fee">Mensalidade: <span>R$ 150 - R$ 200/mês</span></div>
-                        <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+
+                    <!-- Plano 2 (Popular) -->
+                    <div class="plan-card popular">
+                        <div class="popular-badge">MAIS POPULAR</div>
+                        <div class="plan-header">
+                            <div class="plan-type">Plano Business</div>
+                            <div class="plan-tagline">Para crescimento acelerado</div>
+                            <div class="plan-investment">R$ 2.500</div>
+                            <div class="plan-period">Desenvolvimento inicial</div>
+                        </div>
+                        
+                        <div class="plan-content">
+                            <div class="plan-section">
+                                <h4>Recursos Principais:</h4>
+                                <ul class="plan-features">
+                                    <li class="special">Até 100 produtos cadastrados</li>
+                                    <li>Design premium personalizado</li>
+                                    <li>Múltiplos métodos de pagamento</li>
+                                    <li>Sistema de cupons de desconto</li>
+                                    <li>Otimização avançada de SEO</li>
+                                    <li class="special">Relatórios de vendas</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-section">
+                                <h4>Manutenção Mensal (R$ 250/mês):</h4>
+                                <ul class="plan-features">
+                                    <li>Hospedagem premium</li>
+                                    <li>Domínio .com.br (1º ano grátis)</li>
+                                    <li>Suporte 24/7 por WhatsApp</li>
+                                    <li>Backup diário automático</li>
+                                    <li>Firewall de segurança avançado</li>
+                                    <li class="special">CDN para alta velocidade</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-footer">
+                            <div class="monthly-fee">Mensalidade: <span>R$ 250/mês</span></div>
+                            <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+                        </div>
+                    </div>
+
+                    <!-- Plano 3 -->
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <div class="plan-type">Plano Enterprise</div>
+                            <div class="plan-tagline">Para grandes negócios</div>
+                            <div class="plan-investment">R$ 4.000</div>
+                            <div class="plan-period">Desenvolvimento inicial</div>
+                        </div>
+                        
+                        <div class="plan-content">
+                            <div class="plan-section">
+                                <h4>Recursos Principais:</h4>
+                                <ul class="plan-features">
+                                    <li class="special">Acima de 200 produtos</li>
+                                    <li>Design exclusivo e personalizado</li>
+                                    <li>Integração com múltiplas APIs</li>
+                                    <li>Sistema de fidelidade</li>
+                                    <li>SEO completo e otimizado</li>
+                                    <li class="special">Checkout em 1 clique</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-section">
+                                <h4>Manutenção Mensal (R$ 330/mês):</h4>
+                                <ul class="plan-features">
+                                    <li>Hospedagem enterprise</li>
+                                    <li>Domínio .com.br (1º ano grátis)</li>
+                                    <li>Suporte dedicado personalizado</li>
+                                    <li>Backup em tempo real</li>
+                                    <li>Monitoramento 24/7</li>
+                                    <li class="special">Consultoria mensal inclusa</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-footer">
+                            <div class="monthly-fee">Mensalidade: <span>R$ 330/mês</span></div>
+                            <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Plano 2: Loja Virtual Completo (Mais Popular) -->
-                <div class="plan-card popular">
-                    <div class="popular-badge">MAIS POPULAR</div>
-                    <div class="plan-header">
-                        <div class="plan-type">Loja Virtual Completo</div>
-                        <div class="plan-tagline">E-commerce Pronto para Vendas</div>
-                        <div class="plan-investment">R$ 4.500</div>
-                        <div class="plan-period">Investimento Inicial Único</div>
-                    </div>
-                    
-                    <div class="plan-content">
-                        <div class="plan-section">
-                            <h4>🔥 TUDO INCLUÍDO:</h4>
-                            <ul class="plan-features">
-                                <li class="special">Template Premium Exclusivo</li>
-                                <li>Personalização Total (cores, logo, fontes)</li>
-                                <li>Layout 100% Responsivo</li>
-                                <li>Cadastro de até 20 produtos</li>
-                                <li>Integração com Mercado Pago</li>
-                                <li class="special">Pronto para vendas online</li>
-                            </ul>
+            <!-- Grupo 2: Loja E-commerce com Hospedagem+Painel ADM -->
+            <div class="plans-group">
+                <h3 class="plans-group-title">Loja E-commerce + Painel ADM<br><span class="plan-subtitle">Hospedagem + Painel Administrativo Completo</span></h3>
+                
+                <div class="plans-grid">
+                    <!-- Plano 1 -->
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <div class="plan-type">Plano Starter</div>
+                            <div class="plan-tagline">Para pequenos negócios</div>
+                            <div class="plan-investment">R$ 3.000</div>
+                            <div class="plan-period">Valor único</div>
                         </div>
                         
-                        <div class="plan-section">
-                            <h4>🛡️ HOSPEDAGEM PROFISSIONAL:</h4>
-                            <ul class="plan-features">
-                                <li>Servidor otimizado para e-commerce</li>
-                                <li class="special">Domínio .com.br GRÁTIS (1º ano)</li>
-                                <li>Certificado SSL premium</li>
-                                <li>Backup automático diário</li>
-                                <li>Firewall de segurança</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="plan-footer">
-                        <div class="monthly-fee">Manutenção: <span>R$ 250/mês</span></div>
-                        <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
-                    </div>
-                </div>
-
-                <!-- Plano 3: E-commerce Avançado -->
-                <div class="plan-card">
-                    <div class="plan-header">
-                        <div class="plan-type">E-commerce Avançado</div>
-                        <div class="plan-tagline">Catálogo Completo + Checkout</div>
-                        <div class="plan-investment">R$ 4.900 - R$ 7.900</div>
-                        <div class="plan-period">Variação conforme complexidade</div>
-                    </div>
-                    
-                    <div class="plan-content">
-                        <div class="plan-section">
-                            <h4>🚀 SITE COMPLETO (4 páginas):</h4>
-                            <ul class="plan-features">
-                                <li>Home • Catálogo • Sobre • Contato</li>
-                                <li>Cadastro de até 100 produtos</li>
-                                <li>4 categorias organizadas</li>
-                                <li>Galeria profissional de produtos</li>
-                                <li>Sistema de avaliações</li>
-                            </ul>
+                        <div class="plan-content">
+                            <div class="plan-section">
+                                <h4>Recursos Inclusos:</h4>
+                                <ul class="plan-features">
+                                    <li>Até 50 produtos cadastrados</li>
+                                    <li>Hospedagem profissional por 1 ano</li>
+                                    <li>Painel administrativo completo</li>
+                                    <li>Gestão de estoque integrada</li>
+                                    <li>Relatórios básicos de vendas</li>
+                                    <li>Integração com PagSeguro</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-section">
+                                <h4>Benefícios Exclusivos:</h4>
+                                <ul class="plan-features">
+                                    <li>Sem mensalidade no primeiro ano</li>
+                                    <li>Setup completo incluído</li>
+                                    <li>Treinamento do painel ADM</li>
+                                    <li>Suporte por 6 meses</li>
+                                    <li class="special">100% responsivo</li>
+                                </ul>
+                            </div>
                         </div>
                         
-                        <div class="plan-section">
-                            <h4>🛒 CHECKOUT AVANÇADO:</h4>
-                            <ul class="plan-features">
-                                <li>Carrinho de compras inteligente</li>
-                                <li>Múltiplos métodos de pagamento</li>
-                                <li>Cálculo automático de fretes</li>
-                                <li>Rastreamento de pedidos</li>
-                                <li class="special">Confirmação automática via WhatsApp</li>
-                            </ul>
+                        <div class="plan-footer">
+                            <div class="monthly-fee">Após 1 ano: <span>R$ 100/mês</span></div>
+                            <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
                         </div>
                     </div>
-                    
-                    <div class="plan-footer">
-                        <div class="monthly-fee">Mensalidade: <span>Consulte valores</span></div>
-                        <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+
+                    <!-- Plano 2 -->
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <div class="plan-type">Plano Professional</div>
+                            <div class="plan-tagline">Para negócios em expansão</div>
+                            <div class="plan-investment">R$ 4.000</div>
+                            <div class="plan-period">Valor único</div>
+                        </div>
+                        
+                        <div class="plan-content">
+                            <div class="plan-section">
+                                <h4>Recursos Inclusos:</h4>
+                                <ul class="plan-features">
+                                    <li class="special">Até 100 produtos</li>
+                                    <li>Hospedagem premium por 1 ano</li>
+                                    <li>Painel ADM avançado</li>
+                                    <li>Controle total de inventário</li>
+                                    <li>Relatórios detalhados</li>
+                                    <li class="special">Multi-vendedores</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-section">
+                                <h4>Benefícios Exclusivos:</h4>
+                                <ul class="plan-features">
+                                    <li>Sem mensalidade no primeiro ano</li>
+                                    <li>Configuração profissional</li>
+                                    <li>Treinamento avançado</li>
+                                    <li>Suporte por 12 meses</li>
+                                    <li class="special">Otimização para conversão</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-footer">
+                            <div class="monthly-fee">Após 1 ano: <span>R$ 180/mês</span></div>
+                            <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+                        </div>
+                    </div>
+
+                    <!-- Plano 3 -->
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <div class="plan-type">Plano Premium</div>
+                            <div class="plan-tagline">Para grandes empresas</div>
+                            <div class="plan-investment">R$ 8.000</div>
+                            <div class="plan-period">Valor único</div>
+                        </div>
+                        
+                        <div class="plan-content">
+                            <div class="plan-section">
+                                <h4>Recursos Inclusos:</h4>
+                                <ul class="plan-features">
+                                    <li class="special">Acima de 200 produtos</li>
+                                    <li>Hospedagem enterprise por 1 ano</li>
+                                    <li>Painel ADM corporativo</li>
+                                    <li>Sistema multi-departamentos</li>
+                                    <li>Relatórios em tempo real</li>
+                                    <li class="special">API personalizada</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-section">
+                                <h4>Benefícios Exclusivos:</h4>
+                                <ul class="plan-features">
+                                    <li>Sem mensalidade no primeiro ano</li>
+                                    <li>Implementação completa</li>
+                                    <li>Treinamento corporativo</li>
+                                    <li>Suporte prioritário 24/7</li>
+                                    <li class="special">Consultoria estratégica</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-footer">
+                            <div class="monthly-fee">Após 1 ano: <span>R$ 250/mês</span></div>
+                            <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1449,9 +1981,19 @@
                         <label for="plan">Plano de Interesse *</label>
                         <select id="plan" class="form-control" required>
                             <option value="">Selecione um plano</option>
-                            <option value="website-essencial">Website Essencial - R$ 1.500 a R$ 3.000 + R$ 150-200/mês</option>
-                            <option value="loja-virtual">Loja Virtual Completo - R$ 4.500 + R$ 250/mês</option>
-                            <option value="ecommerce-avancado">E-commerce Avançado - R$ 4.900 a R$ 7.900</option>
+                            <optgroup label="Loja E-commerce + Domínio/Hospedagem/Suporte">
+                                <option value="essential">Essential (até 50 produtos) - R$ 1.500 + R$ 130/mês</option>
+                                <option value="business">Business (até 100 produtos) - R$ 2.500 + R$ 250/mês</option>
+                                <option value="enterprise">Enterprise (200+ produtos) - R$ 4.000 + R$ 330/mês</option>
+                            </optgroup>
+                            <optgroup label="Loja E-commerce + Hospedagem/Painel ADM">
+                                <option value="starter">Starter (até 50 produtos) - R$ 3.000 (1º ano sem mensalidade)</option>
+                                <option value="professional">Professional (até 100 produtos) - R$ 4.000 (1º ano sem mensalidade)</option>
+                                <option value="premium">Premium (200+ produtos) - R$ 8.000 (1º ano sem mensalidade)</option>
+                            </optgroup>
+                            <optgroup label="PROMOÇÃO ESPECIAL">
+                                <option value="carnival">🎭 Landing Page + Hospedagem - DE R$1.200 POR R$500 (PROMOÇÃO CARNAVAL)</option>
+                            </optgroup>
                         </select>
                     </div>
 
@@ -1537,8 +2079,93 @@
     </footer>
 
     <script>
+        // ========== BANNER FLUTUANTE TEMPORIZADO ==========
+        const floatingBanner = document.getElementById('floatingBanner');
+        const closeFloatingBanner = document.getElementById('closeFloatingBanner');
+        const floatingCta = document.getElementById('floatingCta');
+
+        // Configurações do banner
+        const SHOW_INTERVAL = 30 * 60 * 1000; // 30 minutos em milissegundos
+        const SHOW_DURATION = 60 * 1000; // 1 minuto em milissegundos
+        let bannerTimeout;
+        let hideTimeout;
+
+        // Função para mostrar o banner
+        function showFloatingBanner() {
+            floatingBanner.style.display = 'block';
+            
+            // Configurar para esconder após 1 minuto
+            hideTimeout = setTimeout(() => {
+                hideFloatingBanner();
+                // Agendar próxima exibição em 30 minutos
+                bannerTimeout = setTimeout(showFloatingBanner, SHOW_INTERVAL);
+            }, SHOW_DURATION);
+        }
+
+        // Função para esconder o banner
+        function hideFloatingBanner() {
+            floatingBanner.style.display = 'none';
+        }
+
+        // Fechar banner manualmente
+        closeFloatingBanner.addEventListener('click', function(e) {
+            e.stopPropagation();
+            clearTimeout(hideTimeout);
+            hideFloatingBanner();
+            // Agendar próxima exibição em 30 minutos
+            clearTimeout(bannerTimeout);
+            bannerTimeout = setTimeout(showFloatingBanner, SHOW_INTERVAL);
+        });
+
+        // Clicar no CTA do banner flutuante
+        floatingCta.addEventListener('click', function() {
+            const message = encodeURIComponent("🎭 Olá! Gostaria de aproveitar a PROMOÇÃO DE CARNAVAL da Landing Page + Hospedagem de R$1.200 por apenas R$500! Vi a oferta no banner flutuante! 🎭");
+            window.open(`https://wa.me/5516993830355?text=${message}`, '_blank');
+            
+            // Fechar banner após clicar
+            clearTimeout(hideTimeout);
+            hideFloatingBanner();
+            // Agendar próxima exibição em 30 minutos
+            clearTimeout(bannerTimeout);
+            bannerTimeout = setTimeout(showFloatingBanner, SHOW_INTERVAL);
+        });
+
+        // Iniciar o ciclo do banner
+        // Mostrar pela primeira vez após 5 segundos (para dar tempo da página carregar)
+        setTimeout(showFloatingBanner, 5000);
+
+        // ========== BANNER PRINCIPAL DE CARNAVAL ==========
+        document.getElementById('carnivalBanner').addEventListener('click', function() {
+            const message = encodeURIComponent("🎭 Olá! Gostaria de aproveitar a PROMOÇÃO ESPECIAL DE CARNAVAL da Landing Page + Hospedagem de R$1.200 por apenas R$500! 🎭");
+            window.open(`https://wa.me/5516993830355?text=${message}`, '_blank');
+        });
+
+        // ========== FORMULÁRIO DE CONTATO PRINCIPAL ==========
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Coletar dados do formulário
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const plan = document.getElementById('plan').value;
+            const project = document.getElementById('project').value;
+            
+            // Mensagem personalizada baseada no plano selecionado
+            let planMessage = "";
+            if (plan === "carnival") {
+                planMessage = "🎭 QUERO APROVEITAR A PROMOÇÃO DE CARNAVAL! 🎭\nLanding Page + Hospedagem - DE R$1.200 POR APENAS R$500!\n\n";
+            }
+            
+            // Construir mensagem do WhatsApp
+            const message = encodeURIComponent(
+                `${planMessage}Olá! Me chamo ${name}.\n\n` +
+                `📧 E-mail: ${email}\n` +
+                `📱 WhatsApp: ${whatsapp}\n\n` +
+                `📋 Plano de interesse: ${document.getElementById('plan').options[document.getElementById('plan').selectedIndex].text}\n\n` +
+                `💼 Sobre meu projeto:\n${project}\n\n` +
+                `Gostaria de receber mais informações e uma proposta personalizada!`
+            );
             
             // Esconder formulário
             document.querySelector('.form-container form').style.display = 'none';
@@ -1546,10 +2173,10 @@
             // Mostrar mensagem de sucesso
             document.getElementById('successMessage').classList.add('show');
             
-            // Redirecionar para WhatsApp após 3 segundos
+            // Redirecionar para WhatsApp com a mensagem personalizada
             setTimeout(function() {
-                window.open('https://wa.me/5516993830355?text=Olá! Gostaria de saber mais sobre criação de sites', '_blank');
-            }, 3000);
+                window.open(`https://wa.me/5516993830355?text=${message}`, '_blank');
+            }, 2000);
         });
 
         // Suavizar rolagem para âncoras
@@ -1568,6 +2195,27 @@
                     });
                 }
             });
+        });
+
+        // Efeito adicional no banner principal ao passar o mouse
+        const carnivalBanner = document.getElementById('carnivalBanner');
+        carnivalBanner.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.02)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+        
+        carnivalBanner.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+
+        // Efeito adicional no banner flutuante ao passar o mouse
+        floatingBanner.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+        
+        floatingBanner.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
         });
     </script>
 </body>
