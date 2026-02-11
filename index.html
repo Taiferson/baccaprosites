@@ -3,2221 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BaccaProSites - Sites, Landing Pages e E-commerces Profissionais que Vendem</title>
+    <title>BaccaProSites | Soluções Digitais Profissionais</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --brand: #4f46e5;
+            --brand-light: #818cf8;
+            --bg: #ffffff;
+            --surface: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --accent: #f43f5e;
+            --whatsapp: #25d366;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Banner Promocional de Carnaval */
-        .carnival-banner {
-            background: linear-gradient(135deg, #FF1493 0%, #FF4500 100%);
+        .promo-banner {
+            background: linear-gradient(90deg, var(--brand), var(--brand-light));
             color: white;
-            padding: 15px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            animation: bannerPulse 3s infinite;
-            margin-bottom: 0;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
         }
 
-        @keyframes bannerPulse {
-            0% { box-shadow: 0 0 0px rgba(255, 20, 147, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(255, 20, 147, 0.8); }
-            100% { box-shadow: 0 0 0px rgba(255, 20, 147, 0.5); }
-        }
-
-        .carnival-banner::before {
-            content: "🎭";
-            position: absolute;
-            left: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 28px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .carnival-banner::after {
-            content: "🎉";
-            position: absolute;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 28px;
-            animation: float 2.5s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(-50%) rotate(0deg); }
-            50% { transform: translateY(-55%) rotate(10deg); }
-        }
-
-        .banner-content {
-            position: relative;
-            z-index: 2;
-            padding: 0 70px;
-        }
-
-        .banner-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .banner-subtitle {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-
-        .banner-price {
-            display: inline-block;
-            background: white;
-            color: #FF1493;
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-weight: bold;
-            margin: 0 10px;
-            transform: scale(1);
-            animation: pricePulse 2s infinite;
-        }
-
-        @keyframes pricePulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            opacity: 0.8;
-            margin-right: 5px;
-        }
-
-        .new-price {
-            color: #FFD700;
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        .banner-cta {
-            display: inline-block;
-            background: #FFD700;
-            color: #333;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: bold;
-            margin-left: 15px;
-            animation: ctaShake 2s infinite;
-        }
-
-        @keyframes ctaShake {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-2deg); }
-            75% { transform: rotate(2deg); }
-        }
-
-        /* Banner Flutuante Temporizado */
-        .floating-banner {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 350px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-            z-index: 9999;
-            cursor: pointer;
-            display: none;
-            animation: floatBanner 3s ease-in-out infinite;
-            transform: translateY(0);
-            border: 2px solid white;
-            overflow: hidden;
-        }
-
-        @keyframes floatBanner {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .floating-banner::before {
-            content: "⏰";
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 20px;
-            animation: spin 2s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .floating-banner-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .floating-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .floating-title::before {
-            content: "🔥";
-            font-size: 20px;
-        }
-
-        .floating-offer {
-            font-size: 16px;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        .floating-price {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 8px 15px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 18px;
-            margin: 10px 0;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-        }
-
-        .floating-cta {
-            display: block;
-            background: #25D366;
-            color: white;
-            padding: 12px;
-            border-radius: 25px;
-            text-align: center;
-            font-weight: bold;
-            text-decoration: none;
-            margin-top: 10px;
-            transition: all 0.3s;
-            border: 2px solid white;
-        }
-
-        .floating-cta:hover {
-            background: #1ea951;
-            transform: scale(1.05);
-        }
-
-        .floating-timer {
-            font-size: 12px;
-            text-align: center;
-            margin-top: 8px;
-            opacity: 0.8;
-            font-style: italic;
-        }
-
-        .close-floating-banner {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .close-floating-banner:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
         /* Header */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+        header { padding: 25px 0; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--brand); text-decoration: none; }
+        
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-link { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .nav-link:hover { color: var(--brand); }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
+        .btn-header-wa {
+            background: var(--whatsapp);
             color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
             text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
         }
+        .btn-header-wa:hover { opacity: 0.9; transform: translateY(-2px); }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
+        /* Hero */
+        .hero { text-align: center; padding: 80px 0 40px; }
+        .hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -2px; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { color: var(--text-muted); font-size: 1.2rem; max-width: 650px; margin: 0 auto; }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-
-        .cta-button {
-            background: #25D366;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .hero-badge {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 20px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #667eea;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            border: 2px solid white;
-            transition: background 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* Stats Section */
-        .stats {
-            background: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .stats-grid {
+        /* Pricing Grid */
+        .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
         }
 
-        .stat-item {
-            padding: 30px 20px;
+        .price-card {
+            background: var(--surface);
+            padding: 45px 40px;
+            border-radius: 28px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .stat-number {
-            font-size: 40px;
-            font-weight: bold;
-            color: #667eea;
-            display: block;
-            margin-bottom: 10px;
+        .price-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--brand-light);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+            background: white;
         }
 
-        .stat-label {
-            font-size: 16px;
-            color: #666;
-        }
-
-        /* NOVA Seção Benefits - Design Modernizado */
-        .benefits {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        .price-card.featured {
+            border: 2px solid var(--brand);
             position: relative;
-            overflow: hidden;
         }
 
-        .benefits::before {
-            content: '';
+        .featured-tag {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-title h2 {
-            font-size: 42px;
-            color: #333;
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
+            top: -14px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 30px auto 0;
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .benefit-card {
-            background: white;
-            padding: 50px 35px;
+            background: var(--brand);
+            color: white;
+            padding: 4px 18px;
             border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.1);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(102, 126, 234, 0.1);
-        }
-
-        .benefit-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.15);
-        }
-
-        .benefit-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .benefit-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 42px;
-            color: white;
-            transition: all 0.4s ease;
-        }
-
-        .benefit-card:hover .benefit-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .benefit-card h3 {
-            font-size: 26px;
-            margin-bottom: 20px;
-            color: #333;
+            font-size: 0.75rem;
             font-weight: 700;
+            text-transform: uppercase;
         }
 
-        .benefit-card p {
-            color: #666;
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
+        .plan-name { font-weight: 800; font-size: 1.4rem; margin-bottom: 12px; }
+        .plan-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; min-height: 50px; }
+        
+        .price-value { font-size: 2.2rem; font-weight: 800; margin-bottom: 5px; color: var(--text-main); }
+        .price-label { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 35px; }
 
-        .benefit-features {
-            list-style: none;
-            text-align: left;
-            margin-top: 30px;
-            border-top: 1px solid #f0f0f0;
-            padding-top: 25px;
-        }
+        .features-list { list-style: none; margin-bottom: 40px; flex-grow: 1; }
+        .features-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 12px; font-size: 0.95rem; color: #475569; }
+        .features-list li::before { content: "✓"; color: #22c55e; font-weight: 900; }
 
-        .benefit-features li {
-            padding: 12px 0;
-            color: #555;
-            position: relative;
-            padding-left: 35px;
-            font-size: 15px;
-        }
-
-        .benefit-features li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 12px;
-            content: "✓";
-        }
-
-        .benefit-cta {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 60px;
-            border-top: 1px solid #eaeaea;
-        }
-
-        .benefit-cta-content {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 60px 40px;
-            border-radius: 20px;
-            color: white;
-            max-width: 800px;
-            margin: 0 auto;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
-        }
-
-        .benefit-cta-content h3 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .benefit-cta-content p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button-large {
-            background: white;
-            color: #667eea;
-            padding: 18px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: 2px solid white;
-        }
-
-        .cta-button-large:hover {
-            background: transparent;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
-        }
-
-        /* Nova Seção de Planos E-commerce */
-        .ecommerce-plans {
-            padding: 120px 0;
-            background: #f8f9fa;
-        }
-
-        .plans-group {
-            margin-bottom: 100px;
-        }
-
-        .plans-group:last-child {
-            margin-bottom: 0;
-        }
-
-        .plans-intro {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .plans-intro h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .plans-intro p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 18px;
-        }
-
-        .plans-group-title {
-            text-align: center;
-            font-size: 34px;
-            margin-bottom: 60px;
-            color: #333;
-            font-weight: 700;
-            line-height: 1.4;
-        }
-
-        .plan-subtitle {
-            font-size: 20px;
-            color: #667eea;
-            font-weight: 500;
+        .cta-btn {
             display: block;
-            margin-top: 10px;
-        }
-
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Cards de Planos */
-        .plan-card {
-            background: white;
-            border: 2px solid #e1e1e1;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .plan-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-            border-color: #667eea;
-        }
-
-        .plan-card.popular {
-            border-color: #667eea;
-            position: relative;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 14px;
-            z-index: 10;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .plan-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 30px;
             text-align: center;
-        }
-
-        .plan-type {
-            font-size: 26px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .plan-tagline {
-            font-size: 16px;
-            opacity: 0.9;
-            margin-bottom: 25px;
-        }
-
-        .plan-investment {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .plan-period {
-            font-size: 15px;
-            opacity: 0.9;
-        }
-
-        .plan-content {
-            padding: 40px 30px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .plan-section {
-            margin-bottom: 30px;
-        }
-
-        .plan-section h4 {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #f0f0f0;
-            font-weight: 600;
-        }
-
-        .plan-features {
-            list-style: none;
-        }
-
-        .plan-features li {
-            padding: 12px 0;
-            color: #666;
-            position: relative;
-            padding-left: 30px;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .plan-features li:before {
-            content: "✓";
-            color: #667eea;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 12px;
-            font-size: 16px;
-        }
-
-        .plan-features li.special:before {
-            content: "🔥";
-            color: #ff6b6b;
-        }
-
-        .plan-footer {
-            padding: 30px;
-            background: #f8f9fa;
-            border-top: 1px solid #e1e1e1;
-            text-align: center;
-        }
-
-        .monthly-fee {
-            font-size: 22px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .monthly-fee span {
-            color: #667eea;
-        }
-
-        .choose-plan-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 18px 45px;
-            border-radius: 50px;
+            padding: 18px;
+            border-radius: 14px;
             text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 17px;
-            width: 100%;
-            max-width: 280px;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .choose-plan-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 120px 0;
-            background: white;
-        }
-
-        .testimonials-title {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .testimonials-title h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .testimonials-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 18px;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .testimonial-avatar {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 28px;
-            margin-right: 20px;
-        }
-
-        .testimonial-info h4 {
-            font-size: 20px;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        .testimonial-info p {
-            color: #666;
-            font-size: 15px;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            color: #333;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-
-        .testimonial-date {
-            color: #999;
-            font-size: 14px;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .cta-title {
-            font-size: 48px;
-            margin-bottom: 25px;
             font-weight: 700;
+            transition: 0.3s;
         }
 
-        .cta-subtitle {
-            font-size: 22px;
-            margin-bottom: 60px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
+        .btn-outline { border: 2px solid var(--brand); color: var(--brand); }
+        .btn-fill { background: var(--brand); color: white; box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2); }
+        .btn-outline:hover { background: var(--brand); color: white; }
+        .btn-fill:hover { background: var(--brand-light); transform: scale(1.02); }
 
-        .bonus-badge {
-            background: #FFD700;
-            color: #333;
-            padding: 20px 40px;
-            border-radius: 15px;
-            font-weight: bold;
-            font-size: 20px;
-            display: inline-block;
-            margin-bottom: 60px;
-            box-shadow: 0 10px 25px rgba(255,215,0,0.3);
-            animation: pulse 2s infinite;
-        }
+        /* Testimonials */
+        .testimonials { padding: 100px 0; background: #0f172a; color: white; border-radius: 48px; margin: 0 10px; }
+        .t-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        
+        .t-card { background: rgba(255,255,255,0.03); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
+        .t-text { font-size: 1rem; line-height: 1.8; margin-bottom: 25px; color: #cbd5e1; font-style: italic; }
+        .t-user { display: flex; align-items: center; gap: 15px; }
+        .t-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, var(--brand), var(--brand-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: white; }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+        footer { text-align: center; padding: 80px 0; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid #f1f5f9; margin-top: 40px; }
+        .footer-socials { margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
+        .footer-socials a { color: var(--text-main); text-decoration: none; font-weight: 600; }
 
-        /* Contact Form */
-        .contact-form-section {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .form-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: #f8f9fa;
-            padding: 60px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-        }
-
-        .form-group {
-            margin-bottom: 30px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: #333;
-            font-size: 16px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 18px 20px;
-            border: 2px solid #e1e1e1;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s;
-            background: white;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        textarea.form-control {
-            min-height: 180px;
-            resize: vertical;
-        }
-
-        .form-process {
-            background: linear-gradient(135deg, #e7f3ff 0%, #f0f7ff 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
-            border-left: 5px solid #667eea;
-        }
-
-        .form-process h4 {
-            margin-bottom: 20px;
-            color: #333;
-            font-size: 20px;
-        }
-
-        .form-process ol {
-            padding-left: 25px;
-            color: #666;
-            font-size: 16px;
-        }
-
-        .form-process ol li {
-            margin-bottom: 10px;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
-            color: white;
-            padding: 20px 45px;
-            border: none;
-            border-radius: 50px;
-            font-size: 19px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            margin-top: 20px;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-        }
-
-        .form-disclaimer {
-            text-align: center;
-            margin-top: 25px;
-            color: #999;
-            font-size: 14px;
-        }
-
-        /* Success Message */
-        .success-message {
-            display: none;
-            max-width: 600px;
-            margin: 50px auto;
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-
-        .success-message.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .success-icon {
-            font-size: 80px;
-            color: #28a745;
-            margin-bottom: 30px;
-        }
-
-        .success-message h3 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .success-message p {
-            color: #666;
-            margin-bottom: 25px;
-            font-size: 17px;
-        }
-
-        .success-whatsapp-link {
-            display: inline-block;
-            background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
-            color: white;
-            padding: 18px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
-        }
-
-        .success-whatsapp-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-        }
-
-        .need-help {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #eee;
-        }
-
-        .need-help a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            font-size: 17px;
-        }
-
-        .need-help a:hover {
-            opacity: 0.8;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 100px 0 40px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 80px;
-        }
-
-        .footer-col h3 {
-            font-size: 22px;
-            margin-bottom: 30px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .footer-col h3::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-        }
-
-        .footer-about p {
-            color: #999;
-            margin-top: 20px;
-            line-height: 1.8;
-            font-size: 15px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 15px;
-        }
-
-        .footer-links ul li a {
-            color: #999;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-size: 15px;
-            display: inline-block;
-        }
-
-        .footer-links ul li a:hover {
-            color: #667eea;
-            transform: translateX(5px);
-        }
-
-        .footer-contact ul {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .footer-contact ul li {
-            margin-bottom: 20px;
-            color: #999;
-            display: flex;
-            align-items: center;
-            font-size: 15px;
-        }
-
-        .footer-contact ul li::before {
-            content: "•";
-            color: #667eea;
-            font-weight: bold;
-            margin-right: 15px;
-            font-size: 20px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid #333;
-            color: #999;
-            font-size: 15px;
-        }
-
-        .footer-bottom a {
-            color: #667eea;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .footer-bottom a:hover {
-            opacity: 0.7;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            /* Banner Flutuante para Mobile */
-            .floating-banner {
-                width: 90%;
-                max-width: 300px;
-                right: 50%;
-                transform: translateX(50%);
-                bottom: 10px;
-                padding: 15px;
-            }
-
-            .floating-title {
-                font-size: 16px;
-            }
-
-            .floating-offer {
-                font-size: 14px;
-            }
-
-            .floating-price {
-                font-size: 16px;
-                padding: 6px 12px;
-            }
-
-            .floating-cta {
-                padding: 10px;
-                font-size: 14px;
-            }
-
-            .carnival-banner {
-                padding: 12px 0;
-            }
-            
-            .carnival-banner::before,
-            .carnival-banner::after {
-                display: none;
-            }
-            
-            .banner-content {
-                padding: 0 15px;
-            }
-            
-            .banner-title {
-                font-size: 18px;
-            }
-            
-            .banner-subtitle {
-                font-size: 14px;
-            }
-            
-            .banner-price {
-                display: block;
-                margin: 5px auto;
-                width: fit-content;
-            }
-            
-            .banner-cta {
-                display: block;
-                margin: 10px auto 0;
-                width: fit-content;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .section-title h2,
-            .plans-intro h2,
-            .testimonials-title h2 {
-                font-size: 32px;
-            }
-
-            .plans-group-title {
-                font-size: 28px;
-            }
-
-            .cta-title {
-                font-size: 36px;
-            }
-
-            .benefits-grid,
-            .plans-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .benefit-card {
-                padding: 40px 25px;
-            }
-
-            .benefit-icon {
-                width: 80px;
-                height: 80px;
-                font-size: 36px;
-            }
-
-            .plan-card {
-                margin-bottom: 30px;
-            }
-
-            .plan-header {
-                padding: 35px 25px;
-            }
-
-            .plan-content {
-                padding: 35px 25px;
-            }
-
-            .plan-footer {
-                padding: 25px;
-            }
-
-            .benefit-cta-content {
-                padding: 40px 25px;
-            }
-
-            .benefit-cta-content h3 {
-                font-size: 26px;
-            }
-
-            .form-container {
-                padding: 40px 25px;
-            }
-
-            .bonus-badge {
-                font-size: 18px;
-                padding: 15px 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .floating-banner {
-                width: 95%;
-                padding: 12px;
-            }
-
-            .floating-title {
-                font-size: 14px;
-            }
-
-            .floating-offer {
-                font-size: 12px;
-            }
-
-            .floating-price {
-                font-size: 14px;
-            }
-
-            .floating-cta {
-                font-size: 12px;
-            }
-
-            .carnival-banner {
-                padding: 10px 0;
-            }
-            
-            .banner-title {
-                font-size: 16px;
-            }
-            
-            .banner-subtitle {
-                font-size: 12px;
-            }
-            
-            .new-price {
-                font-size: 18px;
-            }
-
-            .hero {
-                padding: 80px 0;
-            }
-            
-            .hero h1 {
-                font-size: 28px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .section-title h2 {
-                font-size: 28px;
-            }
-            
-            .section-title p {
-                font-size: 16px;
-            }
-            
-            .benefit-card h3 {
-                font-size: 22px;
-            }
-            
-            .plan-type {
-                font-size: 22px;
-            }
-            
-            .plan-investment {
-                font-size: 32px;
-            }
-            
-            .plans-group-title {
-                font-size: 24px;
-            }
-            
-            .plan-subtitle {
-                font-size: 16px;
-            }
-            
-            .cta-title {
-                font-size: 28px;
-            }
-            
-            .cta-subtitle {
-                font-size: 18px;
-            }
-            
-            .footer-grid {
-                gap: 40px;
-            }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .plans-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .hero h1 { font-size: 2.4rem; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .nav-right .nav-link { display: none; } /* Esconde Instagram no mobile para focar no WA */
         }
     </style>
 </head>
 <body>
-    <!-- Banner Promocional de Carnaval -->
-    <div class="carnival-banner" id="carnivalBanner">
-        <div class="banner-content">
-            <div class="banner-title">🎭 PROMOÇÃO ESPECIAL DE CARNAVAL! 🎭</div>
-            <div class="banner-subtitle">
-                <span class="old-price">DE R$ 1.200</span> POR APENAS 
-                <span class="banner-price">
-                    <span class="new-price">R$ 500</span>
-                </span>
-                <span class="banner-cta">QUERO APROVEITAR!</span>
+
+    <div class="promo-banner">
+        🚀 Transforme seu negócio com um site profissional de alta conversão.
+    </div>
+
+    <div class="container">
+        <header>
+            <a href="#" class="logo">BaccaProSites</a>
+            <div class="nav-right">
+                <a href="https://instagram.com/baccaginn1" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a>
+                <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn-header-wa">Chamar no WhatsApp</a>
             </div>
-            <div class="banner-subtitle">Landing Page Profissional + Hospedagem Premium - OFERTA POR TEMPO LIMITADO!</div>
-        </div>
-    </div>
+        </header>
 
-    <!-- Banner Flutuante Temporizado -->
-    <div class="floating-banner" id="floatingBanner">
-        <button class="close-floating-banner" id="closeFloatingBanner">×</button>
-        <div class="floating-banner-content">
-            <div class="floating-title">OFERTA RELÂMPAGO!</div>
-            <div class="floating-offer">Landing Page + Hospedagem Premium por apenas:</div>
-            <div class="floating-price">R$ 500 <small>(era R$ 1.200)</small></div>
-            <a href="javascript:void(0);" class="floating-cta" id="floatingCta">
-                🎭 QUERO A PROMOÇÃO DE CARNAVAL!
-            </a>
-            <div class="floating-timer">Esta oferta desaparecerá em 1 minuto!</div>
-        </div>
-    </div>
+        <section class="hero">
+            <h1>Sua presença digital levada a sério.</h1>
+            <p>Criamos estruturas robustas e páginas de vendas que trabalham por você 24 horas por dia, 7 dias por semana.</p>
+        </section>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">BaccaProSites</a>
-                <ul class="nav-links">
-                    <li><a href="#beneficios">Benefícios</a></li>
-                    <li><a href="#planos">Planos</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                    <li><a href="https://www.instagram.com/baccaginn1" target="_blank" class="cta-button">Instagram</a></li>
-                    <li><a href="https://wa.me/5516993830355?text=Olá! Gostaria de saber mais sobre criação de sites" class="cta-button">WhatsApp</a></li>
+        <div class="pricing-grid">
+            <!-- Plano 1: Landing Page -->
+            <div class="price-card featured">
+                <div class="featured-tag">Mais Vendido</div>
+                <div class="plan-name">Landing Page</div>
+                <p class="plan-desc">Página única de alta conversão, ideal para campanhas de tráfego pago (Google/Meta Ads).</p>
+                <div class="price-value">R$ 500 a R$ 1.200</div>
+                <div class="price-label">Valor sob medida conforme complexidade</div>
+                <ul class="features-list">
+                    <li>Design Exclusivo e Moderno</li>
+                    <li>Foco total em Conversão (Vendas)</li>
+                    <li>Velocidade de carregamento extrema</li>
+                    <li>Configuração de Botão WhatsApp</li>
+                    <li>Integração com Analytics/Pixels</li>
                 </ul>
-            </nav>
-        </div>
-    </header>
+                <a href="https://wa.me/5516993830355?text=Olá! Quero saber mais sobre a Landing Page." target="_blank" rel="noopener noreferrer" class="cta-btn btn-fill">Solicitar Projeto</a>
+            </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-badge">+200 CLIENTES SATISFEITOS</div>
-            <h1>Seu Negócio Online em 48 Horas</h1>
-            <p>Criamos sites, landing pages e e-commerces que convertem visitantes em clientes. Prontos para vender 24/7.</p>
-            <div class="hero-buttons">
-                <a href="#contato" class="btn-primary">Quero Meu Site Agora</a>
-                <a href="#planos" class="btn-secondary">Ver Planos</a>
+            <!-- Plano 2: Site de Venda -->
+            <div class="price-card">
+                <div class="plan-name">Site de Venda</div>
+                <p class="plan-desc">Site institucional completo com várias páginas para empresas que buscam autoridade.</p>
+                <div class="price-value" style="font-size: 1.8rem;">Sob Orçamento</div>
+                <div class="price-label">Consulte nossos especialistas</div>
+                <ul class="features-list">
+                    <li>Múltiplas Páginas (Home, Serviços...)</li>
+                    <li>SEO Avançado (Apareça no Google)</li>
+                    <li>Blog de Conteúdo Estratégico</li>
+                    <li>Formulários de Captura de Leads</li>
+                    <li>E-mails profissionais inclusos</li>
+                </ul>
+                <a href="https://wa.me/5516993830355?text=Olá! Gostaria de um orçamento para um Site de Venda completo." target="_blank" rel="noopener noreferrer" class="cta-btn btn-outline">Solicitar Orçamento</a>
+            </div>
+
+            <!-- Plano 3: Loja E-Commerce -->
+            <div class="price-card">
+                <div class="plan-name">Loja E-Commerce</div>
+                <p class="plan-desc">Plataforma completa para venda de produtos com carrinho, frete e pagamentos online.</p>
+                <div class="price-value" style="font-size: 1.8rem;">Sob Orçamento</div>
+                <div class="price-label">Análise de projeto gratuita</div>
+                <ul class="features-list">
+                    <li>Catálogo de Produtos Ilimitado</li>
+                    <li>Checkout Seguro e Transparente</li>
+                    <li>Cálculo de Frete (Correios/Melhor Envio)</li>
+                    <li>Cupom de Desconto e Promoções</li>
+                    <li>Gestão de Estoque Simplificada</li>
+                </ul>
+                <a href="https://wa.me/5516993830355?text=Olá! Preciso de um orçamento para uma Loja Virtual." target="_blank" rel="noopener noreferrer" class="cta-btn btn-outline">Solicite seu Orçamento</a>
             </div>
         </div>
-    </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">+40%</span>
-                    <span class="stat-label">Conversão em Média</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">48h</span>
-                    <span class="stat-label">Entrega Rápida</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Responsivo</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">30 dias</span>
-                    <span class="stat-label">Garantia</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NOVA Seção Benefits - Design Modernizado -->
-    <section class="benefits" id="beneficios">
-        <div class="container">
-            <div class="section-title">
-                <h2>Por Que Escolher a BaccaProSites?</h2>
-                <p>Oferecemos soluções completas para você vender online com eficiência e rapidez. Nossa metodologia garante resultados reais desde o primeiro dia.</p>
-            </div>
-
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Entrega Super Rápida</h3>
-                    <p>Seu site pronto e online em até 48 horas. Processo ágil, sem burocracia e com acompanhamento total.</p>
-                    <ul class="benefit-features">
-                        <li>Protótipo em 24h para sua aprovação</li>
-                        <li>Revisões ilimitadas durante o desenvolvimento</li>
-                        <li>Treinamento personalizado incluso</li>
-                        <li>Configuração completa de domínio e hospedagem</li>
-                    </ul>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h3>Design que Converte</h3>
-                    <p>Layouts otimizados cientificamente para gerar leads e vendas automaticamente. Testado e aprovado por +200 clientes.</p>
-                    <ul class="benefit-features">
-                        <li>Otimização avançada para conversão (CRO)</li>
-                        <li>Design mobile-first responsivo</li>
-                        <li>Integração com WhatsApp Business</li>
-                        <li>Análise de concorrência incluída</li>
-                    </ul>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">🛡️</div>
-                    <h3>Suporte Premium</h3>
-                    <p>Acompanhamento total por 30 dias com suporte prioritário. Sua satisfação é nossa garantia de qualidade.</p>
-                    <ul class="benefit-features">
-                        <li>Garantia de satisfação de 30 dias</li>
-                        <li>Suporte direto por WhatsApp</li>
-                        <li>Atualizações gratuitas de segurança</li>
-                        <li>Backup automático semanal</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="benefit-cta">
-                <div class="benefit-cta-content">
-                    <h3>Pronto para Transformar seu Negócio?</h3>
-                    <p>Converse com nosso time especializado e receba um orçamento personalizado em minutos. Descubra como podemos alavancar suas vendas online.</p>
-                    <a href="#contato" class="cta-button-large">Falar com Especialista</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Nova Seção de Planos E-commerce -->
-    <section class="ecommerce-plans" id="planos">
-        <div class="container">
-            <div class="plans-intro">
-                <h2>Planos de E-commerce Completos</h2>
-                <p>Soluções completas para você vender online com máxima eficiência e suporte especializado.</p>
-            </div>
-
-            <!-- Grupo 1: Loja E-commerce com Domínio+Hospedagem+Suporte -->
-            <div class="plans-group">
-                <h3 class="plans-group-title">Loja E-commerce Completo<br><span class="plan-subtitle">Domínio + Hospedagem + Suporte</span></h3>
-                
-                <div class="plans-grid">
-                    <!-- Plano 1 -->
-                    <div class="plan-card">
-                        <div class="plan-header">
-                            <div class="plan-type">Plano Essential</div>
-                            <div class="plan-tagline">Ideal para iniciantes</div>
-                            <div class="plan-investment">Solicitar Orçamento</div>
-                            <div class="plan-period">Desenvolvimento inicial</div>
-                        </div>
-                        
-                        <div class="plan-content">
-                            <div class="plan-section">
-                                <h4>Recursos Principais:</h4>
-                                <ul class="plan-features">
-                                    <li>Até 50 produtos cadastrados</li>
-                                    <li>Design responsivo e moderno</li>
-                                    <li>Integração com Mercado Pago</li>
-                                    <li>Painel administrativo completo</li>
-                                    <li>Otimização básica de SEO</li>
-                                    <li>Carrinho de compras</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="plan-section">
-                                <h4>Manutenção Mensal (Solicitar Orçamento):</h4>
-                                <ul class="plan-features">
-                                    <li>Hospedagem profissional</li>
-                                    <li>Domínio .com.br (1º ano grátis)</li>
-                                    <li>Suporte técnico prioritário</li>
-                                    <li>Backup semanal</li>
-                                    <li>Atualizações de segurança</li>
-                                    <li>Certificado SSL</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="plan-footer">
-                            <div class="monthly-fee">Mensalidade: <span>Solicitar Orçamento</span></div>
-                            <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+        <section class="testimonials">
+            <div class="container">
+                <h2 style="text-align: center; font-size: 2.2rem; letter-spacing: -1px;">Resultados de quem confiou</h2>
+                <div class="t-grid">
+                    <div class="t-card">
+                        <p class="t-text">"O site mudou o patamar da minha empresa. Os clientes chegam muito mais decididos a comprar depois que veem nossa Landing Page profissional."</p>
+                        <div class="t-user">
+                            <div class="t-avatar">MA</div>
+                            <div><strong>Marcos Almeida</strong><br><small>Serviços Automotivos</small></div>
                         </div>
                     </div>
-
-                    <!-- Plano 2 (Popular) -->
-                    <div class="plan-card popular">
-                        <div class="popular-badge">MAIS POPULAR</div>
-                        <div class="plan-header">
-                            <div class="plan-type">Plano Business</div>
-                            <div class="plan-tagline">Para crescimento acelerado</div>
-                            <div class="plan-investment">Solicitar Orçamento</div>
-                            <div class="plan-period">Desenvolvimento inicial</div>
-                        </div>
-                        
-                        <div class="plan-content">
-                            <div class="plan-section">
-                                <h4>Recursos Principais:</h4>
-                                <ul class="plan-features">
-                                    <li class="special">Até 100 produtos cadastrados</li>
-                                    <li>Design premium personalizado</li>
-                                    <li>Múltiplos métodos de pagamento</li>
-                                    <li>Sistema de cupons de desconto</li>
-                                    <li>Otimização avançada de SEO</li>
-                                    <li class="special">Relatórios de vendas</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="plan-section">
-                                <h4>Manutenção Mensal Solicitar Orçamento:</h4>
-                                <ul class="plan-features">
-                                    <li>Hospedagem premium</li>
-                                    <li>Domínio .com.br (1º ano grátis)</li>
-                                    <li>Suporte 24/7 por WhatsApp</li>
-                                    <li>Backup diário automático</li>
-                                    <li>Firewall de segurança avançado</li>
-                                    <li class="special">CDN para alta velocidade</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="plan-footer">
-                            <div class="monthly-fee">Mensalidade: <span>Solicitar Orçamento</span></div>
-                            <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+                    <div class="t-card">
+                        <p class="t-text">"O Bacca entendeu exatamente o que eu precisava. O site é rápido, bonito e funciona perfeitamente no celular."</p>
+                        <div class="t-user">
+                            <div class="t-avatar">SP</div>
+                            <div><strong>Sabrina Paiva</strong><br><small>Estética Avançada</small></div>
                         </div>
                     </div>
-
-                    <!-- Plano 3 -->
-                    <div class="plan-card">
-                        <div class="plan-header">
-                            <div class="plan-type">Plano Enterprise</div>
-                            <div class="plan-tagline">Para grandes negócios</div>
-                            <div class="plan-investment">Solicitar Orçamento</div>
-                            <div class="plan-period">Desenvolvimento inicial</div>
-                        </div>
-                        
-                        <div class="plan-content">
-                            <div class="plan-section">
-                                <h4>Recursos Principais:</h4>
-                                <ul class="plan-features">
-                                    <li class="special">Acima de 200 produtos</li>
-                                    <li>Design exclusivo e personalizado</li>
-                                    <li>Integração com múltiplas APIs</li>
-                                    <li>Sistema de fidelidade</li>
-                                    <li>SEO completo e otimizado</li>
-                                    <li class="special">Checkout em 1 clique</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="plan-section">
-                                <h4>Manutenção Mensal Solicitar Orçamento:</h4>
-                                <ul class="plan-features">
-                                    <li>Hospedagem enterprise</li>
-                                    <li>Domínio .com.br (1º ano grátis)</li>
-                                    <li>Suporte dedicado personalizado</li>
-                                    <li>Backup em tempo real</li>
-                                    <li>Monitoramento 24/7</li>
-                                    <li class="special">Consultoria mensal inclusa</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="plan-footer">
-                            <div class="monthly-fee">Mensalidade: <span>Solicitar Orçamento</span></div>
-                            <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
+                    <div class="t-card">
+                        <p class="t-text">"Minha loja virtual ficou pronta antes do prazo. O treinamento que recebi para cadastrar os produtos foi essencial."</p>
+                        <div class="t-user">
+                            <div class="t-avatar">FL</div>
+                            <div><strong>Felipe Lima</strong><br><small>E-commerce de Eletrônicos</small></div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Grupo 2: Loja E-commerce com Hospedagem+Painel ADM -->
-            <div class="plans-group">
-                <h3 class="plans-group-title">Loja E-commerce + Painel ADM<br><span class="plan-subtitle">Hospedagem + Painel Administrativo Completo</span></h3>
-                
-                <div class="plans-grid">
-                    <!-- Plano 1 -->
-                    <div class="plan-card">
-                        <div class="plan-header">
-                            <div class="plan-type">Plano Starter</div>
-                            <div class="plan-tagline">Para pequenos negócios</div>
-                            <div class="plan-investment">Solicitar Orçamento</div>
-                            <div class="plan-period">Valor único</div>
-                        </div>
-                        
-                        <div class="plan-content">
-                            <div class="plan-section">
-                                <h4>Recursos Inclusos:</h4>
-                                <ul class="plan-features">
-                                    <li>Até 50 produtos cadastrados</li>
-                                    <li>Hospedagem profissional por 1 ano</li>
-                                    <li>Painel administrativo completo</li>
-                                    <li>Gestão de estoque integrada</li>
-                                    <li>Relatórios básicos de vendas</li>
-                                    <li>Integração com PagSeguro</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="plan-section">
-                                <h4>Benefícios Exclusivos:</h4>
-                                <ul class="plan-features">
-                                    <li>Sem mensalidade no primeiro ano</li>
-                                    <li>Setup completo incluído</li>
-                                    <li>Treinamento do painel ADM</li>
-                                    <li>Suporte por 6 meses</li>
-                                    <li class="special">100% responsivo</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="plan-footer">
-                            <div class="monthly-fee">Após 1 ano: <span>Solicitar Orçamento</span></div>
-                            <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
-                        </div>
-                    </div>
-
-                    <!-- Plano 2 -->
-                    <div class="plan-card">
-                        <div class="plan-header">
-                            <div class="plan-type">Plano Professional</div>
-                            <div class="plan-tagline">Para negócios em expansão</div>
-                            <div class="plan-investment">Solicitar Orçamento</div>
-                            <div class="plan-period">Valor único</div>
-                        </div>
-                        
-                        <div class="plan-content">
-                            <div class="plan-section">
-                                <h4>Recursos Inclusos:</h4>
-                                <ul class="plan-features">
-                                    <li class="special">Até 100 produtos</li>
-                                    <li>Hospedagem premium por 1 ano</li>
-                                    <li>Painel ADM avançado</li>
-                                    <li>Controle total de inventário</li>
-                                    <li>Relatórios detalhados</li>
-                                    <li class="special">Multi-vendedores</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="plan-section">
-                                <h4>Benefícios Exclusivos:</h4>
-                                <ul class="plan-features">
-                                    <li>Sem mensalidade no primeiro ano</li>
-                                    <li>Configuração profissional</li>
-                                    <li>Treinamento avançado</li>
-                                    <li>Suporte por 12 meses</li>
-                                    <li class="special">Otimização para conversão</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="plan-footer">
-                            <div class="monthly-fee">Após 1 ano: <span>Solicitar Orçamento</span></div>
-                            <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
-                        </div>
-                    </div>
-
-                    <!-- Plano 3 -->
-                    <div class="plan-card">
-                        <div class="plan-header">
-                            <div class="plan-type">Plano Premium</div>
-                            <div class="plan-tagline">Para grandes empresas</div>
-                            <div class="plan-investment">Solicitar Orçamento</div>
-                            <div class="plan-period">Valor único</div>
-                        </div>
-                        
-                        <div class="plan-content">
-                            <div class="plan-section">
-                                <h4>Recursos Inclusos:</h4>
-                                <ul class="plan-features">
-                                    <li class="special">Acima de 200 produtos</li>
-                                    <li>Hospedagem enterprise por 1 ano</li>
-                                    <li>Painel ADM corporativo</li>
-                                    <li>Sistema multi-departamentos</li>
-                                    <li>Relatórios em tempo real</li>
-                                    <li class="special">API personalizada</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="plan-section">
-                                <h4>Benefícios Exclusivos:</h4>
-                                <ul class="plan-features">
-                                    <li>Sem mensalidade no primeiro ano</li>
-                                    <li>Implementação completa</li>
-                                    <li>Treinamento corporativo</li>
-                                    <li>Suporte prioritário 24/7</li>
-                                    <li class="special">Consultoria estratégica</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="plan-footer">
-                            <div class="monthly-fee">Após 1 ano: <span>Solicitar Orçamento</span></div>
-                            <a href="#contato" class="choose-plan-btn">Escolher Este Plano</a>
-                        </div>
-                    </div>
-                </div>
+        <footer>
+            <div class="footer-socials">
+                <a href="https://instagram.com/baccaginn1" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
-        </div>
-    </section>
+            <p>BaccaProSites &copy; 2024. Todos os direitos reservados.</p>
+            <p>Sediada em Franca - SP | Atendimento Nacional.</p>
+        </footer>
+    </div>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="depoimentos">
-        <div class="container">
-            <div class="testimonials-title">
-                <h2>O Que Nossos Clientes Dizem</h2>
-                <p>Empreendedores que já transformaram seus negócios com nossos sites e estão vendendo mais.</p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">AS</div>
-                        <div class="testimonial-info">
-                            <h4>Ana Silva</h4>
-                            <p>Loja de Moda Feminina</p>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"Meu e-commerce de roupas faturou R$15.000 no primeiro mês! O site é lindo, funciona perfeitamente no celular e o suporte foi excepcional."</p>
-                    <p class="testimonial-date">Há 2 meses</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">JS</div>
-                        <div class="testimonial-info">
-                            <h4>João Santos</h4>
-                            <p>Consultor Financeiro</p>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"A landing page que criaram para meu ebook gerou 87 leads qualificados em uma semana. Conversei com todos pelo WhatsApp e fechei 12 vendas no primeiro mês!"</p>
-                    <p class="testimonial-date">Há 1 mês</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">MC</div>
-                        <div class="testimonial-info">
-                            <h4>Maria Costa</h4>
-                            <p>Artista Plástica</p>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"Vendi 3 quadros no primeiro dia que o site ficou no ar! O portfólio online fez toda diferença para mostrar meu trabalho. Recomendo muito!"</p>
-                    <p class="testimonial-date">Há 3 meses</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section" id="contato">
-        <div class="container">
-            <h2 class="cta-title">Pronto para Começar a Vender Online?</h2>
-            <p class="cta-subtitle">Escolha seu plano, preencha o formulário e receba sua proposta personalizada no WhatsApp em minutos!</p>
-
-            <div class="bonus-badge">🎁 BÔNUS ESPECIAL! Domínio grátis por 1 ano + 1 mês de manutenção grátis</div>
-
-            <!-- Contact Form -->
-            <div class="form-container">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Seu Nome *</label>
-                        <input type="text" id="name" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Seu E-mail *</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="whatsapp">WhatsApp *</label>
-                        <input type="tel" id="whatsapp" class="form-control" required placeholder="(16) 99999-9999">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="plan">Plano de Interesse *</label>
-                        <select id="plan" class="form-control" required>
-                            <option value="">Selecione um plano</option>
-                            <optgroup label="Loja E-commerce + Domínio/Hospedagem/Suporte">
-                                <option value="essential">Essential (até 50 produtos) - R$ 1.500 + R$ 130/mês</option>
-                                <option value="business">Business (até 100 produtos) - R$ 2.500 + R$ 250/mês</option>
-                                <option value="enterprise">Enterprise (200+ produtos) - R$ 4.000 + R$ 330/mês</option>
-                            </optgroup>
-                            <optgroup label="Loja E-commerce + Hospedagem/Painel ADM">
-                                <option value="starter">Starter (até 50 produtos) - R$ 3.000 (1º ano sem mensalidade)</option>
-                                <option value="professional">Professional (até 100 produtos) - R$ 4.000 (1º ano sem mensalidade)</option>
-                                <option value="premium">Premium (200+ produtos) - R$ 8.000 (1º ano sem mensalidade)</option>
-                            </optgroup>
-                            <optgroup label="PROMOÇÃO ESPECIAL">
-                                <option value="carnival">🎭 Landing Page + Hospedagem - DE R$1.200 POR R$500 (PROMOÇÃO CARNAVAL)</option>
-                            </optgroup>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="project">Conte-nos sobre seu projeto *</label>
-                        <textarea id="project" class="form-control" required placeholder="Descreva seu negócio, objetivos e necessidades..."></textarea>
-                    </div>
-
-                    <div class="form-process">
-                        <h4>Como funciona nosso processo?</h4>
-                        <ol>
-                            <li><strong>Preencha o formulário</strong> com seus dados e necessidades</li>
-                            <li><strong>Receba uma proposta personalizada</strong> no WhatsApp em até 2 horas</li>
-                            <li><strong>Aprove o orçamento</strong> e começamos o desenvolvimento em 24h!</li>
-                        </ol>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Receber Proposta no WhatsApp</button>
-
-                    <p class="form-disclaimer">Seus dados estão seguros. Não enviamos spam. Respeitamos sua privacidade.</p>
-                </form>
-
-                <!-- Success Message -->
-                <div id="successMessage" class="success-message">
-                    <div class="success-icon">✅</div>
-                    <h3>Formulário enviado com sucesso!</h3>
-                    <p>Em instantes você será redirecionado para o WhatsApp para receber sua proposta personalizada.</p>
-                    <p>Se não abrir automaticamente, <a href="https://wa.me/5516993830355" class="success-whatsapp-link">clique aqui para falar no WhatsApp</a></p>
-                    
-                    <div class="need-help">
-                        <p>Precisa de ajuda? <a href="https://wa.me/5516993830355">Fale diretamente com nosso especialista</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-about">
-                    <h3>BaccaProSites</h3>
-                    <p>Criamos sites, landing pages e e-commerces que convertem visitantes em clientes e aumentam suas vendas online com design profissional e tecnologia de ponta.</p>
-                </div>
-
-                <div class="footer-col footer-links">
-                    <h3>Serviços</h3>
-                    <ul>
-                        <li><a href="#planos">Site Institucional</a></li>
-                        <li><a href="#planos">Landing Pages</a></li>
-                        <li><a href="#planos">E-commerce</a></li>
-                        <li><a href="#planos">Manutenção de Sites</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col footer-links">
-                    <h3>Links Rápidos</h3>
-                    <ul>
-                        <li><a href="#beneficios">Benefícios</a></li>
-                        <li><a href="#planos">Planos</a></li>
-                        <li><a href="#depoimentos">Depoimentos</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col footer-contact">
-                    <h3>Contato</h3>
-                    <ul>
-                        <li>📍 Franca - SP</li>
-                        <li>📱 (16) 99383-0355</li>
-                        <li>✉️ baccaginnit@gmail.com</li>
-                        <li>🕒 Seg - Sex: 9h às 18h</li>
-                        <li>🔗 @baccaginn1 (Instagram)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2026 BaccaProSites. Todos os direitos reservados. | <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // ========== BANNER FLUTUANTE TEMPORIZADO ==========
-        const floatingBanner = document.getElementById('floatingBanner');
-        const closeFloatingBanner = document.getElementById('closeFloatingBanner');
-        const floatingCta = document.getElementById('floatingCta');
-
-        // Configurações do banner
-        const SHOW_INTERVAL = 30 * 60 * 1000; // 30 minutos em milissegundos
-        const SHOW_DURATION = 60 * 1000; // 1 minuto em milissegundos
-        let bannerTimeout;
-        let hideTimeout;
-
-        // Função para mostrar o banner
-        function showFloatingBanner() {
-            floatingBanner.style.display = 'block';
-            
-            // Configurar para esconder após 1 minuto
-            hideTimeout = setTimeout(() => {
-                hideFloatingBanner();
-                // Agendar próxima exibição em 30 minutos
-                bannerTimeout = setTimeout(showFloatingBanner, SHOW_INTERVAL);
-            }, SHOW_DURATION);
-        }
-
-        // Função para esconder o banner
-        function hideFloatingBanner() {
-            floatingBanner.style.display = 'none';
-        }
-
-        // Fechar banner manualmente
-        closeFloatingBanner.addEventListener('click', function(e) {
-            e.stopPropagation();
-            clearTimeout(hideTimeout);
-            hideFloatingBanner();
-            // Agendar próxima exibição em 30 minutos
-            clearTimeout(bannerTimeout);
-            bannerTimeout = setTimeout(showFloatingBanner, SHOW_INTERVAL);
-        });
-
-        // Clicar no CTA do banner flutuante
-        floatingCta.addEventListener('click', function() {
-            const message = encodeURIComponent("🎭 Olá! Gostaria de aproveitar a PROMOÇÃO DE CARNAVAL da Landing Page + Hospedagem de R$1.200 por apenas R$500! Vi a oferta no banner flutuante! 🎭");
-            window.open(`https://wa.me/5516993830355?text=${message}`, '_blank');
-            
-            // Fechar banner após clicar
-            clearTimeout(hideTimeout);
-            hideFloatingBanner();
-            // Agendar próxima exibição em 30 minutos
-            clearTimeout(bannerTimeout);
-            bannerTimeout = setTimeout(showFloatingBanner, SHOW_INTERVAL);
-        });
-
-        // Iniciar o ciclo do banner
-        // Mostrar pela primeira vez após 5 segundos (para dar tempo da página carregar)
-        setTimeout(showFloatingBanner, 5000);
-
-        // ========== BANNER PRINCIPAL DE CARNAVAL ==========
-        document.getElementById('carnivalBanner').addEventListener('click', function() {
-            const message = encodeURIComponent("🎭 Olá! Gostaria de aproveitar a PROMOÇÃO ESPECIAL DE CARNAVAL da Landing Page + Hospedagem de R$1.200 por apenas R$500! 🎭");
-            window.open(`https://wa.me/5516993830355?text=${message}`, '_blank');
-        });
-
-        // ========== FORMULÁRIO DE CONTATO PRINCIPAL ==========
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Coletar dados do formulário
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const whatsapp = document.getElementById('whatsapp').value;
-            const plan = document.getElementById('plan').value;
-            const project = document.getElementById('project').value;
-            
-            // Mensagem personalizada baseada no plano selecionado
-            let planMessage = "";
-            if (plan === "carnival") {
-                planMessage = "🎭 QUERO APROVEITAR A PROMOÇÃO DE CARNAVAL! 🎭\nLanding Page + Hospedagem - DE R$1.200 POR APENAS R$500!\n\n";
-            }
-            
-            // Construir mensagem do WhatsApp
-            const message = encodeURIComponent(
-                `${planMessage}Olá! Me chamo ${name}.\n\n` +
-                `📧 E-mail: ${email}\n` +
-                `📱 WhatsApp: ${whatsapp}\n\n` +
-                `📋 Plano de interesse: ${document.getElementById('plan').options[document.getElementById('plan').selectedIndex].text}\n\n` +
-                `💼 Sobre meu projeto:\n${project}\n\n` +
-                `Gostaria de receber mais informações e uma proposta personalizada!`
-            );
-            
-            // Esconder formulário
-            document.querySelector('.form-container form').style.display = 'none';
-            
-            // Mostrar mensagem de sucesso
-            document.getElementById('successMessage').classList.add('show');
-            
-            // Redirecionar para WhatsApp com a mensagem personalizada
-            setTimeout(function() {
-                window.open(`https://wa.me/5516993830355?text=${message}`, '_blank');
-            }, 2000);
-        });
-
-        // Suavizar rolagem para âncoras
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Efeito adicional no banner principal ao passar o mouse
-        const carnivalBanner = document.getElementById('carnivalBanner');
-        carnivalBanner.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.02)';
-            this.style.transition = 'transform 0.3s ease';
-        });
-        
-        carnivalBanner.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-
-        // Efeito adicional no banner flutuante ao passar o mouse
-        floatingBanner.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-            this.style.transition = 'transform 0.3s ease';
-        });
-        
-        floatingBanner.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    </script>
 </body>
 </html>
-
