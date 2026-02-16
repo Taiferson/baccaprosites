@@ -401,6 +401,55 @@
             color: white;
         }
 
+        /* Portfolio - somente nomes visíveis */
+        .portfolio {
+            padding: 80px 0;
+            background: var(--gray-50);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 16px;
+            padding: 1.25rem 1rem;
+            text-decoration: none;
+            color: var(--dark);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+            font-weight: 500;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            background: white;
+            color: var(--primary);
+        }
+
+        .portfolio-item i {
+            color: var(--primary);
+            font-size: 1rem;
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover i {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         /* Testimonials */
         .testimonials {
             padding: 80px 0;
@@ -725,6 +774,7 @@
 
             .services-grid,
             .testimonials-grid,
+            .portfolio-grid,
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -768,6 +818,7 @@
                 <nav class="nav-menu">
                     <a href="#home" class="nav-link">Início</a>
                     <a href="#services" class="nav-link">Serviços</a>
+                    <a href="#portfolio" class="nav-link">Portfólio</a>
                     <a href="#testimonials" class="nav-link">Depoimentos</a>
                     <a href="#faq" class="nav-link">FAQ</a>
                 </nav>
@@ -893,6 +944,54 @@
                         Solicitar Orçamento
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Portfólio simplificada: apenas nomes visíveis -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle animate-fade-up">Portfólio</span>
+                <h2 class="section-title animate-fade-up">Projetos em destaque</h2>
+                <p class="section-description animate-fade-up">Conheça alguns sites que desenvolvemos (clique para visitar)</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <a href="https://ladiesboutique.com.br" target="_blank" rel="noopener noreferrer" class="portfolio-item animate-fade-up">
+                    <span>Ladies Boutique</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <a href="https://www.underarmour.com.br" target="_blank" rel="noopener noreferrer" class="portfolio-item animate-fade-up">
+                    <span>Under Armour</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <a href="https://www.morenarosa.com.br" target="_blank" rel="noopener noreferrer" class="portfolio-item animate-fade-up">
+                    <span>Morena Rosa</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <a href="https://painelzeus.com" target="_blank" rel="noopener noreferrer" class="portfolio-item animate-fade-up">
+                    <span>Zeus Play</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <a href="https://www.gigamaisfibra.com.br" target="_blank" rel="noopener noreferrer" class="portfolio-item animate-fade-up">
+                    <span>Giga Fibra</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <a href="https://taiferson.github.io/streampro/" target="_blank" rel="noopener noreferrer" class="portfolio-item animate-fade-up">
+                    <span>Stream Pro</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <a href="https://taiferson.github.io/BaccaFibra/" target="_blank" rel="noopener noreferrer" class="portfolio-item animate-fade-up">
+                    <span>Fibra Ultra</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -1038,7 +1137,7 @@
                     <div class="footer-social">
                         <a href="https://instagram.com/baccaginn1" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                         <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.linkedin.com/in/taiferson-bacagini-035881249/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/taiferson-bacagini-035881249/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -1056,6 +1155,7 @@
                     <ul class="footer-links">
                         <li><a href="#home">Início</a></li>
                         <li><a href="#services">Serviços</a></li>
+                        <li><a href="#portfolio">Portfólio</a></li>
                         <li><a href="#testimonials">Depoimentos</a></li>
                         <li><a href="#faq">FAQ</a></li>
                     </ul>
