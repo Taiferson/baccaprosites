@@ -3,259 +3,1130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BaccaProSites | Soluções Digitais Profissionais</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>BaccaProSites | Soluções Digitais</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --brand: #4f46e5;
-            --brand-light: #818cf8;
-            --bg: #ffffff;
-            --surface: #f8fafc;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --accent: #f43f5e;
-            --whatsapp: #25d366;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #60a5fa;
+            --secondary: #7c3aed;
+            --dark: #0f172a;
+            --light: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --success: #22c55e;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        
-        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
-
-        .promo-banner {
-            background: linear-gradient(90deg, var(--brand), var(--brand-light));
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.5;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
         /* Header */
-        header { padding: 25px 0; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--brand); text-decoration: none; }
-        
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        .nav-link { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        .nav-link:hover { color: var(--brand); }
-
-        .btn-header-wa {
-            background: var(--whatsapp);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 50;
+            transition: all 0.3s ease;
         }
-        .btn-header-wa:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        .header.scrolled {
+            background: white;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-whatsapp:hover {
+            background: #20bd59;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
 
         /* Hero */
-        .hero { text-align: center; padding: 80px 0 40px; }
-        .hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -2px; margin-bottom: 20px; line-height: 1.1; }
-        .hero p { color: var(--text-muted); font-size: 1.2rem; max-width: 650px; margin: 0 auto; }
+        .hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(180deg, var(--gray-50) 0%, white 100%);
+        }
 
-        /* Pricing Grid */
-        .pricing-grid {
+        .hero-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .price-card {
-            background: var(--surface);
-            padding: 45px 40px;
-            border-radius: 28px;
-            border: 1px solid #e2e8f0;
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-text h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--primary-light);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-cta {
             display: flex;
-            flex-direction: column;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            gap: 1rem;
+            margin-bottom: 3rem;
         }
 
-        .price-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--brand-light);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.06);
-            background: white;
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
         }
 
-        .price-card.featured {
-            border: 2px solid var(--brand);
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            padding: 0.875rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+
+        .hero-image {
             position: relative;
         }
 
-        .featured-tag {
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Services */
+        .services {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            color: var(--gray-500);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card.featured {
+            border: 2px solid var(--primary);
+            background: linear-gradient(180deg, white, var(--gray-50));
+        }
+
+        .featured-badge {
             position: absolute;
-            top: -14px;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--brand);
+            background: var(--gradient);
             color: white;
-            padding: 4px 18px;
-            border-radius: 20px;
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
             font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
-        .plan-name { font-weight: 800; font-size: 1.4rem; margin-bottom: 12px; }
-        .plan-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; min-height: 50px; }
-        
-        .price-value { font-size: 2.2rem; font-weight: 800; margin-bottom: 5px; color: var(--text-main); }
-        .price-label { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 35px; }
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
 
-        .features-list { list-style: none; margin-bottom: 40px; flex-grow: 1; }
-        .features-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 12px; font-size: 0.95rem; color: #475569; }
-        .features-list li::before { content: "✓"; color: #22c55e; font-weight: 900; }
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
 
-        .cta-btn {
+        .service-price {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-price small {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--gray-500);
+        }
+
+        .service-description {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        .service-features i {
+            color: var(--success);
+            font-size: 1rem;
+        }
+
+        .btn-service {
             display: block;
             text-align: center;
-            padding: 18px;
-            border-radius: 14px;
+            padding: 0.875rem;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        .btn-outline { border: 2px solid var(--brand); color: var(--brand); }
-        .btn-fill { background: var(--brand); color: white; box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2); }
-        .btn-outline:hover { background: var(--brand); color: white; }
-        .btn-fill:hover { background: var(--brand-light); transform: scale(1.02); }
+        .btn-service-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-service-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-service-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-service-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
 
         /* Testimonials */
-        .testimonials { padding: 100px 0; background: #0f172a; color: white; border-radius: 48px; margin: 0 10px; }
-        .t-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        
-        .t-card { background: rgba(255,255,255,0.03); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
-        .t-text { font-size: 1rem; line-height: 1.8; margin-bottom: 25px; color: #cbd5e1; font-style: italic; }
-        .t-user { display: flex; align-items: center; gap: 15px; }
-        .t-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, var(--brand), var(--brand-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: white; }
+        .testimonials {
+            padding: 80px 0;
+            background: var(--gray-50);
+        }
 
-        footer { text-align: center; padding: 80px 0; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid #f1f5f9; margin-top: 40px; }
-        .footer-socials { margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
-        .footer-socials a { color: var(--text-main); text-decoration: none; font-weight: 600; }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .testimonial-rating {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+        }
+
+        .author-info h4 {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--gray-500);
+            font-size: 0.875rem;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 80px 0;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--gray-50);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            padding: 0 1.25rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--gray-500);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 1.25rem 1.25rem;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-cta {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-about {
+            color: var(--gray-400);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .footer-col h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact p {
+            color: var(--gray-400);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-contact i {
+            color: var(--primary);
+            width: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+
+        /* WhatsApp Floating */
+        .floating-wa {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25d366;
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+            background: #20bd59;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-text p {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-image {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .services-grid,
+            .testimonials-grid,
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .pricing-grid { grid-template-columns: 1fr; }
-            .nav-right .nav-link { display: none; } /* Esconde Instagram no mobile para focar no WA */
+            .nav-menu {
+                display: none;
+            }
+
+            .services-grid,
+            .testimonials-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.6s ease-out forwards;
         }
     </style>
 </head>
 <body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">BaccaProSites</a>
+                
+                <nav class="nav-menu">
+                    <a href="#home" class="nav-link">Início</a>
+                    <a href="#services" class="nav-link">Serviços</a>
+                    <a href="#testimonials" class="nav-link">Depoimentos</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                </nav>
 
-    <div class="promo-banner">
-        🚀 Transforme seu negócio com um site profissional de alta conversão.
-    </div>
-
-    <div class="container">
-        <header>
-            <a href="#" class="logo">BaccaProSites</a>
-            <div class="nav-right">
-                <a href="https://instagram.com/baccaginn1" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a>
-                <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn-header-wa">Chamar no WhatsApp</a>
-            </div>
-        </header>
-
-        <section class="hero">
-            <h1>Sua presença digital levada a sério.</h1>
-            <p>Criamos estruturas robustas e páginas de vendas que trabalham por você 24 horas por dia, 7 dias por semana.</p>
-        </section>
-
-        <div class="pricing-grid">
-            <!-- Plano 1: Landing Page -->
-            <div class="price-card featured">
-                <div class="featured-tag">Mais Vendido</div>
-                <div class="plan-name">Landing Page</div>
-                <p class="plan-desc">Página única de alta conversão, ideal para campanhas de tráfego pago (Google/Meta Ads).</p>
-                <div class="price-value">R$ 500 a R$ 1.200</div>
-                <div class="price-label">Valor sob medida conforme complexidade</div>
-                <ul class="features-list">
-                    <li>Design Exclusivo e Moderno</li>
-                    <li>Foco total em Conversão (Vendas)</li>
-                    <li>Velocidade de carregamento extrema</li>
-                    <li>Configuração de Botão WhatsApp</li>
-                    <li>Integração com Analytics/Pixels</li>
-                </ul>
-                <a href="https://wa.me/5516993830355?text=Olá! Quero saber mais sobre a Landing Page." target="_blank" rel="noopener noreferrer" class="cta-btn btn-fill">Solicitar Projeto</a>
-            </div>
-
-            <!-- Plano 2: Site de Venda -->
-            <div class="price-card">
-                <div class="plan-name">Site de Venda</div>
-                <p class="plan-desc">Site institucional completo com várias páginas para empresas que buscam autoridade.</p>
-                <div class="price-value" style="font-size: 1.8rem;">Sob Orçamento</div>
-                <div class="price-label">Consulte nossos especialistas</div>
-                <ul class="features-list">
-                    <li>Múltiplas Páginas (Home, Serviços...)</li>
-                    <li>SEO Avançado (Apareça no Google)</li>
-                    <li>Blog de Conteúdo Estratégico</li>
-                    <li>Formulários de Captura de Leads</li>
-                    <li>E-mails profissionais inclusos</li>
-                </ul>
-                <a href="https://wa.me/5516993830355?text=Olá! Gostaria de um orçamento para um Site de Venda completo." target="_blank" rel="noopener noreferrer" class="cta-btn btn-outline">Solicitar Orçamento</a>
-            </div>
-
-            <!-- Plano 3: Loja E-Commerce -->
-            <div class="price-card">
-                <div class="plan-name">Loja E-Commerce</div>
-                <p class="plan-desc">Plataforma completa para venda de produtos com carrinho, frete e pagamentos online.</p>
-                <div class="price-value" style="font-size: 1.8rem;">Sob Orçamento</div>
-                <div class="price-label">Análise de projeto gratuita</div>
-                <ul class="features-list">
-                    <li>Catálogo de Produtos Ilimitado</li>
-                    <li>Checkout Seguro e Transparente</li>
-                    <li>Cálculo de Frete (Correios/Melhor Envio)</li>
-                    <li>Cupom de Desconto e Promoções</li>
-                    <li>Gestão de Estoque Simplificada</li>
-                </ul>
-                <a href="https://wa.me/5516993830355?text=Olá! Preciso de um orçamento para uma Loja Virtual." target="_blank" rel="noopener noreferrer" class="cta-btn btn-outline">Solicite seu Orçamento</a>
+                <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    Fale Conosco
+                </a>
             </div>
         </div>
+    </header>
 
-        <section class="testimonials">
-            <div class="container">
-                <h2 style="text-align: center; font-size: 2.2rem; letter-spacing: -1px;">Resultados de quem confiou</h2>
-                <div class="t-grid">
-                    <div class="t-card">
-                        <p class="t-text">"O site mudou o patamar da minha empresa. Os clientes chegam muito mais decididos a comprar depois que veem nossa Landing Page profissional."</p>
-                        <div class="t-user">
-                            <div class="t-avatar">MA</div>
-                            <div><strong>Marcos Almeida</strong><br><small>Serviços Automotivos</small></div>
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="animate-fade-up">
+                        Sua <span>presença digital</span><br>
+                        levada a sério
+                    </h1>
+                    <p class="animate-fade-up">Criamos sites profissionais que convertem visitantes em clientes. Design moderno, performance e suporte dedicado.</p>
+                    
+                    <div class="hero-cta animate-fade-up">
+                        <a href="#services" class="btn-primary">
+                            <i class="fas fa-rocket"></i>
+                            Ver Serviços
+                        </a>
+                        <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn-outline">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </a>
+                    </div>
+
+                    <div class="hero-stats animate-fade-up">
+                        <div class="stat-item">
+                            <span class="stat-number">150+</span>
+                            <span class="stat-label">Projetos Entregues</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Clientes Satisfeitos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Suporte</span>
                         </div>
                     </div>
-                    <div class="t-card">
-                        <p class="t-text">"O Bacca entendeu exatamente o que eu precisava. O site é rápido, bonito e funciona perfeitamente no celular."</p>
-                        <div class="t-user">
-                            <div class="t-avatar">SP</div>
-                            <div><strong>Sabrina Paiva</strong><br><small>Estética Avançada</small></div>
+                </div>
+
+                <div class="hero-image animate-fade-up">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Digital Solutions">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle animate-fade-up">Nossos Serviços</span>
+                <h2 class="section-title animate-fade-up">Soluções para seu negócio</h2>
+                <p class="section-description animate-fade-up">Escolha o plano ideal para alcançar seus objetivos digitais</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card featured animate-fade-up">
+                    <div class="featured-badge">Mais Popular</div>
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="service-title">Landing Page</h3>
+                    <div class="service-price">R$ 500 <small>a R$ 1.200</small></div>
+                    <p class="service-description">Página única de alta conversão para campanhas de tráfego pago</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Design exclusivo</li>
+                        <li><i class="fas fa-check-circle"></i> Otimizado para conversão</li>
+                        <li><i class="fas fa-check-circle"></i> Velocidade extrema</li>
+                        <li><i class="fas fa-check-circle"></i> Integração com Analytics</li>
+                        <li><i class="fas fa-check-circle"></i> Botão WhatsApp</li>
+                    </ul>
+                    <a href="https://wa.me/5516993830355?text=Olá! Quero saber mais sobre a Landing Page." target="_blank" rel="noopener noreferrer" class="btn-service btn-service-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        Solicitar Projeto
+                    </a>
+                </div>
+
+                <div class="service-card animate-fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="service-title">Site Institucional</h3>
+                    <div class="service-price"><small>Sob orçamento</small></div>
+                    <p class="service-description">Site completo para empresas que buscam autoridade online</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Múltiplas páginas</li>
+                        <li><i class="fas fa-check-circle"></i> SEO avançado</li>
+                        <li><i class="fas fa-check-circle"></i> Blog integrado</li>
+                        <li><i class="fas fa-check-circle"></i> Formulários de contato</li>
+                        <li><i class="fas fa-check-circle"></i> E-mails profissionais</li>
+                    </ul>
+                    <a href="https://wa.me/5516993830355?text=Olá! Gostaria de um orçamento para um Site Institucional." target="_blank" rel="noopener noreferrer" class="btn-service btn-service-outline">
+                        <i class="fab fa-whatsapp"></i>
+                        Solicitar Orçamento
+                    </a>
+                </div>
+
+                <div class="service-card animate-fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="service-title">E-Commerce</h3>
+                    <div class="service-price"><small>Sob orçamento</small></div>
+                    <p class="service-description">Loja virtual completa para vender online</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Catálogo ilimitado</li>
+                        <li><i class="fas fa-check-circle"></i> Checkout seguro</li>
+                        <li><i class="fas fa-check-circle"></i> Cálculo de frete</li>
+                        <li><i class="fas fa-check-circle"></i> Cupons de desconto</li>
+                        <li><i class="fas fa-check-circle"></i> Gestão de estoque</li>
+                    </ul>
+                    <a href="https://wa.me/5516993830355?text=Olá! Preciso de um orçamento para uma Loja Virtual." target="_blank" rel="noopener noreferrer" class="btn-service btn-service-outline">
+                        <i class="fab fa-whatsapp"></i>
+                        Solicitar Orçamento
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle animate-fade-up">Depoimentos</span>
+                <h2 class="section-title animate-fade-up">O que nossos clientes dizem</h2>
+                <p class="section-description animate-fade-up">Resultados reais de quem confiou em nosso trabalho</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate-fade-up">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"O site superou todas as expectativas! Em 2 semanas, minhas vendas aumentaram 40%. Profissionalismo impressionante."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MA</div>
+                        <div class="author-info">
+                            <h4>Marcos Almeida</h4>
+                            <p>Auto Center</p>
                         </div>
                     </div>
-                    <div class="t-card">
-                        <p class="t-text">"Minha loja virtual ficou pronta antes do prazo. O treinamento que recebi para cadastrar os produtos foi essencial."</p>
-                        <div class="t-user">
-                            <div class="t-avatar">FL</div>
-                            <div><strong>Felipe Lima</strong><br><small>E-commerce de Eletrônicos</small></div>
+                </div>
+
+                <div class="testimonial-card animate-fade-up">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Design moderno, rápido e exatamente como imaginei. O suporte pós-entrega é diferenciado. Recomendo!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SP</div>
+                        <div class="author-info">
+                            <h4>Sabrina Paiva</h4>
+                            <p>Clínica de Estética</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate-fade-up">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Minha loja virtual ficou pronta antes do prazo. O treinamento para gestão foi essencial para meu sucesso."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">FL</div>
+                        <div class="author-info">
+                            <h4>Felipe Lima</h4>
+                            <p>Tech Store</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer>
-            <div class="footer-socials">
-                <a href="https://instagram.com/baccaginn1" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle animate-fade-up">FAQ</span>
+                <h2 class="section-title animate-fade-up">Perguntas Frequentes</h2>
+                <p class="section-description animate-fade-up">Tire suas dúvidas sobre nossos serviços</p>
             </div>
-            <p>BaccaProSites &copy; 2024. Todos os direitos reservados.</p>
-            <p>Sediada em Franca - SP | Atendimento Nacional.</p>
-        </footer>
-    </div>
 
+            <div class="faq-grid">
+                <div class="faq-item animate-fade-up">
+                    <div class="faq-question">
+                        <span>Quanto tempo leva para desenvolver um site?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        O prazo médio é de 7 a 15 dias úteis para landing pages, e 15 a 30 dias para sites completos, dependendo da complexidade.
+                    </div>
+                </div>
+
+                <div class="faq-item animate-fade-up">
+                    <div class="faq-question">
+                        <span>Preciso ter domínio próprio?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Recomendamos domínio próprio para maior credibilidade. Podemos auxiliar na compra e configuração do seu domínio e hospedagem.
+                    </div>
+                </div>
+
+                <div class="faq-item animate-fade-up">
+                    <div class="faq-question">
+                        <span>Oferecem suporte após a entrega?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Sim! Oferecemos 30 dias de garantia e suporte para ajustes, além de planos de manutenção contínua.
+                    </div>
+                </div>
+
+                <div class="faq-item animate-fade-up">
+                    <div class="faq-question">
+                        <span>O site será otimizado para celular?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Todos nossos sites são 100% responsivos, garantindo experiência perfeita em smartphones, tablets e computadores.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content animate-fade-up">
+                <h2 class="cta-title">Pronto para começar?</h2>
+                <p class="cta-text">Entre em contato agora mesmo e receba um orçamento personalizado para seu projeto.</p>
+                <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn-cta">
+                    <i class="fab fa-whatsapp"></i>
+                    Falar com Especialista
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="#" class="footer-logo">BaccaProSites</a>
+                    <p class="footer-about">Transformando negócios através de soluções digitais inovadoras e de alta performance.</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/baccaginn1" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.linkedin.com/in/taiferson-bacagini-035881249/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Serviços</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Landing Page</a></li>
+                        <li><a href="#services">Site Institucional</a></li>
+                        <li><a href="#services">E-Commerce</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#testimonials">Depoimentos</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Contato</h4>
+                    <div class="footer-contact">
+                        <p><i class="fab fa-whatsapp"></i> (16) 99383-0355</p>
+                        <p><i class="far fa-envelope"></i> baccaginnit@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Franca - SP</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 BaccaProSites. Todos os direitos reservados. Atendimento Nacional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="floating-wa">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Header scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Year in footer
+        document.querySelector('.footer-bottom p').innerHTML = `&copy; ${new Date().getFullYear()} BaccaProSites. Todos os direitos reservados. Atendimento Nacional.`;
+    </script>
 </body>
 </html>
