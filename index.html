@@ -2,977 +2,1162 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Taiferson Bacca · Estratégia Digital</title>
-    <!-- FAVICON ATUALIZADO -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2339FF14' /%3E%3Cpath d='M35 30 L65 30 L65 45 L45 45 L45 55 L65 55 L65 70 L35 70 Z' fill='white' /%3E%3C/svg%3E">
-    <!-- FONT AWESOME 6 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaccaDev | Premium E-commerce Solutions</title>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- GOOGLE FONT INTER -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Inter e Clash Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1a1a1a;
-            line-height: 1.5;
+            background: #0a0f1e;
+            color: #ffffff;
+            line-height: 1.6;
             overflow-x: hidden;
-            width: 100%;
         }
+
+        /* Efeitos de cursor personalizado */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f97316;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+            backdrop-filter: blur(2px);
+        }
+
         .container {
-            max-width: 1280px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 24px;
-            width: 100%;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
         }
 
-        /* ===== PALETA PROFISSIONAL ===== */
-        :root {
-            --pure-white: #ffffff;
-            --off-white: #f8fafc;
-            --light-gray: #f1f5f9;
-            --medium-gray: #e2e8f0;
-            --dark-gray: #334155;
-            --slate: #0f172a;
-            --neon-green: #39FF14;
-            --green-dark: #00a86b;
-            --green-soft: #dcfce7;
-            --border-light: #e9edf2;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        /* Tipografia Premium */
+        h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff 0%, #f97316 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleGlow 3s ease-in-out infinite;
         }
 
-        /* ===== TIPOGRAFIA ===== */
-        h1, h2, h3 {
+        @keyframes titleGlow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(249,115,22,0.3)); }
+            50% { filter: drop-shadow(0 0 40px rgba(249,115,22,0.6)); }
+        }
+
+        h2 {
+            font-size: 3.5rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            line-height: 1.2;
-            color: var(--slate);
-        }
-        .section-title {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--slate);
-        }
-        .section-title span {
-            color: var(--green-dark);
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             position: relative;
             display: inline-block;
         }
-        .section-title span::after {
+
+        h2::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -10px;
             left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--neon-green);
-            border-radius: 4px;
-        }
-        .section-sub {
-            text-align: center;
-            color: var(--dark-gray);
-            font-size: 1.125rem;
-            max-width: 700px;
-            margin: 0 auto 3rem;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #f97316, transparent);
+            border-radius: 2px;
+            animation: lineWidth 3s ease-in-out infinite;
         }
 
-        /* ===== BOTÕES PROFISSIONAIS ===== */
-        .btn-primary {
-            background: var(--slate);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 1.125rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            border: 2px solid transparent;
-            transition: all 0.2s;
-            box-shadow: var(--shadow-sm);
-        }
-        .btn-primary:hover {
-            background: var(--green-dark);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--medium-gray);
-            color: var(--dark-gray);
-            padding: 1rem 2.5rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 1.125rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .btn-outline:hover {
-            border-color: var(--green-dark);
-            color: var(--green-dark);
-            background: var(--green-soft);
+        @keyframes lineWidth {
+            0%, 100% { width: 100px; opacity: 1; }
+            50% { width: 200px; opacity: 0.7; }
         }
 
-        /* ===== HERO SECTION ===== */
-        .hero {
-            background: linear-gradient(135deg, var(--off-white) 0%, var(--pure-white) 100%);
-            padding: 4rem 0 5rem;
-            border-bottom: 1px solid var(--border-light);
-        }
-        .hero-grid {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            flex-wrap: wrap;
-        }
-        .hero-content {
-            flex: 1 1 450px;
-        }
-        .hero-badge {
-            background: var(--green-soft);
-            color: var(--green-dark);
-            padding: 0.5rem 1.5rem;
-            border-radius: 60px;
+        h3 {
+            font-size: 1.8rem;
             font-weight: 600;
-            font-size: 0.875rem;
-            display: inline-block;
-            margin-bottom: 2rem;
-            border: 1px solid var(--neon-green);
+            margin-bottom: 1rem;
+            color: #ffffff;
         }
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--slate);
+
+        p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
-        .hero-highlight {
-            font-size: 1.25rem;
-            color: var(--dark-gray);
-            border-left: 4px solid var(--neon-green);
-            padding-left: 1.5rem;
-            margin: 2rem 0;
-            font-weight: 400;
-            line-height: 1.6;
-        }
-        .hero-image {
-            flex: 1 1 380px;
-            display: flex;
-            justify-content: center;
-        }
-        .profile-frame {
-            width: 360px;
-            height: 360px;
-            border-radius: 30% 70% 40% 60% / 40% 40% 60% 60%;
-            background: linear-gradient(145deg, var(--neon-green), var(--green-dark));
-            padding: 4px;
-            box-shadow: var(--shadow-md);
+
+        /* Seções com parallax */
+        .section {
+            padding: 140px 0;
+            position: relative;
             overflow: hidden;
         }
-        .logo-container {
-            width: 100%;
-            height: 100%;
-            background: white;
-            border-radius: inherit;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .logo-icon {
-            font-size: 5rem;
-            color: var(--green-dark);
-            margin-bottom: 0.5rem;
-        }
-        .logo-text {
-            font-weight: 800;
-            font-size: 2.2rem;
-            color: var(--slate);
-            letter-spacing: 1px;
-        }
-        .logo-sub {
-            font-size: 0.9rem;
-            color: var(--dark-gray);
-            font-weight: 500;
-            letter-spacing: 2px;
-        }
-        .logo-badge {
-            position: absolute;
-            bottom: 30px;
-            right: 30px;
-            background: var(--slate);
-            color: white;
-            padding: 0.25rem 1rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            box-shadow: var(--shadow-sm);
-        }
 
-        /* ===== SOCIAL PROOF ===== */
-        .social-proof {
-            display: flex;
-            gap: 2rem;
-            margin: 3rem 0 0;
-            flex-wrap: wrap;
-        }
-        .proof-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--pure-white);
-            padding: 0.75rem 1.5rem;
-            border-radius: 60px;
-            border: 1px solid var(--medium-gray);
-            box-shadow: var(--shadow-sm);
-        }
-        .proof-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--green-dark);
-        }
-
-        /* ===== PAIN SECTION ===== */
-        .pain-section {
-            background: var(--off-white);
-            border-radius: 3rem;
-            padding: 4rem 3rem;
-            margin: 5rem 0;
-            border: 1px solid var(--medium-gray);
-        }
-        .pain-grid {
-            display: flex;
-            gap: 3rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .pain-text {
-            flex: 1;
-        }
-        .pain-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-        .pain-list {
-            list-style: none;
-        }
-        .pain-list li {
-            font-size: 1.125rem;
-            margin: 1.5rem 0;
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            color: var(--dark-gray);
-        }
-        .pain-list i {
-            color: var(--green-dark);
-            font-size: 1.5rem;
-        }
-
-        /* ===== CARDS DE SERVIÇOS PRINCIPAIS (Landing, Site, Combo) ===== */
-        .pricing-revolution {
-            margin: 6rem 0;
-        }
-        .pricing-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .card-ultra {
-            background: var(--pure-white);
-            border: 1px solid var(--medium-gray);
-            border-radius: 2.5rem;
-            padding: 2.5rem 2rem;
-            flex: 1 1 300px;
-            max-width: 340px;
-            transition: all 0.3s;
-            position: relative;
-            box-shadow: var(--shadow-sm);
-        }
-        .card-ultra:hover {
-            border-color: var(--neon-green);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
-        }
-        .card-ultra.popular {
-            border: 2px solid var(--neon-green);
-            box-shadow: 0 10px 25px -5px rgba(57, 255, 20, 0.2);
-        }
-        .popular-tag-mega {
-            background: var(--slate);
-            color: white;
-            position: absolute;
-            top: -1rem;
-            left: 2rem;
-            padding: 0.4rem 1.5rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 0.875rem;
-        }
-        .card-ultra h3 {
-            font-size: 1.5rem;
-            color: var(--slate);
-        }
-        .price-mega {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--slate);
-            margin: 1.5rem 0 1rem;
-        }
-        .price-mega small {
-            font-size: 1rem;
-            color: var(--dark-gray);
-            font-weight: 400;
-        }
-        .feature-mega {
-            list-style: none;
-            margin: 2rem 0;
-        }
-        .feature-mega li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            gap: 0.75rem;
-            font-size: 1rem;
-            color: var(--dark-gray);
-        }
-        .feature-mega i {
-            color: var(--green-dark);
-            font-size: 1.1rem;
-        }
-        .btn-card-mega {
-            background: transparent;
-            border: 2px solid var(--medium-gray);
-            color: var(--dark-gray);
-            width: 100%;
-            padding: 1rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            margin-top: 1.5rem;
-        }
-        .btn-card-mega:hover {
-            border-color: var(--green-dark);
-            color: var(--green-dark);
-            background: var(--green-soft);
-        }
-
-        /* ===== NOVA SEÇÃO E-COMMERCE COM 3 PLANOS ===== */
-        .ecommerce-section {
-            margin: 6rem 0;
-        }
-        .ecommerce-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .card-ecom {
-            background: var(--pure-white);
-            border: 1px solid var(--medium-gray);
-            border-radius: 2.5rem;
-            padding: 2.2rem 1.8rem;
-            flex: 1 1 280px;
-            max-width: 340px;
-            transition: all 0.3s;
-            position: relative;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-        }
-        .card-ecom:hover {
-            border-color: var(--neon-green);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
-        }
-        .ecom-tag {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--green-dark);
-            background: var(--green-soft);
-            padding: 0.3rem 1rem;
-            border-radius: 60px;
-            display: inline-block;
-            margin-bottom: 1rem;
-            border: 1px solid var(--neon-green);
-            align-self: flex-start;
-        }
-        .card-ecom h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--slate);
-            margin-bottom: 0.5rem;
-        }
-        .ecom-sub {
-            font-size: 0.95rem;
-            color: var(--dark-gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
-            min-height: 3.2rem;
-        }
-        .ecom-price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--slate);
-            margin: 1rem 0 0.5rem;
-        }
-        .ecom-price small {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--dark-gray);
-        }
-        .feature-ecom {
-            list-style: none;
-            margin: 1.5rem 0;
-            flex-grow: 1;
-        }
-        .feature-ecom li {
-            padding: 0.6rem 0;
-            display: flex;
-            gap: 0.75rem;
-            font-size: 0.95rem;
-            color: var(--dark-gray);
-            border-bottom: 1px dashed var(--border-light);
-        }
-        .feature-ecom i {
-            color: var(--green-dark);
-            font-size: 1rem;
-            min-width: 1.2rem;
-        }
-        .btn-ecom {
-            background: var(--slate);
-            color: white;
-            width: 100%;
-            padding: 0.9rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            border: 2px solid transparent;
-            margin-top: 1rem;
-        }
-        .btn-ecom:hover {
-            background: var(--green-dark);
-            transform: scale(1.02);
-        }
-
-        /* ===== SERVIÇOS ===== */
-        .services-mega {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0 5rem;
-        }
-        .service-mega-card {
-            background: var(--pure-white);
-            border: 1px solid var(--medium-gray);
-            border-radius: 2rem;
-            padding: 2rem 1.5rem;
-            transition: all 0.2s;
-            box-shadow: var(--shadow-sm);
-        }
-        .service-mega-card:hover {
-            border-color: var(--neon-green);
-            box-shadow: var(--shadow-md);
-        }
-        .service-icon {
-            width: 4rem;
-            height: 4rem;
-            background: var(--green-soft);
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--green-dark);
-            margin-bottom: 1.5rem;
-        }
-        .service-mega-card h4 {
-            font-size: 1.25rem;
-            color: var(--slate);
-            margin-bottom: 0.5rem;
-        }
-        .service-mega-card p {
-            color: var(--dark-gray);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* ===== DEPOIMENTOS ===== */
-        .testimonials-mega {
-            background: var(--off-white);
-            border-radius: 3rem;
-            padding: 5rem 3rem;
-            margin: 5rem 0;
-            border: 1px solid var(--medium-gray);
-        }
-        .testimonials-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 3rem;
-        }
-        .test-mega {
-            background: var(--pure-white);
-            border: 1px solid var(--medium-gray);
-            border-radius: 2rem;
-            padding: 2rem;
-            flex: 1 1 280px;
-            max-width: 320px;
-            box-shadow: var(--shadow-sm);
-        }
-        .stars-mega {
-            color: #fbbf24;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .test-mega p {
-            font-size: 1rem;
-            font-style: italic;
-            color: var(--dark-gray);
-            line-height: 1.6;
-        }
-        .test-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        .author-avatar {
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            background: var(--green-soft);
-            border: 2px solid var(--neon-green);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--green-dark);
-        }
-        .test-author strong {
-            color: var(--slate);
-            font-size: 1rem;
-        }
-        .test-author span {
-            color: var(--dark-gray);
-            font-size: 0.875rem;
-        }
-
-        /* ===== GARANTIA ===== */
-        .ultimatum {
-            background: var(--off-white);
-            border: 1px solid var(--medium-gray);
-            border-radius: 3rem;
-            padding: 4rem 3rem;
-            text-align: center;
-            margin: 5rem 0;
-        }
-        .ultimatum h2 {
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-        }
-        .guarantee-badge {
-            background: var(--green-soft);
-            border: 2px solid var(--neon-green);
-            color: var(--green-dark);
-            padding: 0.75rem 2rem;
-            border-radius: 60px;
-            display: inline-block;
-            font-weight: 600;
-            margin: 1.5rem 0;
-        }
-
-        /* ===== CTA FINAL ===== */
-        .cta-epic {
-            background: linear-gradient(135deg, var(--slate) 0%, #1e293b 100%);
-            border-radius: 3rem;
-            padding: 5rem 3rem;
-            text-align: center;
-            margin: 5rem 0;
-            color: white;
-        }
-        .cta-epic h2 {
-            font-size: 3.5rem;
-            color: white;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .cta-epic h2 span {
-            color: var(--neon-green);
-        }
-        .btn-epic {
-            background: var(--neon-green);
-            color: var(--slate);
-            padding: 1.5rem 4rem;
-            border-radius: 60px;
-            font-size: 2rem;
-            font-weight: 700;
-            text-decoration: none;
+        /* Botões Premium */
+        .btn {
             display: inline-flex;
             align-items: center;
-            gap: 1rem;
-            box-shadow: 0 10px 25px -5px rgba(57, 255, 20, 0.3);
-            margin: 2.5rem 0 1.5rem;
-            transition: all 0.2s;
-            border: 2px solid transparent;
-        }
-        .btn-epic:hover {
-            background: white;
-            color: var(--slate);
-            transform: scale(1.02);
-        }
-        .cta-epic p {
-            color: #cbd5e1;
-            font-size: 1.125rem;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            letter-spacing: 0.5px;
         }
 
-        /* ===== WHATSAPP FLUTUANTE ===== */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 999;
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: -1;
         }
-        .floating-whatsapp a {
-            background: var(--slate);
-            color: white;
-            width: 4rem;
-            height: 4rem;
+
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f97316, #fdba74);
+            color: #ffffff;
+            box-shadow: 0 10px 30px rgba(249,115,22,0.4);
+            animation: btnPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes btnPulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(249,115,22,0.4); }
+            50% { box-shadow: 0 20px 40px rgba(249,115,22,0.6); }
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(249,115,22,0.6);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #ffffff;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(37,211,102,0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(249,115,22,0.5);
+            color: #ffffff;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            border-color: #f97316;
+            background: rgba(249,115,22,0.1);
+            transform: translateY(-5px);
+        }
+
+        /* Hero Section Premium */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle at 30% 50%, rgba(249,115,22,0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero .subhead {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin: 30px 0 40px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+            border-left: 4px solid #f97316;
+            padding-left: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* 3D Floating Elements */
+        .floating-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #f97316, #fdba74);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.2;
+            animation: float 10s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .shape-1 {
+            top: 10%;
+            right: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            bottom: 10%;
+            left: 5%;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #1a4d8c, #f97316);
+            animation-delay: -3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        /* Grids Modernos */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .grid-6 {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 30px;
+        }
+
+        /* Cards Ultra Modernos */
+        .card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 50px 40px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f97316, #fdba74, #f97316, transparent);
+            transform: translateX(-100%);
+            transition: transform 1s;
+        }
+
+        .card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .card:hover {
+            transform: translateY(-20px) scale(1.02);
+            border-color: rgba(249,115,22,0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 2px rgba(249,115,22,0.1);
+        }
+
+        /* Animações dos Cards */
+        .card:nth-child(1) { animation: cardFloat 5s ease-in-out infinite; }
+        .card:nth-child(2) { animation: cardFloat 5s ease-in-out infinite 1s; }
+        .card:nth-child(3) { animation: cardFloat 5s ease-in-out infinite 2s; }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .card.plan-pro {
+            background: linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(255,255,255,0.03) 100%);
+            border: 2px solid #f97316;
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .card.plan-pro:hover {
+            transform: scale(1.07) translateY(-20px);
+        }
+
+        .badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #f97316, #fdba74);
+            color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            animation: badgeGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes badgeGlow {
+            0%, 100% { box-shadow: 0 0 20px #f97316; }
+            50% { box-shadow: 0 0 40px #f97316; }
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            margin: 30px 0 40px;
+            flex-grow: 1;
+        }
+
+        .feature-list li {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+        }
+
+        .feature-list i {
+            color: #f97316;
+            width: 24px;
+            font-size: 1.2rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 30px 0 20px;
+            background: linear-gradient(135deg, #ffffff, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .price small {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.7;
+            -webkit-text-fill-color: rgba(255,255,255,0.7);
+        }
+
+        /* Steps Premium */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .step-premium {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(249,115,22,0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .step-premium:hover::before {
+            opacity: 1;
+        }
+
+        .step-premium:hover {
+            transform: translateY(-10px);
+            border-color: #f97316;
+        }
+
+        .step-number-premium {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f97316, #fdba74);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            box-shadow: var(--shadow-md);
-            transition: all 0.2s;
-            border: 2px solid var(--neon-green);
-        }
-        .floating-whatsapp a:hover {
-            background: var(--neon-green);
-            color: var(--slate);
-            transform: scale(1.1);
+            font-weight: 800;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: stepPulse 2s ease-in-out infinite;
         }
 
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--off-white);
-            border-top: 1px solid var(--medium-gray);
-            padding: 4rem 0 2rem;
-            text-align: center;
+        @keyframes stepPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.4); }
+            50% { box-shadow: 0 0 0 20px rgba(249,115,22,0); }
         }
-        .footer-logo {
-            display: flex;
-            flex-direction: column;
+
+        .step-number-premium.special {
+            background: linear-gradient(135deg, #f97316, #1a4d8c);
+        }
+
+        /* Feature Tags */
+        .feature-tag {
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            display: inline-flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            color: #ffffff;
+            transition: all 0.3s;
+            font-size: 1.1rem;
         }
-        .footer-logo img {
-            width: 5rem;
-            height: 5rem;
-            border-radius: 50%;
-            border: 3px solid var(--neon-green);
-            object-fit: cover;
+
+        .feature-tag:hover {
+            border-color: #f97316;
+            transform: scale(1.05) translateY(-5px);
+            background: rgba(249,115,22,0.1);
+            box-shadow: 0 10px 30px rgba(249,115,22,0.2);
         }
-        .footer-logo h2 {
+
+        .feature-tag i {
+            color: #f97316;
+        }
+
+        /* FAQ Section Premium */
+        .faq-container {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 30px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #f97316;
+            box-shadow: 0 10px 30px rgba(249,115,22,0.1);
+            transform: translateX(10px);
+        }
+
+        .faq-question {
+            padding: 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .faq-question i {
+            color: #f97316;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(249,115,22,0.02);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 30px 30px;
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+
+        .faq-answer ul {
+            margin-top: 15px;
+            list-style: none;
+        }
+
+        .faq-answer li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .faq-answer li i {
+            color: #f97316;
+            font-size: 1rem;
+        }
+
+        /* Contato Premium */
+        .contact-grid-premium {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px 50px;
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(10px);
+            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-decoration: none;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(249,115,22,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .contact-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .contact-card:hover {
+            transform: translateX(20px) scale(1.05);
+            border-color: #f97316;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .contact-card i {
+            color: #f97316;
             font-size: 2rem;
-            color: var(--slate);
-        }
-        .footer-logo span {
-            color: var(--green-dark);
-        }
-        footer p {
-            color: var(--dark-gray);
-        }
-        footer hr {
-            max-width: 200px;
-            margin: 2rem auto;
-            border: none;
-            border-top: 2px solid var(--medium-gray);
+            animation: iconRing 3s ease-in-out infinite;
         }
 
-        /* ===== RESPONSIVIDADE ===== */
-        @media (max-width: 1024px) {
-            .hero-content h1 { font-size: 3rem; }
-            .section-title { font-size: 2.5rem; }
-            .cta-epic h2 { font-size: 2.8rem; }
+        @keyframes iconRing {
+            0%, 100% { transform: rotate(0); }
+            20% { transform: rotate(15deg); }
+            40% { transform: rotate(-15deg); }
+            60% { transform: rotate(0); }
         }
 
-        @media (max-width: 900px) {
-            .hero-grid { flex-direction: column; text-align: center; }
-            .hero-content { text-align: center; }
-            .hero-badge { margin-left: auto; margin-right: auto; }
-            .hero-highlight { text-align: left; }
-            .social-proof { justify-content: center; }
+        .contact-card span {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        /* Footer Premium */
+        .footer-premium {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0f1e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 1s, visibility 1s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-text {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f97316, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: loaderPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes loaderPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsivo */
+        @media (max-width: 1200px) {
+            h1 { font-size: 4rem; }
+            h2 { font-size: 3rem; }
+            .grid-3, .steps-container { grid-template-columns: repeat(2, 1fr); }
+            .grid-6 { grid-template-columns: repeat(3, 1fr); }
         }
 
         @media (max-width: 768px) {
-            .container { padding: 0 1.5rem; }
-            .section-title { font-size: 2.2rem; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .profile-frame { width: 300px; height: 300px; }
-            .btn-primary, .btn-outline { width: 100%; max-width: 350px; margin: 0.5rem auto; }
-            .pain-section { border-radius: 2rem; padding: 3rem 1.5rem; }
-            .pain-text h2 { font-size: 2rem; }
-            .testimonials-mega { border-radius: 2rem; padding: 3rem 1.5rem; }
-            .cta-epic { border-radius: 2rem; padding: 3rem 1.5rem; }
-            .btn-epic { padding: 1.2rem 2.5rem; font-size: 1.6rem; }
-        }
-
-        @media (max-width: 576px) {
-            .hero-content h1 { font-size: 2rem; }
-            .hero-highlight { font-size: 1rem; }
-            .proof-item { width: 100%; justify-content: center; }
-            .section-title { font-size: 1.8rem; }
-            .profile-frame { width: 260px; height: 260px; }
-            .logo-icon { font-size: 4rem; }
-            .logo-text { font-size: 1.8rem; }
-            .price-mega { font-size: 2.5rem; }
-            .service-mega-card { padding: 1.5rem; }
-            .cta-epic h2 { font-size: 2rem; }
-            .btn-epic { font-size: 1.3rem; padding: 1rem 2rem; }
-            .floating-whatsapp a { width: 3.5rem; height: 3.5rem; font-size: 1.8rem; }
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+            .grid-2, .grid-3, .steps-container, .grid-6 { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; }
+            .btn { width: 100%; }
+            .card.plan-pro { transform: scale(1); }
+            .faq-question h3 { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HERO -->
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-text">BaccaDev</div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Floating Shapes -->
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <div class="hero-badge"><i class="fas fa-chart-line" style="margin-right: 0.5rem;"></i> Estratégia Digital</div>
-                <h1>Transforme sua presença online em <span style="color: var(--green-dark);">resultados reais</span></h1>
-                <p class="hero-highlight">Taiferson Bacca · Especialista em conversão. Mais de R$5 milhões faturados para clientes com soluções digitais de alta performance.</p>
-                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
-                    <a href="https://wa.me/5516993830355?text=QUERO%20FATURAR%20ALTO%20COM%20BACCA" class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Falar com Bacca</a>
-                    <a href="#precos" class="btn-outline"><i class="fas fa-chevron-down"></i> Conhecer planos</a>
-                </div>
-                <div class="social-proof">
-                    <span class="proof-item"><span class="proof-number">+70</span> projetos</span>
-                    <span class="proof-item"><span class="proof-number">R$5M</span> faturados</span>
-                    <span class="proof-item"><span class="proof-number">100%</span> entregues</span>
+        <div class="container">
+            <div class="hero-content reveal">
+                <h1>Crie sua loja virtual profissional e comece a vender hoje</h1>
+                <p class="subhead">Loja online completa com pagamentos integrados, frete automático e estrutura premium — sem mensalidade e sem taxa sobre vendas.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i> Quero minha loja agora
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+                    </a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="profile-frame">
-                    <div class="logo-container">
-                        <i class="fas fa-bolt logo-icon"></i>
-                        <div class="logo-text">BACCA</div>
-                        <div class="logo-sub">ESTRATÉGIA DIGITAL</div>
-                        <div class="logo-badge">TOP 1%</div>
+        </div>
+    </section>
+
+    <!-- Problema/Solução -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div class="reveal">
+                    <h2>Você quer vender online, mas...</h2>
+                    <ul class="feature-list" style="font-size: 1.2rem;">
+                        <li><i class="fas fa-times-circle"></i> Não sabe por onde começar</li>
+                        <li><i class="fas fa-times-circle"></i> Plataformas são caras ou complicadas</li>
+                        <li><i class="fas fa-times-circle"></i> Configurar pagamento e frete parece difícil</li>
+                        <li><i class="fas fa-times-circle"></i> Falta suporte e orientação</li>
+                    </ul>
+                    <p style="font-size: 1.3rem; margin-top: 40px;"><strong>A solução é simples:</strong> nós cuidamos de tudo para você.</p>
+                </div>
+                <div class="card reveal" style="padding: 60px;">
+                    <h3 style="color: #f97316; font-size: 2.2rem;">Nós criamos sua loja completa</h3>
+                    <p style="font-size: 1.2rem;">Pagamentos, frete, layout, domínio, segurança e suporte. Você só precisa vender.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recursos -->
+    <section class="section">
+        <div class="container">
+            <h2 class="reveal" style="text-align: center; display: block;">Tudo que você precisa em um só lugar</h2>
+            <div class="grid-6" style="margin-top: 60px;">
+                <div class="feature-tag reveal"><i class="fas fa-check-circle"></i> Pagamentos</div>
+                <div class="feature-tag reveal"><i class="fas fa-check-circle"></i> Frete automático</div>
+                <div class="feature-tag reveal"><i class="fas fa-check-circle"></i> Layout profissional</div>
+                <div class="feature-tag reveal"><i class="fas fa-check-circle"></i> Domínio próprio</div>
+                <div class="feature-tag reveal"><i class="fas fa-check-circle"></i> SSL grátis</div>
+                <div class="feature-tag reveal"><i class="fas fa-check-circle"></i> Suporte humano</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos -->
+    <section class="section">
+        <div class="container">
+            <h2 class="reveal" style="text-align: center; display: block;">Escolha o plano ideal para o seu negócio</h2>
+            <div class="grid-3" style="margin-top: 60px;">
+                <!-- Start -->
+                <div class="card reveal">
+                    <span class="plan-name" style="font-size: 2rem;">Start Store</span>
+                    <p style="color: rgba(255,255,255,0.7);">Para começar com o pé direito</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Até 50 produtos</li>
+                        <li><i class="fas fa-check"></i> Loja online completa</li>
+                        <li><i class="fas fa-check"></i> Subdomínio incluso</li>
+                        <li><i class="fas fa-check"></i> Pix, boleto e cartão</li>
+                        <li><i class="fas fa-check"></i> App de vendas</li>
+                        <li><i class="fas fa-check"></i> Sem taxa sobre vendas</li>
+                    </ul>
+                    <div class="price">R$ 997 <small>desenvolvimento</small></div>
+                    <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%;">Quero este plano</a>
+                </div>
+
+                <!-- Pro (Mais vendido) -->
+                <div class="card plan-pro reveal">
+                    <div class="badge">⭐ Mais vendido</div>
+                    <span class="plan-name" style="font-size: 2rem;">Pro Store</span>
+                    <p style="opacity: 0.9;">Para quem quer crescer com estrutura</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Até 150 produtos</li>
+                        <li><i class="fas fa-check"></i> Domínio próprio incluso</li>
+                        <li><i class="fas fa-check"></i> SSL grátis</li>
+                        <li><i class="fas fa-check"></i> 7 layouts exclusivos</li>
+                        <li><i class="fas fa-check"></i> +20 meios de pagamento</li>
+                        <li><i class="fas fa-check"></i> +30 opções de envio</li>
+                    </ul>
+                    <div class="price">R$ 1.997 <small>desenvolvimento</small></div>
+                    <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn" style="background: #ffffff; color: #f97316; width: 100%;">Quero este plano</a>
+                </div>
+
+                <!-- Elite -->
+                <div class="card reveal">
+                    <span class="plan-name" style="font-size: 2rem;">Elite Store</span>
+                    <p style="color: rgba(255,255,255,0.7);">Para escalar suas vendas</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Produtos ilimitados</li>
+                        <li><i class="fas fa-check"></i> Domínio + SSL grátis</li>
+                        <li><i class="fas fa-check"></i> Atendimento online</li>
+                        <li><i class="fas fa-check"></i> Ações em massa</li>
+                        <li><i class="fas fa-check"></i> Filtros inteligentes</li>
+                        <li><i class="fas fa-check"></i> Pagamentos avançados</li>
+                    </ul>
+                    <div class="price">R$ 2.997 <small>desenvolvimento</small></div>
+                    <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%;">Quero este plano</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="section">
+        <div class="container">
+            <h2 class="reveal" style="text-align: center; display: block;">Como funciona</h2>
+            <div class="steps-container">
+                <div class="step-premium reveal">
+                    <div class="step-number-premium">1</div>
+                    <h3>Você escolhe o plano</h3>
+                </div>
+                <div class="step-premium reveal">
+                    <div class="step-number-premium">2</div>
+                    <h3>Combinamos os detalhes</h3>
+                </div>
+                <div class="step-premium reveal">
+                    <div class="step-number-premium">3</div>
+                    <h3>Suporte dedicado</h3>
+                </div>
+                <div class="step-premium reveal">
+                    <div class="step-number-premium">4</div>
+                    <h3>Você envia os produtos</h3>
+                </div>
+                <div class="step-premium reveal">
+                    <div class="step-number-premium">5</div>
+                    <h3>Desenvolvemos sua loja</h3>
+                </div>
+                <div class="step-premium reveal">
+                    <div class="step-number-premium">6</div>
+                    <h3>Entregamos pronta</h3>
+                </div>
+                <div class="step-premium reveal">
+                    <div class="step-number-premium special">⚡</div>
+                    <h3>Suporte vitalício</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ - Dúvidas Frequentes -->
+    <section class="section">
+        <div class="container">
+            <h2 class="reveal" style="text-align: center; display: block;">Dúvidas Frequentes</h2>
+            <p class="reveal" style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">Tire todas as suas dúvidas sobre nosso serviço</p>
+            
+            <div class="faq-container">
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Quanto tempo leva para ficar pronto?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O prazo médio de entrega é de 5 a 7 dias úteis após o recebimento de todos os materiais (logo, textos e imagens dos produtos). Planos superiores têm prioridade na produção.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Preciso pagar mensalidade?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Não!</strong> Você paga apenas o desenvolvimento único. Não cobramos mensalidade e nem taxa sobre vendas. A plataforma é sua para sempre!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Posso usar meu próprio domínio?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Nos planos Pro e Elite o domínio próprio já está incluso. No plano Start você pode usar um subdomínio ou adquirir seu domínio separadamente.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Quais meios de pagamento são aceitos?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Trabalhamos com os principais meios de pagamento:</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Pix (pagamento instantâneo)</li>
+                            <li><i class="fas fa-check"></i> Cartões de crédito (todas bandeiras)</li>
+                            <li><i class="fas fa-check"></i> Boleto bancário</li>
+                            <li><i class="fas fa-check"></i> Link de pagamento</li>
+                            <li><i class="fas fa-check"></i> Parcelamento sem juros</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Como funciona o suporte?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oferecemos suporte dedicado via WhatsApp em horário comercial. Para planos Elite, temos suporte prioritário 24h e atendimento personalizado.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Posso mudar de plano depois?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Você pode fazer upgrade a qualquer momento. Pagamos apenas a diferença para o plano superior e implementamos as novas funcionalidades.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Preciso ter conhecimento técnico?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não! Cuidamos de toda parte técnica: configuração, design, pagamentos, frete e segurança. Você só precisa enviar fotos e descrições dos produtos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Como começo?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>É simples: escolha um plano, entre em contato pelo WhatsApp, combinamos os detalhes e começamos o desenvolvimento da sua loja imediatamente!</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROBLEMA -->
-    <div class="container pain-section">
-        <div class="pain-grid">
-            <div class="pain-text">
-                <h2>Por que <span>a maioria dos sites</span> não gera vendas?</h2>
-                <ul class="pain-list">
-                    <li><i class="fas fa-times-circle"></i> Design genérico que não transmite credibilidade</li>
-                    <li><i class="fas fa-times-circle"></i> Ausência de estratégias de conversão</li>
-                    <li><i class="fas fa-times-circle"></i> Performance lenta e experiência mobile deficiente</li>
-                    <li><i class="fas fa-times-circle"></i> Call-to-action ineficazes</li>
-                </ul>
-            </div>
-            <div style="flex:1; text-align:center;">
-                <i class="fas fa-chart-line" style="font-size: 10rem; color: var(--green-dark); opacity:0.2;"></i>
-            </div>
-        </div>
-    </div>
-
-    <!-- PLANOS PRINCIPAIS: LANDING PAGE / SITE (sem painel) / COMBO ESTRATÉGICO -->
-    <div id="precos" class="container pricing-revolution">
-        <h2 class="section-title">Soluções <span>estratégicas</span> para seu negócio</h2>
-        <p class="section-sub">Planos estruturados para gerar conversão e autoridade digital</p>
-        <div class="pricing-cards">
-            <!-- Landing Page -->
-            <div class="card-ultra">
-                <h3>Landing Page</h3>
-                <div class="price-mega">R$250 <small>à partir</small></div>
-                <ul class="feature-mega">
-                    <li><i class="fas fa-check"></i> Design focado em conversão</li>
-                    <li><i class="fas fa-check"></i> Copywriting persuasivo</li>
-                    <li><i class="fas fa-check"></i> Integração com WhatsApp</li>
-                    <li><i class="fas fa-check"></i> Entrega em 48h</li>
-                </ul>
-                <a href="https://wa.me/5516993830355?text=Quero%20a%20Landing%20Page" class="btn-card-mega" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar</a>
-            </div>
-            <!-- Site Institucional (sem painel adm) -->
-            <div class="card-ultra popular">
-                <div class="popular-tag-mega"><i class="fas fa-star"></i> MAIS ESCOLHIDO</div>
-                <h3>Site Institucional</h3>
-                <div class="price-mega">R$400 <small>à partir</small></div>
-                <ul class="feature-mega">
-                    <li><i class="fas fa-check"></i> Site completo 5 páginas</li>
-                    <li><i class="fas fa-check"></i> Blog + SEO otimizado</li>
-                    <li><i class="fas fa-check"></i> Design responsivo</li>
-                    <li><i class="fas fa-check"></i> Suporte prioritário 60 dias</li>
-                </ul>
-                <a href="https://wa.me/5516993830355?text=Quero%20o%20Site%20Institucional" class="btn-card-mega" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar</a>
-            </div>
-            <!-- Combo Estratégico -->
-            <div class="card-ultra">
-                <h3>Combo Estratégico</h3>
-                <div class="price-mega">R$999 <small>à partir</small></div>
-                <ul class="feature-mega">
-                    <li><i class="fas fa-check"></i> Landing + Site Institucional</li>
-                    <li><i class="fas fa-check"></i> Automação WhatsApp</li>
-                    <li><i class="fas fa-check"></i> Consultoria de conversão</li>
-                    <li><i class="fas fa-check"></i> Prioridade máxima</li>
-                </ul>
-                <a href="https://wa.me/5516993830355?text=Quero%20o%20Combo%20Estrat%C3%A9gico" class="btn-card-mega" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- NOVA SEÇÃO E-COMMERCE COM 3 OPÇÕES -->
-    <div class="container ecommerce-section">
-        <h2 class="section-title">E‑commerce que <span>escala</span> seu faturamento</h2>
-        <p class="section-sub">Planos de loja virtual desenvolvidos para cada momento do seu negócio</p>
-        <div class="ecommerce-grid">
-            <!-- Crescimento -->
-            <div class="card-ecom">
-                <span class="ecom-tag">Ideal para faturamento até R$ 15 mil/mês</span>
-                <h3>Crescimento</h3>
-                <div class="ecom-sub">Comece com o pé direito e estrutura profissional</div>
-                <div class="ecom-price">R$ <small>Solicite Orçamento</small></div>
-                <ul class="feature-ecom">
-                    <li><i class="fas fa-box"></i> 250 produtos</li>
-                    <li><i class="fas fa-chart-line"></i> 25.000 visitas/mês</li>
-                    <li><i class="fas fa-cog"></i> Integração com ERP</li>
-                    <li><i class="fas fa-headset"></i> Suporte chat e e-mail</li>
-                    <li><i class="fas fa-star"></i> Avaliações por texto</li>
-                    <li><i class="fas fa-paint-brush"></i> Customização de loja</li>
-                    <li><i class="fas fa-store"></i> Venda por marketplace</li>
-                </ul>
-                <a href="https://wa.me/5516993830355?text=Quero%20o%20plano%20Crescimento%20Ecommerce" class="btn-ecom" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar</a>
-            </div>
-            <!-- Aceleração -->
-            <div class="card-ecom">
-                <span class="ecom-tag">Perfeito para até R$ 50 mil/mês</span>
-                <h3>Aceleração</h3>
-                <div class="ecom-sub">Escale suas vendas com recursos avançados</div>
-                <div class="ecom-price">R$ <small>Solicite Orçamento</small></div>
-                <ul class="feature-ecom">
-                    <li><i class="fas fa-box"></i> 500 produtos</li>
-                    <li><i class="fas fa-chart-line"></i> 50.000 visitas/mês</li>
-                    <li><i class="fas fa-cog"></i> Integração com ERP</li>
-                    <li><i class="fas fa-headset"></i> Suporte chat e e-mail</li>
-                    <li><i class="fas fa-star"></i> Avaliações por texto</li>
-                    <li><i class="fas fa-paint-brush"></i> Customização de loja</li>
-                    <li><i class="fas fa-store"></i> Venda por marketplace</li>
-                    <li><i class="fab fa-whatsapp"></i> <strong>Suporte por WhatsApp</strong></li>
-                </ul>
-                <a href="https://wa.me/5516993830355?text=Quero%20o%20plano%20Aceleracao%20Ecommerce" class="btn-ecom" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar</a>
-            </div>
-            <!-- Expansão -->
-            <div class="card-ecom">
-                <span class="ecom-tag">Para vendas acima de R$ 50 mil/mês</span>
-                <h3>Expansão</h3>
-                <div class="ecom-sub">Alta performance e prioridade total</div>
-                <div class="ecom-price">R$ <small>Solicite Orçamento</small></div>
-                <ul class="feature-ecom">
-                    <li><i class="fas fa-box"></i> Produtos ilimitados</li>
-                    <li><i class="fas fa-chart-line"></i> 300.000 visitas/mês</li>
-                    <li><i class="fas fa-cog"></i> Integração com ERP</li>
-                    <li><i class="fas fa-headset"></i> Suporte chat e e-mail</li>
-                    <li><i class="fas fa-star"></i> Avaliações texto + foto</li>
-                    <li><i class="fas fa-paint-brush"></i> Customização de loja</li>
-                    <li><i class="fas fa-store"></i> Venda por marketplace</li>
-                    <li><i class="fab fa-whatsapp"></i> Suporte WhatsApp prioritário</li>
-                    <li><i class="fas fa-layer-group"></i> Edição de produtos em massa</li>
-                </ul>
-                <a href="https://wa.me/5516993830355?text=Quero%20o%20plano%20Expansao%20Ecommerce" class="btn-ecom" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- SERVIÇOS -->
-    <div class="container">
-        <h2 class="section-title">Especialidades <span>digitais</span></h2>
-        <p class="section-sub">Soluções completas para alavancar sua presença online</p>
-        <div class="services-mega">
-            <div class="service-mega-card"><div class="service-icon"><i class="fas fa-laptop-code"></i></div><h4>Criação de Sites</h4><p>Institucionais, landing pages e e-commerces de alta conversão</p></div>
-            <div class="service-mega-card"><div class="service-icon"><i class="fas fa-mobile-alt"></i></div><h4>Aplicativos</h4><p>Apps nativos e híbridos com foco em experiência do usuário</p></div>
-            <div class="service-mega-card"><div class="service-icon"><i class="fas fa-robot"></i></div><h4>Automação</h4><p>Fluxos inteligentes para WhatsApp e CRM</p></div>
-            <div class="service-mega-card"><div class="service-icon"><i class="fas fa-store"></i></div><h4>E-commerce</h4><p>Lojas virtuais completas para vender 24/7</p></div>
-            <div class="service-mega-card"><div class="service-icon"><i class="fas fa-chart-line"></i></div><h4>Power BI</h4><p>Dashboards gerenciais para decisões estratégicas</p></div>
-            <div class="service-mega-card"><div class="service-icon"><i class="fas fa-plug"></i></div><h4>Integrações API</h4><p>Conexão entre sistemas e automação de processos</p></div>
-            <div class="service-mega-card"><div class="service-icon"><i class="fas fa-truck"></i></div><h4>Logística</h4><p>Otimização de rotas e gestão de estoque</p></div>
-            <div class="service-mega-card"><div class="service-icon"><i class="fas fa-paint-brush"></i></div><h4>Web Design</h4><p>Design estratégico para marcas de alto impacto</p></div>
-        </div>
-    </div>
-
-    <!-- DEPOIMENTOS -->
-    <div class="container testimonials-mega">
-        <h2 class="section-title">Resultados <span>comprovados</span></h2>
-        <p class="section-sub">O que nossos clientes dizem sobre o trabalho</p>
-        <div class="testimonials-grid">
-            <div class="test-mega"><div class="stars-mega">★★★★★</div><p>"A landing page do Taiferson gerou 12 clientes em apenas 3 dias. Conversão impressionante."</p><div class="test-author"><div class="author-avatar">CM</div><div><strong>Camila M.</strong><br><span>Crescimento +200%</span></div></div></div>
-            <div class="test-mega"><div class="stars-mega">★★★★★</div><p>"Site + Power BI transformaram a credibilidade da minha empresa. Melhor investimento."</p><div class="test-author"><div class="author-avatar">RL</div><div><strong>Ricardo L.</strong><br><span>Logística</span></div></div></div>
-            <div class="test-mega"><div class="stars-mega">★★★★★</div><p>"Automação no WhatsApp aumentou vendas em 40% em 30 dias. Bacca é referência."</p><div class="test-author"><div class="author-avatar">FP</div><div><strong>Fernando P.</strong><br><span>E-commerce</span></div></div></div>
-        </div>
-    </div>
-
-    <!-- GARANTIA -->
-    <div class="container ultimatum">
-        <h2><span>Últimas vagas</span> para projetos estratégicos</h2>
-        <div class="guarantee-badge"><i class="fas fa-shield-alt"></i> Garantia de 30 dias</div>
-        <p style="font-size:1.2rem; max-width:700px; margin:0 auto; color: var(--dark-gray);">Processo transparente, entregas dentro do prazo e suporte dedicado. Satisfação garantida.</p>
-    </div>
-
-    <!-- CTA FINAL -->
-    <div class="container cta-epic">
-        <h2>Vamos construir <span>juntos</span> a máquina de vendas do seu negócio?</h2>
-        <a href="https://wa.me/5516993830355?text=OL%C3%81%20BACCA!%20QUERO%20FATURAR%20ALTO" class="btn-epic" target="_blank"><i class="fab fa-whatsapp"></i> (16) 99383-0355</a>
-        <p>Clique no botão e fale diretamente comigo agora</p>
-    </div>
-
-    <footer>
+    <!-- Segurança -->
+    <section class="section">
         <div class="container">
-            <div class="footer-logo">
-                <img src="https://drive.google.com/thumbnail?id=1c_sjyUbkbt_k--SUtdnQvId6plJREXNH&sz=w1000" alt="Taiferson Bacca" onerror="this.src='https://via.placeholder.com/80x80/e2e8f0/334155?text=TB'">
-                <h2>Taiferson <span>Bacca</span></h2>
+            <h2 class="reveal" style="text-align: center; display: block;">Segurança e confiança</h2>
+            <div class="grid-3" style="margin-top: 60px;">
+                <div class="feature-tag reveal" style="justify-content: center; padding: 20px 40px;"><i class="fas fa-lock"></i> Site seguro SSL</div>
+                <div class="feature-tag reveal" style="justify-content: center; padding: 20px 40px;"><i class="fas fa-credit-card"></i> Pagamentos confiáveis</div>
+                <div class="feature-tag reveal" style="justify-content: center; padding: 20px 40px;"><i class="fas fa-store"></i> Estrutura profissional</div>
             </div>
-            <p>Estratégia digital · Conversão · Resultados</p>
-            <hr>
-            <p>© 2025 Bacca · Todos os direitos reservados</p>
         </div>
-    </footer>
+    </section>
 
-    <!-- WHATSAPP FLUTUANTE -->
-    <div class="floating-whatsapp">
-        <a href="https://wa.me/5516993830355?text=OL%C3%81%20BACCA!%20QUERO%20FATURAR%20ALTO" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <!-- CTA Final -->
+    <section class="section" style="background: linear-gradient(135deg, #0a0f1e 0%, #1a1f2e 100%);">
+        <div class="container" style="text-align: center;">
+            <h2 class="reveal" style="color: #ffffff; -webkit-text-fill-color: #ffffff;">Pronto para vender online com estrutura profissional?</h2>
+            <p class="reveal" style="font-size: 1.3rem; margin: 30px 0 40px; color: rgba(255,255,255,0.9);">Tenha sua loja pronta, segura e funcional em poucos dias.</p>
+            <div class="hero-buttons reveal" style="justify-content: center;">
+                <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+                </a>
+                <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <i class="fas fa-cart-plus"></i> Quero minha loja
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="section">
+        <div class="container">
+            <h2 class="reveal" style="text-align: center; display: block;">Fale com a gente</h2>
+            <div class="contact-grid-premium reveal">
+                <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>(16) 99383-0355</span>
+                </a>
+                <a href="mailto:baccaginnit@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <i class="far fa-envelope"></i>
+                    <span>baccaginnit@gmail.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer-premium">
+        <div class="container">
+            © 2025 BaccaDev. Todos os direitos reservados. | Desenvolvimento de lojas E-Commerce Premium
+        </div>
     </div>
+
+    <!-- Scripts -->
+    <script>
+        // Loader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Check on load
+
+        // Particle Effect
+        function createParticle() {
+            const particles = document.createElement('div');
+            particles.style.position = 'fixed';
+            particles.style.left = Math.random() * 100 + '%';
+            particles.style.top = -10 + 'px';
+            particles.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            particles.style.color = 'rgba(249,115,22,' + (Math.random() * 0.3) + ')';
+            particles.style.pointerEvents = 'none';
+            particles.style.zIndex = '1';
+            particles.style.animation = 'floatDown ' + (Math.random() * 5 + 5) + 's linear';
+            particles.innerHTML = ['💰', '💵', '💶', '💷', '🛒', '✨', '🚀'][Math.floor(Math.random() * 7)];
+            
+            document.body.appendChild(particles);
+            
+            setTimeout(() => {
+                particles.remove();
+            }, 10000);
+        }
+
+        setInterval(createParticle, 500);
+
+        // Add keyframe animation dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatDown {
+                from {
+                    transform: translateY(0) rotate(0deg);
+                }
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Parallax effect
+        document.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.floating-shape');
+            
+            shapes.forEach((shape, index) => {
+                const speed = index === 0 ? 0.5 : 0.3;
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Hover effect for cards
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                cards.forEach(c => {
+                    if (c !== card) {
+                        c.style.opacity = '0.7';
+                        c.style.filter = 'blur(2px)';
+                    }
+                });
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                cards.forEach(c => {
+                    c.style.opacity = '1';
+                    c.style.filter = 'none';
+                });
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
