@@ -649,6 +649,34 @@
             position: relative;
             z-index: 2;
         }
+        
+        /* Instagram Footer Link */
+        .instagram-footer {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: rgba(249,115,22,0.1);
+            border-radius: 50px;
+            border: 1px solid rgba(249,115,22,0.3);
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .instagram-footer:hover {
+            background: rgba(249,115,22,0.2);
+            border-color: #f97316;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(249,115,22,0.2);
+        }
+        
+        .instagram-footer i {
+            color: #f97316;
+            font-size: 1.5rem;
+        }
 
         /* Loading Animation */
         .loader {
@@ -887,6 +915,51 @@
             <p class="reveal" style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">Tire todas as suas dúvidas sobre nosso serviço</p>
             
             <div class="faq-container">
+                <!-- 1. ESCOLHA DO PLANO -->
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Como escolher o plano ideal?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Analisamos seu negócio e recomendamos o plano que melhor atende suas necessidades. Start Store (iniciante), Pro Store (crescimento) ou Elite Store (escalar).</p>
+                    </div>
+                </div>
+
+                <!-- 2. COMO COMEÇAR / NEGOCIAÇÃO -->
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Como é feita a negociação?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>É bem simples: Você escolhe o plano, entra em contato, ouvimos sobre seu negócio, você nos envia as fotos dos produtos, legendas e valores. Após isso fazemos o plano de negócio, 50% do valor para inicializar e outros 50% na entrega da loja.</p>
+                    </div>
+                </div>
+
+                <!-- 3. COMO COMEÇO? -->
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Como começo?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>É simples: escolha um plano, entre em contato pelo WhatsApp, combinamos os detalhes e começamos o desenvolvimento da sua loja imediatamente!</p>
+                    </div>
+                </div>
+
+                <!-- 4. FOTOS DOS PRODUTOS -->
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Eu não tenho as fotos, o que eu faço?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sem problemas! Caso você não tenha as fotos dos produtos, nós vamos até você, tiramos todas as fotos e fazemos o book.</p>
+                    </div>
+                </div>
+
+                <!-- 5. PRAZO -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
                         <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Quanto tempo leva para ficar pronto?</h3>
@@ -897,16 +970,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Preciso pagar mensalidade?</h3>
-                        <i class="fas fa-plus-circle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>Sim!</strong> Temos alguns planos que você paga apenas o desenvolvimento único e uma pequena mensalidade de suporte. Outros planos não cobramos mensalidade e nem taxa sobre vendas. A plataforma é sua para sempre!</p>
-                    </div>
-                </div>
-
+                <!-- 6. DOMÍNIO PRÓPRIO -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
                         <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Posso usar meu próprio domínio?</h3>
@@ -917,6 +981,7 @@
                     </div>
                 </div>
 
+                <!-- 7. MEIOS DE PAGAMENTO -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
                         <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Quais meios de pagamento são aceitos?</h3>
@@ -934,26 +999,18 @@
                     </div>
                 </div>
 
+                <!-- 8. MENSALIDADE -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Como funciona o suporte?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Preciso pagar mensalidade?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Oferecemos suporte dedicado via WhatsApp em horário comercial. Para planos Elite, temos suporte prioritário 24h e atendimento personalizado.</p>
+                        <p><strong>Sim!</strong> Temos alguns planos que você paga apenas o desenvolvimento único e uma pequena mensalidade de suporte. Outros planos não cobramos mensalidade e nem taxa sobre vendas. A plataforma é sua para sempre!</p>
                     </div>
                 </div>
 
-                <div class="faq-item reveal">
-                    <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Posso mudar de plano depois?</h3>
-                        <i class="fas fa-plus-circle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sim! Você pode fazer upgrade a qualquer momento. Pagando apenas a diferença para o plano superior e implementamos as novas funcionalidades.</p>
-                    </div>
-                </div>
-
+                <!-- 9. CONHECIMENTO TÉCNICO -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
                         <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Preciso ter conhecimento técnico?</h3>
@@ -964,13 +1021,36 @@
                     </div>
                 </div>
 
+                <!-- 10. SUPORTE -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Como começo?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Como funciona o suporte?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>É simples: escolha um plano, entre em contato pelo WhatsApp, combinamos os detalhes e começamos o desenvolvimento da sua loja imediatamente!</p>
+                        <p>Oferecemos suporte dedicado via WhatsApp em horário comercial. Para planos Elite, temos suporte prioritário 24h e atendimento personalizado.</p>
+                    </div>
+                </div>
+
+                <!-- 11. MUDAR DE PLANO -->
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Posso mudar de plano depois?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Você pode fazer upgrade a qualquer momento. Pagando apenas a diferença para o plano superior e implementamos as novas funcionalidades.</p>
+                    </div>
+                </div>
+
+                <!-- 12. DOWNGRADE -->
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Posso fazer Downgrade?</h3>
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não, depois de feito não é possível fazer o Downgrade, apenas Upgrade para o plano superior.</p>
                     </div>
                 </div>
             </div>
@@ -1027,6 +1107,10 @@
     <div class="footer-premium">
         <div class="container">
             © 2025 BaccaDev. Todos os direitos reservados. | Desenvolvimento de lojas E-Commerce Premium
+            <br>
+            <a href="https://instagram.com/baccaginn1" target="_blank" rel="noopener noreferrer" class="instagram-footer">
+                <i class="fab fa-instagram"></i> @baccaginn1
+            </a>
         </div>
     </div>
 
@@ -1161,5 +1245,3 @@
     </script>
 </body>
 </html>
-
-
