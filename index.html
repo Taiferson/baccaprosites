@@ -277,7 +277,7 @@
             font-size: 1.5rem;
         }
 
-        /* ===== CARDS DE PREÇO ===== */
+        /* ===== CARDS DE SERVIÇOS PRINCIPAIS (Landing, Site, Combo) ===== */
         .pricing-revolution {
             margin: 6rem 0;
         }
@@ -371,6 +371,111 @@
             border-color: var(--green-dark);
             color: var(--green-dark);
             background: var(--green-soft);
+        }
+
+        /* ===== NOVA SEÇÃO E-COMMERCE COM 3 PLANOS ===== */
+        .ecommerce-section {
+            margin: 6rem 0;
+        }
+        .ecommerce-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .card-ecom {
+            background: var(--pure-white);
+            border: 1px solid var(--medium-gray);
+            border-radius: 2.5rem;
+            padding: 2.2rem 1.8rem;
+            flex: 1 1 280px;
+            max-width: 340px;
+            transition: all 0.3s;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+        .card-ecom:hover {
+            border-color: var(--neon-green);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        .ecom-tag {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--green-dark);
+            background: var(--green-soft);
+            padding: 0.3rem 1rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid var(--neon-green);
+            align-self: flex-start;
+        }
+        .card-ecom h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--slate);
+            margin-bottom: 0.5rem;
+        }
+        .ecom-sub {
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            min-height: 3.2rem;
+        }
+        .ecom-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--slate);
+            margin: 1rem 0 0.5rem;
+        }
+        .ecom-price small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--dark-gray);
+        }
+        .feature-ecom {
+            list-style: none;
+            margin: 1.5rem 0;
+            flex-grow: 1;
+        }
+        .feature-ecom li {
+            padding: 0.6rem 0;
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+            border-bottom: 1px dashed var(--border-light);
+        }
+        .feature-ecom i {
+            color: var(--green-dark);
+            font-size: 1rem;
+            min-width: 1.2rem;
+        }
+        .btn-ecom {
+            background: var(--slate);
+            color: white;
+            width: 100%;
+            padding: 0.9rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+            margin-top: 1rem;
+        }
+        .btn-ecom:hover {
+            background: var(--green-dark);
+            transform: scale(1.02);
         }
 
         /* ===== SERVIÇOS ===== */
@@ -705,11 +810,12 @@
         </div>
     </div>
 
-    <!-- PREÇOS -->
+    <!-- PLANOS PRINCIPAIS: LANDING PAGE / SITE (sem painel) / COMBO ESTRATÉGICO -->
     <div id="precos" class="container pricing-revolution">
         <h2 class="section-title">Soluções <span>estratégicas</span> para seu negócio</h2>
         <p class="section-sub">Planos estruturados para gerar conversão e autoridade digital</p>
         <div class="pricing-cards">
+            <!-- Landing Page -->
             <div class="card-ultra">
                 <h3>Landing Page</h3>
                 <div class="price-mega">R$250 <small>à partir</small></div>
@@ -721,6 +827,7 @@
                 </ul>
                 <a href="https://wa.me/5516993830355?text=Quero%20a%20Landing%20Page" class="btn-card-mega" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar</a>
             </div>
+            <!-- Site Institucional (sem painel adm) -->
             <div class="card-ultra popular">
                 <div class="popular-tag-mega"><i class="fas fa-star"></i> MAIS ESCOLHIDO</div>
                 <h3>Site Institucional</h3>
@@ -728,11 +835,12 @@
                 <ul class="feature-mega">
                     <li><i class="fas fa-check"></i> Site completo 5 páginas</li>
                     <li><i class="fas fa-check"></i> Blog + SEO otimizado</li>
-                    <li><i class="fas fa-check"></i> Painel administrativo</li>
+                    <li><i class="fas fa-check"></i> Design responsivo</li>
                     <li><i class="fas fa-check"></i> Suporte prioritário 60 dias</li>
                 </ul>
                 <a href="https://wa.me/5516993830355?text=Quero%20o%20Site%20Institucional" class="btn-card-mega" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar</a>
             </div>
+            <!-- Combo Estratégico -->
             <div class="card-ultra">
                 <h3>Combo Estratégico</h3>
                 <div class="price-mega">R$999 <small>à partir</small></div>
@@ -743,6 +851,68 @@
                     <li><i class="fas fa-check"></i> Prioridade máxima</li>
                 </ul>
                 <a href="https://wa.me/5516993830355?text=Quero%20o%20Combo%20Estrat%C3%A9gico" class="btn-card-mega" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOVA SEÇÃO E-COMMERCE COM 3 OPÇÕES -->
+    <div class="container ecommerce-section">
+        <h2 class="section-title">E‑commerce que <span>escala</span> seu faturamento</h2>
+        <p class="section-sub">Planos de loja virtual desenvolvidos para cada momento do seu negócio</p>
+        <div class="ecommerce-grid">
+            <!-- Crescimento -->
+            <div class="card-ecom">
+                <span class="ecom-tag">Ideal para faturamento até R$ 15 mil/mês</span>
+                <h3>Crescimento</h3>
+                <div class="ecom-sub">Comece com o pé direito e estrutura profissional</div>
+                <div class="ecom-price">R$ <small>Solicite Orçamento</small></div>
+                <ul class="feature-ecom">
+                    <li><i class="fas fa-box"></i> 250 produtos</li>
+                    <li><i class="fas fa-chart-line"></i> 25.000 visitas/mês</li>
+                    <li><i class="fas fa-cog"></i> Integração com ERP</li>
+                    <li><i class="fas fa-headset"></i> Suporte chat e e-mail</li>
+                    <li><i class="fas fa-star"></i> Avaliações por texto</li>
+                    <li><i class="fas fa-paint-brush"></i> Customização de loja</li>
+                    <li><i class="fas fa-store"></i> Venda por marketplace</li>
+                </ul>
+                <a href="https://wa.me/5516993830355?text=Quero%20o%20plano%20Crescimento%20Ecommerce" class="btn-ecom" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar</a>
+            </div>
+            <!-- Aceleração -->
+            <div class="card-ecom">
+                <span class="ecom-tag">Perfeito para até R$ 50 mil/mês</span>
+                <h3>Aceleração</h3>
+                <div class="ecom-sub">Escale suas vendas com recursos avançados</div>
+                <div class="ecom-price">R$ <small>Solicite Orçamento</small></div>
+                <ul class="feature-ecom">
+                    <li><i class="fas fa-box"></i> 500 produtos</li>
+                    <li><i class="fas fa-chart-line"></i> 50.000 visitas/mês</li>
+                    <li><i class="fas fa-cog"></i> Integração com ERP</li>
+                    <li><i class="fas fa-headset"></i> Suporte chat e e-mail</li>
+                    <li><i class="fas fa-star"></i> Avaliações por texto</li>
+                    <li><i class="fas fa-paint-brush"></i> Customização de loja</li>
+                    <li><i class="fas fa-store"></i> Venda por marketplace</li>
+                    <li><i class="fab fa-whatsapp"></i> <strong>Suporte por WhatsApp</strong></li>
+                </ul>
+                <a href="https://wa.me/5516993830355?text=Quero%20o%20plano%20Aceleracao%20Ecommerce" class="btn-ecom" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar</a>
+            </div>
+            <!-- Expansão -->
+            <div class="card-ecom">
+                <span class="ecom-tag">Para vendas acima de R$ 50 mil/mês</span>
+                <h3>Expansão</h3>
+                <div class="ecom-sub">Alta performance e prioridade total</div>
+                <div class="ecom-price">R$ <small>Solicite Orçamento</small></div>
+                <ul class="feature-ecom">
+                    <li><i class="fas fa-box"></i> Produtos ilimitados</li>
+                    <li><i class="fas fa-chart-line"></i> 300.000 visitas/mês</li>
+                    <li><i class="fas fa-cog"></i> Integração com ERP</li>
+                    <li><i class="fas fa-headset"></i> Suporte chat e e-mail</li>
+                    <li><i class="fas fa-star"></i> Avaliações texto + foto</li>
+                    <li><i class="fas fa-paint-brush"></i> Customização de loja</li>
+                    <li><i class="fas fa-store"></i> Venda por marketplace</li>
+                    <li><i class="fab fa-whatsapp"></i> Suporte WhatsApp prioritário</li>
+                    <li><i class="fas fa-layer-group"></i> Edição de produtos em massa</li>
+                </ul>
+                <a href="https://wa.me/5516993830355?text=Quero%20o%20plano%20Expansao%20Ecommerce" class="btn-ecom" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar</a>
             </div>
         </div>
     </div>
