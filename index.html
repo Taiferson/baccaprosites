@@ -6,7 +6,7 @@
     <title>BaccaDev | Premium E-commerce Solutions</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts - Inter e Clash Display -->
+    <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -17,8 +17,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0a0f1e;
-            color: #ffffff;
+            background: #ffffff; /* Fundo branco */
+            color: #1a1a1a; /* Texto escuro para contraste */
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -27,20 +27,19 @@
         .cursor {
             width: 20px;
             height: 20px;
-            border: 2px solid #f97316;
+            border: 2px solid #39ff14; /* Verde neon */
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
             z-index: 9999;
             transition: all 0.1s ease;
             transform: translate(-50%, -50%);
-            mix-blend-mode: difference;
         }
 
         .cursor-follower {
             width: 40px;
             height: 40px;
-            background: rgba(249, 115, 22, 0.1);
+            background: rgba(57, 255, 20, 0.1); /* Verde neon com opacidade */
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
@@ -58,21 +57,28 @@
             z-index: 2;
         }
 
-        /* Tipografia Premium */
+        /* Tipografia com degrade neon */
         h1 {
             font-size: 5rem;
             font-weight: 800;
             letter-spacing: -0.03em;
             line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff 0%, #f97316 50%, #ffffff 100%);
+            background: linear-gradient(135deg, #39ff14, #7fff00, #adff2f, #39ff14);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: titleGlow 3s ease-in-out infinite;
+            background-size: 300% 300%;
+            animation: gradientMove 5s ease infinite, titleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         @keyframes titleGlow {
-            0%, 100% { filter: drop-shadow(0 0 20px rgba(249,115,22,0.3)); }
-            50% { filter: drop-shadow(0 0 40px rgba(249,115,22,0.6)); }
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(57,255,20,0.3)); }
+            50% { filter: drop-shadow(0 0 40px rgba(57,255,20,0.6)); }
         }
 
         h2 {
@@ -80,9 +86,11 @@
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, #ffffff, #f97316);
+            background: linear-gradient(135deg, #39ff14, #7fff00, #adff2f);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradientMove 5s ease infinite;
             position: relative;
             display: inline-block;
         }
@@ -94,7 +102,7 @@
             left: 0;
             width: 100px;
             height: 4px;
-            background: linear-gradient(90deg, #f97316, transparent);
+            background: linear-gradient(90deg, #39ff14, #7fff00, #adff2f, transparent);
             border-radius: 2px;
             animation: lineWidth 3s ease-in-out infinite;
         }
@@ -108,20 +116,21 @@
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: #ffffff;
+            color: #1a1a1a; /* Texto escuro */
         }
 
         p {
-            color: rgba(255,255,255,0.8);
+            color: #4a4a4a; /* Cinza escuro para texto */
             font-size: 1.1rem;
             line-height: 1.8;
         }
 
-        /* Seções com parallax */
+        /* Seções */
         .section {
             padding: 140px 0;
             position: relative;
             overflow: hidden;
+            background: #ffffff; /* Fundo branco */
         }
 
         /* Botões Premium */
@@ -162,20 +171,21 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #f97316, #fdba74);
-            color: #ffffff;
-            box-shadow: 0 10px 30px rgba(249,115,22,0.4);
+            background: linear-gradient(135deg, #39ff14, #7fff00, #adff2f); /* Gradiente verde neon */
+            color: #1a1a1a; /* Texto escuro */
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(57,255,20,0.4);
             animation: btnPulse 2s ease-in-out infinite;
         }
 
         @keyframes btnPulse {
-            0%, 100% { box-shadow: 0 10px 30px rgba(249,115,22,0.4); }
-            50% { box-shadow: 0 20px 40px rgba(249,115,22,0.6); }
+            0%, 100% { box-shadow: 0 10px 30px rgba(57,255,20,0.4); }
+            50% { box-shadow: 0 20px 40px rgba(57,255,20,0.6); }
         }
 
         .btn-primary:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(249,115,22,0.6);
+            box-shadow: 0 20px 40px rgba(57,255,20,0.6);
         }
 
         .btn-whatsapp {
@@ -191,24 +201,24 @@
 
         .btn-outline {
             background: transparent;
-            border: 2px solid rgba(249,115,22,0.5);
-            color: #ffffff;
-            backdrop-filter: blur(10px);
+            border: 2px solid #39ff14;
+            color: #1a1a1a;
         }
 
         .btn-outline:hover {
-            border-color: #f97316;
-            background: rgba(249,115,22,0.1);
+            border-color: #7fff00;
+            background: rgba(57,255,20,0.1);
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(57,255,20,0.2);
         }
 
-        /* Hero Section Premium */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
-            background: radial-gradient(circle at 30% 50%, rgba(249,115,22,0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 50%, rgba(57,255,20,0.05) 0%, transparent 50%);
         }
 
         .hero-content {
@@ -219,9 +229,9 @@
             font-size: 1.3rem;
             opacity: 0.9;
             margin: 30px 0 40px;
-            color: rgba(255,255,255,0.9);
+            color: #4a4a4a;
             line-height: 1.8;
-            border-left: 4px solid #f97316;
+            border-left: 4px solid #39ff14;
             padding-left: 30px;
         }
 
@@ -231,15 +241,15 @@
             flex-wrap: wrap;
         }
 
-        /* 3D Floating Elements */
+        /* Floating Elements */
         .floating-shape {
             position: absolute;
             width: 300px;
             height: 300px;
-            background: linear-gradient(135deg, #f97316, #fdba74);
+            background: linear-gradient(135deg, #39ff14, #7fff00);
             border-radius: 50%;
             filter: blur(80px);
-            opacity: 0.2;
+            opacity: 0.1;
             animation: float 10s ease-in-out infinite;
             z-index: 0;
         }
@@ -255,7 +265,7 @@
             left: 5%;
             width: 400px;
             height: 400px;
-            background: linear-gradient(135deg, #1a4d8c, #f97316);
+            background: linear-gradient(135deg, #7fff00, #adff2f);
             animation-delay: -3s;
         }
 
@@ -265,7 +275,7 @@
             66% { transform: translate(-20px, 20px) scale(0.9); }
         }
 
-        /* Grids Modernos */
+        /* Grids */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -285,14 +295,12 @@
             gap: 30px;
         }
 
-        /* Cards Ultra Modernos */
+        /* Cards Modernos */
         .card {
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: #f5f5f5; /* Fundo cinza claro */
             border-radius: 40px;
             padding: 50px 40px;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(57,255,20,0.3);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
             display: flex;
@@ -308,7 +316,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #f97316, #fdba74, #f97316, transparent);
+            background: linear-gradient(90deg, transparent, #39ff14, #7fff00, #adff2f, transparent);
             transform: translateX(-100%);
             transition: transform 1s;
         }
@@ -319,23 +327,13 @@
 
         .card:hover {
             transform: translateY(-20px) scale(1.02);
-            border-color: rgba(249,115,22,0.3);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 2px rgba(249,115,22,0.1);
-        }
-
-        /* Animações dos Cards */
-        .card:nth-child(1) { animation: cardFloat 5s ease-in-out infinite; }
-        .card:nth-child(2) { animation: cardFloat 5s ease-in-out infinite 1s; }
-        .card:nth-child(3) { animation: cardFloat 5s ease-in-out infinite 2s; }
-
-        @keyframes cardFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            border-color: #39ff14;
+            box-shadow: 0 30px 60px rgba(57,255,20,0.2);
         }
 
         .card.plan-pro {
-            background: linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(255,255,255,0.03) 100%);
-            border: 2px solid #f97316;
+            background: linear-gradient(135deg, rgba(57,255,20,0.1) 0%, #f5f5f5 100%);
+            border: 2px solid #39ff14;
             transform: scale(1.05);
             z-index: 2;
         }
@@ -348,8 +346,8 @@
             position: absolute;
             top: 30px;
             right: 30px;
-            background: linear-gradient(135deg, #f97316, #fdba74);
-            color: #ffffff;
+            background: linear-gradient(135deg, #39ff14, #7fff00);
+            color: #1a1a1a;
             padding: 8px 20px;
             border-radius: 50px;
             font-size: 0.9rem;
@@ -358,8 +356,8 @@
         }
 
         @keyframes badgeGlow {
-            0%, 100% { box-shadow: 0 0 20px #f97316; }
-            50% { box-shadow: 0 0 40px #f97316; }
+            0%, 100% { box-shadow: 0 0 20px #39ff14; }
+            50% { box-shadow: 0 0 40px #39ff14; }
         }
 
         /* Feature List */
@@ -374,12 +372,12 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            color: rgba(255,255,255,0.9);
+            color: #1a1a1a;
             font-size: 1.1rem;
         }
 
         .feature-list i {
-            color: #f97316;
+            color: #39ff14;
             width: 24px;
             font-size: 1.2rem;
         }
@@ -388,7 +386,7 @@
             font-size: 3rem;
             font-weight: 800;
             margin: 30px 0 20px;
-            background: linear-gradient(135deg, #ffffff, #f97316);
+            background: linear-gradient(135deg, #39ff14, #7fff00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -397,7 +395,8 @@
             font-size: 1rem;
             font-weight: 400;
             opacity: 0.7;
-            -webkit-text-fill-color: rgba(255,255,255,0.7);
+            color: #4a4a4a;
+            -webkit-text-fill-color: #4a4a4a;
         }
 
         /* Steps Premium */
@@ -411,9 +410,9 @@
         .step-premium {
             text-align: center;
             padding: 40px;
-            background: rgba(255,255,255,0.02);
+            background: #f5f5f5;
             border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(57,255,20,0.3);
             transition: all 0.4s;
             position: relative;
             overflow: hidden;
@@ -426,7 +425,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(249,115,22,0.1), transparent 70%);
+            background: radial-gradient(circle at center, rgba(57,255,20,0.1), transparent 70%);
             opacity: 0;
             transition: opacity 0.4s;
         }
@@ -437,13 +436,13 @@
 
         .step-premium:hover {
             transform: translateY(-10px);
-            border-color: #f97316;
+            border-color: #39ff14;
         }
 
         .step-number-premium {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #f97316, #fdba74);
+            background: linear-gradient(135deg, #39ff14, #7fff00);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -451,55 +450,55 @@
             font-size: 2rem;
             font-weight: 800;
             margin: 0 auto 30px;
+            color: #1a1a1a;
             position: relative;
             animation: stepPulse 2s ease-in-out infinite;
         }
 
         @keyframes stepPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.4); }
-            50% { box-shadow: 0 0 0 20px rgba(249,115,22,0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(57,255,20,0.4); }
+            50% { box-shadow: 0 0 0 20px rgba(57,255,20,0); }
         }
 
         .step-number-premium.special {
-            background: linear-gradient(135deg, #f97316, #1a4d8c);
+            background: linear-gradient(135deg, #39ff14, #adff2f);
         }
 
         /* Feature Tags */
         .feature-tag {
-            background: rgba(255,255,255,0.02);
-            backdrop-filter: blur(10px);
+            background: #f5f5f5;
             padding: 15px 30px;
             border-radius: 50px;
             font-weight: 500;
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-            color: #ffffff;
+            border: 1px solid rgba(57,255,20,0.3);
+            color: #1a1a1a;
             transition: all 0.3s;
             font-size: 1.1rem;
         }
 
         .feature-tag:hover {
-            border-color: #f97316;
+            border-color: #39ff14;
             transform: scale(1.05) translateY(-5px);
-            background: rgba(249,115,22,0.1);
-            box-shadow: 0 10px 30px rgba(249,115,22,0.2);
+            background: rgba(57,255,20,0.1);
+            box-shadow: 0 10px 30px rgba(57,255,20,0.2);
         }
 
         .feature-tag i {
-            color: #f97316;
+            color: #39ff14;
         }
 
-        /* FAQ Section Premium */
+        /* FAQ Section */
         .faq-container {
             max-width: 900px;
             margin: 60px auto 0;
         }
 
         .faq-item {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.05);
+            background: #f5f5f5;
+            border: 1px solid rgba(57,255,20,0.3);
             border-radius: 30px;
             margin-bottom: 20px;
             overflow: hidden;
@@ -507,8 +506,8 @@
         }
 
         .faq-item:hover {
-            border-color: #f97316;
-            box-shadow: 0 10px 30px rgba(249,115,22,0.1);
+            border-color: #39ff14;
+            box-shadow: 0 10px 30px rgba(57,255,20,0.1);
             transform: translateX(10px);
         }
 
@@ -524,12 +523,12 @@
         .faq-question h3 {
             margin: 0;
             font-size: 1.3rem;
-            color: #ffffff;
+            color: #1a1a1a;
             font-weight: 500;
         }
 
         .faq-question i {
-            color: #f97316;
+            color: #39ff14;
             font-size: 1.2rem;
             transition: transform 0.3s;
         }
@@ -543,7 +542,7 @@
             max-height: 0;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background: rgba(249,115,22,0.02);
+            background: rgba(57,255,20,0.02);
         }
 
         .faq-item.active .faq-answer {
@@ -553,7 +552,7 @@
 
         .faq-answer p {
             margin: 0;
-            color: rgba(255,255,255,0.8);
+            color: #4a4a4a;
             line-height: 1.8;
         }
 
@@ -567,15 +566,15 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: rgba(255,255,255,0.8);
+            color: #4a4a4a;
         }
 
         .faq-answer li i {
-            color: #f97316;
+            color: #39ff14;
             font-size: 1rem;
         }
 
-        /* Contato Premium */
+        /* Contato */
         .contact-grid-premium {
             display: flex;
             justify-content: center;
@@ -588,10 +587,9 @@
             align-items: center;
             gap: 20px;
             padding: 25px 50px;
-            background: rgba(255,255,255,0.02);
-            backdrop-filter: blur(10px);
+            background: #f5f5f5;
             border-radius: 100px;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(57,255,20,0.3);
             text-decoration: none;
             transition: all 0.4s;
             position: relative;
@@ -605,7 +603,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(249,115,22,0.1), transparent);
+            background: linear-gradient(120deg, transparent, rgba(57,255,20,0.1), transparent);
             transform: translateX(-100%);
             transition: transform 0.6s;
         }
@@ -616,12 +614,12 @@
 
         .contact-card:hover {
             transform: translateX(20px) scale(1.05);
-            border-color: #f97316;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: #39ff14;
+            box-shadow: 0 20px 40px rgba(57,255,20,0.2);
         }
 
         .contact-card i {
-            color: #f97316;
+            color: #39ff14;
             font-size: 2rem;
             animation: iconRing 3s ease-in-out infinite;
         }
@@ -634,7 +632,7 @@
         }
 
         .contact-card span {
-            color: #ffffff;
+            color: #1a1a1a;
             font-size: 1.3rem;
             font-weight: 500;
         }
@@ -643,9 +641,8 @@
         .footer-premium {
             text-align: center;
             padding: 60px 0;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(57,255,20,0.3);
+            background: #f5f5f5;
             position: relative;
             z-index: 2;
         }
@@ -657,24 +654,24 @@
             gap: 10px;
             margin-top: 15px;
             padding: 10px 25px;
-            background: rgba(249,115,22,0.1);
+            background: rgba(57,255,20,0.1);
             border-radius: 50px;
-            border: 1px solid rgba(249,115,22,0.3);
-            color: #ffffff;
+            border: 1px solid rgba(57,255,20,0.3);
+            color: #1a1a1a;
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 1.1rem;
         }
         
         .instagram-footer:hover {
-            background: rgba(249,115,22,0.2);
-            border-color: #f97316;
+            background: rgba(57,255,20,0.2);
+            border-color: #39ff14;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(249,115,22,0.2);
+            box-shadow: 0 10px 20px rgba(57,255,20,0.2);
         }
         
         .instagram-footer i {
-            color: #f97316;
+            color: #39ff14;
             font-size: 1.5rem;
         }
 
@@ -685,7 +682,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #0a0f1e;
+            background: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -701,7 +698,7 @@
         .loader-text {
             font-size: 4rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #f97316, #ffffff);
+            background: linear-gradient(135deg, #39ff14, #7fff00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: loaderPulse 1.5s ease-in-out infinite;
@@ -744,7 +741,6 @@
     </style>
 </head>
 <body>
-
     <!-- Loader -->
     <div class="loader" id="loader">
         <div class="loader-text">BaccaDev</div>
@@ -792,7 +788,7 @@
                     <p style="font-size: 1.3rem; margin-top: 40px;"><strong>A solução é simples:</strong> nós cuidamos de tudo para você.</p>
                 </div>
                 <div class="card reveal" style="padding: 60px;">
-                    <h3 style="color: #f97316; font-size: 2.2rem;">Nós criamos sua loja completa</h3>
+                    <h3 style="color: #39ff14; font-size: 2.2rem;">Nós criamos sua loja completa</h3>
                     <p style="font-size: 1.2rem;">Pagamentos, frete, layout, domínio, segurança e suporte. Você só precisa vender.</p>
                 </div>
             </div>
@@ -821,8 +817,8 @@
             <div class="grid-3" style="margin-top: 60px;">
                 <!-- Start -->
                 <div class="card reveal">
-                    <span class="plan-name" style="font-size: 2rem;">Start Store</span>
-                    <p style="color: rgba(255,255,255,0.7);">Para começar com o pé direito</p>
+                    <span class="plan-name" style="font-size: 2rem; color: #1a1a1a;">Start Store</span>
+                    <p style="color: #4a4a4a;">Para começar com o pé direito</p>
                     <ul class="feature-list">
                         <li><i class="fas fa-check"></i> Até 50 produtos</li>
                         <li><i class="fas fa-check"></i> Loja online completa</li>
@@ -838,8 +834,8 @@
                 <!-- Pro (Mais vendido) -->
                 <div class="card plan-pro reveal">
                     <div class="badge">⭐ Mais vendido</div>
-                    <span class="plan-name" style="font-size: 2rem;">Pro Store</span>
-                    <p style="opacity: 0.9;">Para quem quer crescer com estrutura</p>
+                    <span class="plan-name" style="font-size: 2rem; color: #1a1a1a;">Pro Store</span>
+                    <p style="color: #4a4a4a;">Para quem quer crescer com estrutura</p>
                     <ul class="feature-list">
                         <li><i class="fas fa-check"></i> Até 150 produtos</li>
                         <li><i class="fas fa-check"></i> Domínio próprio incluso</li>
@@ -849,13 +845,13 @@
                         <li><i class="fas fa-check"></i> +30 opções de envio</li>
                     </ul>
                     <div class="price">R$ Solicitar Orcamento  <small>desenvolvimento</small></div>
-                    <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn" style="background: #ffffff; color: #f97316; width: 100%;">Quero este plano</a>
+                    <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn" style="background: #1a1a1a; color: #39ff14; width: 100%;">Quero este plano</a>
                 </div>
 
                 <!-- Elite -->
                 <div class="card reveal">
-                    <span class="plan-name" style="font-size: 2rem;">Elite Store</span>
-                    <p style="color: rgba(255,255,255,0.7);">Para escalar suas vendas</p>
+                    <span class="plan-name" style="font-size: 2rem; color: #1a1a1a;">Elite Store</span>
+                    <p style="color: #4a4a4a;">Para escalar suas vendas</p>
                     <ul class="feature-list">
                         <li><i class="fas fa-check"></i> Produtos ilimitados</li>
                         <li><i class="fas fa-check"></i> Domínio + SSL grátis</li>
@@ -878,31 +874,31 @@
             <div class="steps-container">
                 <div class="step-premium reveal">
                     <div class="step-number-premium">1</div>
-                    <h3>Você escolhe o plano</h3>
+                    <h3 style="color: #1a1a1a;">Você escolhe o plano</h3>
                 </div>
                 <div class="step-premium reveal">
                     <div class="step-number-premium">2</div>
-                    <h3>Combinamos os detalhes</h3>
+                    <h3 style="color: #1a1a1a;">Combinamos os detalhes</h3>
                 </div>
                 <div class="step-premium reveal">
                     <div class="step-number-premium">3</div>
-                    <h3>Suporte dedicado</h3>
+                    <h3 style="color: #1a1a1a;">Suporte dedicado</h3>
                 </div>
                 <div class="step-premium reveal">
                     <div class="step-number-premium">4</div>
-                    <h3>Você envia os produtos</h3>
+                    <h3 style="color: #1a1a1a;">Você envia os produtos</h3>
                 </div>
                 <div class="step-premium reveal">
                     <div class="step-number-premium">5</div>
-                    <h3>Desenvolvemos sua loja</h3>
+                    <h3 style="color: #1a1a1a;">Desenvolvemos sua loja</h3>
                 </div>
                 <div class="step-premium reveal">
                     <div class="step-number-premium">6</div>
-                    <h3>Entregamos pronta</h3>
+                    <h3 style="color: #1a1a1a;">Entregamos pronta</h3>
                 </div>
                 <div class="step-premium reveal">
                     <div class="step-number-premium special">⚡</div>
-                    <h3>Suporte vitalício</h3>
+                    <h3 style="color: #1a1a1a;">Suporte vitalício</h3>
                 </div>
             </div>
         </div>
@@ -912,13 +908,13 @@
     <section class="section">
         <div class="container">
             <h2 class="reveal" style="text-align: center; display: block;">Dúvidas Frequentes</h2>
-            <p class="reveal" style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">Tire todas as suas dúvidas sobre nosso serviço</p>
+            <p class="reveal" style="text-align: center; font-size: 1.2rem; margin-bottom: 40px; color: #4a4a4a;">Tire todas as suas dúvidas sobre nosso serviço</p>
             
             <div class="faq-container">
                 <!-- 1. ESCOLHA DO PLANO -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Como escolher o plano ideal?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #39ff14; margin-right: 15px;"></i> Como escolher o plano ideal?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
@@ -929,7 +925,7 @@
                 <!-- 2. COMO COMEÇAR / NEGOCIAÇÃO -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Como é feita a negociação?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #39ff14; margin-right: 15px;"></i> Como é feita a negociação?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
@@ -940,7 +936,7 @@
                 <!-- 3. COMO COMEÇO? -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Como começo?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #39ff14; margin-right: 15px;"></i> Como começo?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
@@ -951,7 +947,7 @@
                 <!-- 4. FOTOS DOS PRODUTOS -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Eu não tenho as fotos, o que eu faço?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #39ff14; margin-right: 15px;"></i> Eu não tenho as fotos, o que eu faço?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
@@ -962,7 +958,7 @@
                 <!-- 5. PRAZO -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Quanto tempo leva para ficar pronto?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #39ff14; margin-right: 15px;"></i> Quanto tempo leva para ficar pronto?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
@@ -973,7 +969,7 @@
                 <!-- 6. DOMÍNIO PRÓPRIO -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Posso usar meu próprio domínio?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #39ff14; margin-right: 15px;"></i> Posso usar meu próprio domínio?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
@@ -984,7 +980,7 @@
                 <!-- 7. MEIOS DE PAGAMENTO -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Quais meios de pagamento são aceitos?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #39ff14; margin-right: 15px;"></i> Quais meios de pagamento são aceitos?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
@@ -1002,7 +998,7 @@
                 <!-- 8. MENSALIDADE -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Preciso pagar mensalidade?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #39ff14; margin-right: 15px;"></i> Preciso pagar mensalidade?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
@@ -1013,7 +1009,7 @@
                 <!-- 9. CONHECIMENTO TÉCNICO -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Preciso ter conhecimento técnico?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #39ff14; margin-right: 15px;"></i> Preciso ter conhecimento técnico?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
@@ -1024,7 +1020,7 @@
                 <!-- 10. SUPORTE -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Como funciona o suporte?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #39ff14; margin-right: 15px;"></i> Como funciona o suporte?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
@@ -1035,7 +1031,7 @@
                 <!-- 11. MUDAR DE PLANO -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Posso mudar de plano depois?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #39ff14; margin-right: 15px;"></i> Posso mudar de plano depois?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
@@ -1046,7 +1042,7 @@
                 <!-- 12. DOWNGRADE -->
                 <div class="faq-item reveal">
                     <div class="faq-question">
-                        <h3><i class="fas fa-question-circle" style="color: #f97316; margin-right: 15px;"></i> Posso fazer Downgrade?</h3>
+                        <h3><i class="fas fa-question-circle" style="color: #39ff14; margin-right: 15px;"></i> Posso fazer Downgrade?</h3>
                         <i class="fas fa-plus-circle"></i>
                     </div>
                     <div class="faq-answer">
@@ -1070,10 +1066,10 @@
     </section>
 
     <!-- CTA Final -->
-    <section class="section" style="background: linear-gradient(135deg, #0a0f1e 0%, #1a1f2e 100%);">
+    <section class="section" style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);">
         <div class="container" style="text-align: center;">
-            <h2 class="reveal" style="color: #ffffff; -webkit-text-fill-color: #ffffff;">Pronto para vender online com estrutura profissional?</h2>
-            <p class="reveal" style="font-size: 1.3rem; margin: 30px 0 40px; color: rgba(255,255,255,0.9);">Tenha sua loja pronta, segura e funcional em poucos dias.</p>
+            <h2 class="reveal" style="color: #1a1a1a; -webkit-text-fill-color: #1a1a1a;">Pronto para vender online com estrutura profissional?</h2>
+            <p class="reveal" style="font-size: 1.3rem; margin: 30px 0 40px; color: #4a4a4a;">Tenha sua loja pronta, segura e funcional em poucos dias.</p>
             <div class="hero-buttons reveal" style="justify-content: center;">
                 <a href="https://wa.me/5516993830355" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
                     <i class="fab fa-whatsapp"></i> Falar no WhatsApp
@@ -1114,7 +1110,7 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Scripts (mantidos exatamente iguais) -->
     <script>
         // Loader
         window.addEventListener('load', function() {
@@ -1162,7 +1158,7 @@
             particles.style.left = Math.random() * 100 + '%';
             particles.style.top = -10 + 'px';
             particles.style.fontSize = (Math.random() * 20 + 10) + 'px';
-            particles.style.color = 'rgba(249,115,22,' + (Math.random() * 0.3) + ')';
+            particles.style.color = 'rgba(57,255,20,' + (Math.random() * 0.3) + ')';
             particles.style.pointerEvents = 'none';
             particles.style.zIndex = '1';
             particles.style.animation = 'floatDown ' + (Math.random() * 5 + 5) + 's linear';
